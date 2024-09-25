@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_blkjak_table",
+  "%Name":"obj_Game_Manager",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_blkjak_table",
+  "name":"obj_Game_Manager",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -29,10 +29,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_blkjak_table",
-    "path":"sprites/spr_blkjak_table/spr_blkjak_table.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
