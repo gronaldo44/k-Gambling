@@ -15,6 +15,7 @@
     {"$GMFolder":"","%Name":"Fonts","folderPath":"folders/Fonts.yy","name":"Fonts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Notes","folderPath":"folders/Notes.yy","name":"Notes","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Objects","folderPath":"folders/Objects.yy","name":"Objects","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Gacha","folderPath":"folders/Objects/Gacha.yy","name":"Gacha","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Particle Systems","folderPath":"folders/Particle Systems.yy","name":"Particle Systems","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Paths","folderPath":"folders/Paths.yy","name":"Paths","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Rooms","folderPath":"folders/Rooms.yy","name":"Rooms","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -24,6 +25,7 @@
     {"$GMFolder":"","%Name":"Sounds","folderPath":"folders/Sounds.yy","name":"Sounds","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sprites","folderPath":"folders/Sprites.yy","name":"Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Casino Room","folderPath":"folders/Sprites/Casino Room.yy","name":"Casino Room","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Gacha","folderPath":"folders/Sprites/Gacha.yy","name":"Gacha","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Top Down Characters","folderPath":"folders/Sprites/Top Down Characters.yy","name":"Top Down Characters","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Timelines","folderPath":"folders/Timelines.yy","name":"Timelines","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -32,7 +34,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.8.0.169",
+    "IDEVersion":"2024.8.1.171",
   },
   "name":"github setup",
   "resources":[
@@ -43,9 +45,12 @@
     {"id":{"name":"obj_seat","path":"objects/obj_seat/obj_seat.yy",},},
     {"id":{"name":"pth_blkjak_customers","path":"paths/pth_blkjak_customers/pth_blkjak_customers.yy",},},
     {"id":{"name":"room_casino","path":"rooms/room_casino/room_casino.yy",},},
+    {"id":{"name":"room_gacha_menu","path":"rooms/room_gacha_menu/room_gacha_menu.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"spr_blkjak_table","path":"sprites/spr_blkjak_table/spr_blkjak_table.yy",},},
     {"id":{"name":"spr_customer","path":"sprites/spr_customer/spr_customer.yy",},},
+    {"id":{"name":"spr_gachaButton1","path":"sprites/spr_gachaButton1/spr_gachaButton1.yy",},},
+    {"id":{"name":"spr_gachaMenuBG","path":"sprites/spr_gachaMenuBG/spr_gachaMenuBG.yy",},},
     {"id":{"name":"spr_red_carpet","path":"sprites/spr_red_carpet/spr_red_carpet.yy",},},
     {"id":{"name":"t_red_carpet","path":"tilesets/t_red_carpet/t_red_carpet.yy",},},
   ],
@@ -54,6 +59,7 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"room_casino","path":"rooms/room_casino/room_casino.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"room_gacha_menu","path":"rooms/room_gacha_menu/room_gacha_menu.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
