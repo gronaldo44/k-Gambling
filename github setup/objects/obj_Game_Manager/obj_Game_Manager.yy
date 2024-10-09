@@ -8,8 +8,8 @@
   "name":"obj_Game_Manager",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"pathtest",
+    "path":"folders/Objects/pathtest.yy",
   },
   "parentObjectId":null,
   "persistent":false,
