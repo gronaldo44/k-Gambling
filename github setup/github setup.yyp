@@ -48,6 +48,7 @@
     {"id":{"name":"obj_gachaButton","path":"objects/obj_gachaButton/obj_gachaButton.yy",},},
     {"id":{"name":"obj_gachactrl","path":"objects/obj_gachactrl/obj_gachactrl.yy",},},
     {"id":{"name":"obj_Game_Manager","path":"objects/obj_Game_Manager/obj_Game_Manager.yy",},},
+    {"id":{"name":"obj_manager","path":"objects/obj_manager/obj_manager.yy",},},
     {"id":{"name":"obj_seat","path":"objects/obj_seat/obj_seat.yy",},},
     {"id":{"name":"pth_blkjak_customers","path":"paths/pth_blkjak_customers/pth_blkjak_customers.yy",},},
     {"id":{"name":"room_casino","path":"rooms/room_casino/room_casino.yy",},},
@@ -66,9 +67,9 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"room_casino","path":"rooms/room_casino/room_casino.yy",},},
     {"roomId":{"name":"room_gacha_menu","path":"rooms/room_gacha_menu/room_gacha_menu.yy",},},
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
