@@ -11,3 +11,15 @@ global.isPrepare = true;
 /// @DnDArgument : "value" "100"
 /// @DnDArgument : "var" "token"
 global.token = 100;
+
+/// @DnDAction : YoYo Games.Common.Set_Global
+/// @DnDVersion : 1
+/// @DnDHash : 443BA6BE
+/// @DnDArgument : "var" "level"
+global.level = 0;
+
+/// @DnDAction : YoYo Games.Common.Set_Global
+/// @DnDVersion : 1
+/// @DnDHash : 26A08C46
+/// @DnDArgument : "var" "exp"
+global.exp = 0;

@@ -40,6 +40,7 @@
   "name":"github setup",
   "resources":[
     {"id":{"name":"fnt_gacha","path":"fonts/fnt_gacha/fnt_gacha.yy",},},
+    {"id":{"name":"obj_bar_room","path":"objects/obj_bar_room/obj_bar_room.yy",},},
     {"id":{"name":"obj_blkjak_table","path":"objects/obj_blkjak_table/obj_blkjak_table.yy",},},
     {"id":{"name":"obj_button_parent","path":"objects/obj_button_parent/obj_button_parent.yy",},},
     {"id":{"name":"obj_customer_spawn","path":"objects/obj_customer_spawn/obj_customer_spawn.yy",},},
@@ -63,6 +64,7 @@
     {"id":{"name":"spr_gachaMenuBG","path":"sprites/spr_gachaMenuBG/spr_gachaMenuBG.yy",},},
     {"id":{"name":"spr_red_carpet","path":"sprites/spr_red_carpet/spr_red_carpet.yy",},},
     {"id":{"name":"spr_shop_icon","path":"sprites/spr_shop_icon/spr_shop_icon.yy",},},
+    {"id":{"name":"spr_temp_bar","path":"sprites/spr_temp_bar/spr_temp_bar.yy",},},
     {"id":{"name":"spr_token","path":"sprites/spr_token/spr_token.yy",},},
     {"id":{"name":"t_red_carpet","path":"tilesets/t_red_carpet/t_red_carpet.yy",},},
   ],
