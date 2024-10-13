@@ -1,6 +1,6 @@
 {
   "$GMObject":"",
-  "%Name":"obj_bar_room",
+  "%Name":"obj_test",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":true,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":true,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
@@ -8,7 +8,7 @@
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":13,"eventType":5,"isDnD":true,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_bar_room",
+  "name":"obj_test",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_gacha_icon",
-    "path":"sprites/spr_gacha_icon/spr_gacha_icon.yy",
+    "name":"spr_shop_icon",
+    "path":"sprites/spr_shop_icon/spr_shop_icon.yy",
   },
   "spriteMaskId":null,
   "visible":true,

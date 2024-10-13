@@ -1,18 +1,18 @@
 /// @DnDAction : YoYo Games.Common.Variable
 /// @DnDVersion : 1
-/// @DnDHash : 05F1E37D
+/// @DnDHash : 1807E164
 /// @DnDArgument : "var" "hud_visible"
 hud_visible = 0;
 
 /// @DnDAction : YoYo Games.Common.Variable
 /// @DnDVersion : 1
-/// @DnDHash : 5DC49E79
+/// @DnDHash : 29E75E38
 /// @DnDArgument : "expr" "5"
 /// @DnDArgument : "var" "available_seats"
 available_seats = 5;
 
 /// @DnDAction : YoYo Games.Common.Variable
 /// @DnDVersion : 1
-/// @DnDHash : 41EEEA07
+/// @DnDHash : 1ED8FEED
 /// @DnDArgument : "var" "filled_seats"
 filled_seats = 0;

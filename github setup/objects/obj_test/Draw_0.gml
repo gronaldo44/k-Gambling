@@ -1,6 +1,6 @@
 /// @DnDAction : YoYo Games.Drawing.Draw_Self
 /// @DnDVersion : 1
-/// @DnDHash : 679404D1
+/// @DnDHash : 20364522
 draw_self();
 
 /// @DnDAction : YoYo Games.Common.If_Variable
