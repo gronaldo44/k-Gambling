@@ -23,3 +23,10 @@ global.level = 0;
 /// @DnDHash : 26A08C46
 /// @DnDArgument : "var" "exp"
 global.exp = 0;
+
+/// @DnDAction : YoYo Games.Common.Set_Global
+/// @DnDVersion : 1
+/// @DnDHash : 66F62BF4
+/// @DnDArgument : "value" "15"
+/// @DnDArgument : "var" "weeklyEarn"
+global.weeklyEarn = 15;
