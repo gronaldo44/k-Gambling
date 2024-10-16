@@ -22,3 +22,10 @@ filled_seats = 0;
 /// @DnDHash : 22966FB8
 /// @DnDArgument : "var" "points_timer"
 global.points_timer = 0;
+
+/// @DnDAction : YoYo Games.Common.Set_Global
+/// @DnDVersion : 1
+/// @DnDHash : 79A7580F
+/// @DnDArgument : "value" "10"
+/// @DnDArgument : "var" "profit_bar"
+global.profit_bar = 10;

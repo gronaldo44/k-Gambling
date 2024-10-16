@@ -16,3 +16,10 @@ available_seats = 5;
 /// @DnDHash : 41EEEA07
 /// @DnDArgument : "var" "filled_seats"
 filled_seats = 0;
+
+/// @DnDAction : YoYo Games.Common.Set_Global
+/// @DnDVersion : 1
+/// @DnDHash : 07C4BF77
+/// @DnDArgument : "value" "20"
+/// @DnDArgument : "var" "profit_BJ"
+global.profit_BJ = 20;

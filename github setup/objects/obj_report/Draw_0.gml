@@ -23,9 +23,19 @@ draw_set_valign(fa_middle);
 /// @DnDHash : 69C7C30F
 /// @DnDArgument : "x_relative" "1"
 /// @DnDArgument : "y_relative" "1"
-/// @DnDArgument : "caption" "Profits"
-/// @DnDArgument : "var" "Profits"
-draw_text(x + 0, y + 0, string(Profits) + string(Profits));
+/// @DnDArgument : "caption" ""Profit ""
+/// @DnDArgument : "var" "global.weeklyprofit"
+draw_text(x + 0, y + 0, string("Profit ") + string(global.weeklyprofit));
+
+/// @DnDAction : YoYo Games.Drawing.Draw_Value
+/// @DnDVersion : 1
+/// @DnDHash : 6756C931
+/// @DnDArgument : "x_relative" "1"
+/// @DnDArgument : "y" "40"
+/// @DnDArgument : "y_relative" "1"
+/// @DnDArgument : "caption" ""Loss ""
+/// @DnDArgument : "var" "global.weeklyloss"
+draw_text(x + 0, y + 40, string("Loss ") + string(global.weeklyloss));
 
 /// @DnDAction : YoYo Games.Drawing.Set_Alignment
 /// @DnDVersion : 1.1
