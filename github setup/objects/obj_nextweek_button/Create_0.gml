@@ -6,6 +6,6 @@ event_inherited();
 /// @DnDAction : YoYo Games.Common.Variable
 /// @DnDVersion : 1
 /// @DnDHash : 2A65D303
-/// @DnDArgument : "expr" ""Bussiness time""
+/// @DnDArgument : "expr" ""next week""
 /// @DnDArgument : "var" "text"
-text = "Bussiness time";
+text = "next week";
