@@ -23,9 +23,9 @@ draw_set_valign(fa_middle);
 /// @DnDHash : 69C7C30F
 /// @DnDArgument : "x_relative" "1"
 /// @DnDArgument : "y_relative" "1"
-/// @DnDArgument : "caption" ""
-/// @DnDArgument : "var" "text"
-draw_text(x + 0, y + 0,  + string(text));
+/// @DnDArgument : "caption" "Profits"
+/// @DnDArgument : "var" "Profits"
+draw_text(x + 0, y + 0, string(Profits) + string(Profits));
 
 /// @DnDAction : YoYo Games.Drawing.Set_Alignment
 /// @DnDVersion : 1.1

@@ -16,9 +16,3 @@ available_seats = 5;
 /// @DnDHash : 41EEEA07
 /// @DnDArgument : "var" "filled_seats"
 filled_seats = 0;
-
-/// @DnDAction : YoYo Games.Common.Set_Global
-/// @DnDVersion : 1
-/// @DnDHash : 22966FB8
-/// @DnDArgument : "var" "points_timer"
-global.points_timer = 0;

@@ -10,8 +10,9 @@ variable = "next week";
 /// @DnDArgument : "xpos" "960"
 /// @DnDArgument : "ypos" "560"
 /// @DnDArgument : "objectid" "obj_report"
+/// @DnDArgument : "layer" ""Report""
 /// @DnDSaveInfo : "objectid" "obj_report"
-instance_create_layer(960, 560, "Instances", obj_report);
+instance_create_layer(960, 560, "Report", obj_report);
 
 /// @DnDAction : YoYo Games.Instances.Create_Instance
 /// @DnDVersion : 1

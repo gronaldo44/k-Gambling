@@ -27,6 +27,23 @@ global.exp = 0;
 /// @DnDAction : YoYo Games.Common.Set_Global
 /// @DnDVersion : 1
 /// @DnDHash : 66F62BF4
-/// @DnDArgument : "value" "15"
-/// @DnDArgument : "var" "weeklyEarn"
-global.weeklyEarn = 15;
+/// @DnDArgument : "var" "weeklyprofit"
+global.weeklyprofit = 0;
+
+/// @DnDAction : YoYo Games.Common.Set_Global
+/// @DnDVersion : 1
+/// @DnDHash : 47EC02C0
+/// @DnDArgument : "var" "weeklyloss"
+global.weeklyloss = 0;
+
+/// @DnDAction : YoYo Games.Common.Set_Global
+/// @DnDVersion : 1
+/// @DnDHash : 6D0CEAE2
+/// @DnDArgument : "var" "daytimer"
+global.daytimer = 0;
+
+/// @DnDAction : YoYo Games.Common.Set_Global
+/// @DnDVersion : 1
+/// @DnDHash : 23684E07
+/// @DnDArgument : "var" "days"
+global.days = 0;

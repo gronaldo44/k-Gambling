@@ -1,11 +1,11 @@
-/// @DnDAction : YoYo Games.Common.Set_Global
+/// @DnDAction : YoYo Games.Common.Execute_Code
 /// @DnDVersion : 1
-/// @DnDHash : 49B8444E
-/// @DnDArgument : "value" "false"
-/// @DnDArgument : "var" "isPrepare"
+/// @DnDHash : 240805AB
+/// @DnDArgument : "code" "global.isPrepare = false;$(13_10)$(13_10)global.daytimer += 10;$(13_10)$(13_10)alarm_set(0, 1200);$(13_10)$(13_10)bus = true;"
 global.isPrepare = false;
 
-/// @DnDAction : YoYo Games.Instances.Set_Alarm
-/// @DnDVersion : 1
-/// @DnDHash : 73DF01F0
-alarm_set(0, 30);
+global.daytimer += 10;
+
+alarm_set(0, 1200);
+
+bus = true;
