@@ -77,6 +77,7 @@
     {"id":{"name":"spr_shop_icon","path":"sprites/spr_shop_icon/spr_shop_icon.yy",},},
     {"id":{"name":"spr_table_ui","path":"sprites/spr_table_ui/spr_table_ui.yy",},},
     {"id":{"name":"spr_temp_bar","path":"sprites/spr_temp_bar/spr_temp_bar.yy",},},
+    {"id":{"name":"spr_token_amount","path":"sprites/spr_token_amount/spr_token_amount.yy",},},
     {"id":{"name":"spr_token","path":"sprites/spr_token/spr_token.yy",},},
     {"id":{"name":"t_red_carpet","path":"tilesets/t_red_carpet/t_red_carpet.yy",},},
   ],
