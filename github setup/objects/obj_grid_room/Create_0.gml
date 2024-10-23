@@ -1,1 +1,2 @@
-var roomType = ROOM_TYPE.LOCKED;
+roomType = ROOM_TYPE.LOCKED;
+image_index = roomType;
