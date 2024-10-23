@@ -1,0 +1,1 @@
+var roomType = ROOM_TYPE.LOCKED;

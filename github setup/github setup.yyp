@@ -35,7 +35,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.8.1.171",
+    "IDEVersion":"2024.6.2.162",
   },
   "name":"github setup",
   "resources":[
@@ -51,6 +51,8 @@
     {"id":{"name":"obj_gachaButton","path":"objects/obj_gachaButton/obj_gachaButton.yy",},},
     {"id":{"name":"obj_gachactrl","path":"objects/obj_gachactrl/obj_gachactrl.yy",},},
     {"id":{"name":"obj_Game_Manager","path":"objects/obj_Game_Manager/obj_Game_Manager.yy",},},
+    {"id":{"name":"obj_grid_manager","path":"objects/obj_grid_manager/obj_grid_manager.yy",},},
+    {"id":{"name":"obj_grid_room","path":"objects/obj_grid_room/obj_grid_room.yy",},},
     {"id":{"name":"obj_manager","path":"objects/obj_manager/obj_manager.yy",},},
     {"id":{"name":"obj_nextweek_button","path":"objects/obj_nextweek_button/obj_nextweek_button.yy",},},
     {"id":{"name":"obj_report","path":"objects/obj_report/obj_report.yy",},},
@@ -71,6 +73,7 @@
     {"id":{"name":"spr_gacha_icon","path":"sprites/spr_gacha_icon/spr_gacha_icon.yy",},},
     {"id":{"name":"spr_gachaButton1","path":"sprites/spr_gachaButton1/spr_gachaButton1.yy",},},
     {"id":{"name":"spr_gachaMenuBG","path":"sprites/spr_gachaMenuBG/spr_gachaMenuBG.yy",},},
+    {"id":{"name":"spr_grid_room","path":"sprites/spr_grid_room/spr_grid_room.yy",},},
     {"id":{"name":"spr_rec","path":"sprites/spr_rec/spr_rec.yy",},},
     {"id":{"name":"spr_red_carpet","path":"sprites/spr_red_carpet/spr_red_carpet.yy",},},
     {"id":{"name":"spr_report","path":"sprites/spr_report/spr_report.yy",},},
