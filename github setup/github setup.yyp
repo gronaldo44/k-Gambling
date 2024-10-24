@@ -16,6 +16,7 @@
     {"$GMFolder":"","%Name":"Notes","folderPath":"folders/Notes.yy","name":"Notes","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Objects","folderPath":"folders/Objects.yy","name":"Objects","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Gacha","folderPath":"folders/Objects/Gacha.yy","name":"Gacha","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Buildings","folderPath":"folders/Objects/Buildings.yy","name":"Buildings","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"pathtest","folderPath":"folders/Objects/pathtest.yy","name":"pathtest","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Particle Systems","folderPath":"folders/Particle Systems.yy","name":"Particle Systems","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Paths","folderPath":"folders/Paths.yy","name":"Paths","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -35,7 +36,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.6.2.162",
+    "IDEVersion":"2024.8.1.171",
   },
   "name":"github setup",
   "resources":[
@@ -48,6 +49,7 @@
     {"id":{"name":"obj_customer","path":"objects/obj_customer/obj_customer.yy",},},
     {"id":{"name":"obj_front_desk","path":"objects/obj_front_desk/obj_front_desk.yy",},},
     {"id":{"name":"obj_gachaButton_enter","path":"objects/obj_gachaButton_enter/obj_gachaButton_enter.yy",},},
+    {"id":{"name":"obj_gachaButton_return","path":"objects/obj_gachaButton_return/obj_gachaButton_return.yy",},},
     {"id":{"name":"obj_gachaButton","path":"objects/obj_gachaButton/obj_gachaButton.yy",},},
     {"id":{"name":"obj_gachactrl","path":"objects/obj_gachactrl/obj_gachactrl.yy",},},
     {"id":{"name":"obj_Game_Manager","path":"objects/obj_Game_Manager/obj_Game_Manager.yy",},},
@@ -61,6 +63,7 @@
     {"id":{"name":"obj_strbusin_button","path":"objects/obj_strbusin_button/obj_strbusin_button.yy",},},
     {"id":{"name":"obj_table_ui","path":"objects/obj_table_ui/obj_table_ui.yy",},},
     {"id":{"name":"obj_token","path":"objects/obj_token/obj_token.yy",},},
+    {"id":{"name":"obj_tokenInGacha","path":"objects/obj_tokenInGacha/obj_tokenInGacha.yy",},},
     {"id":{"name":"pth_blkjak_customers","path":"paths/pth_blkjak_customers/pth_blkjak_customers.yy",},},
     {"id":{"name":"room_casino","path":"rooms/room_casino/room_casino.yy",},},
     {"id":{"name":"room_gacha_menu","path":"rooms/room_gacha_menu/room_gacha_menu.yy",},},
@@ -88,8 +91,8 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
-    {"roomId":{"name":"room_casino","path":"rooms/room_casino/room_casino.yy",},},
     {"roomId":{"name":"room_gacha_menu","path":"rooms/room_gacha_menu/room_gacha_menu.yy",},},
+    {"roomId":{"name":"room_casino","path":"rooms/room_casino/room_casino.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

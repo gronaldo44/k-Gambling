@@ -40,3 +40,10 @@ global.daytimer = 0;
 /// @DnDHash : 23684E07
 /// @DnDArgument : "var" "days"
 global.days = 0;
+
+/// @DnDAction : YoYo Games.Common.Set_Global
+/// @DnDVersion : 1
+/// @DnDHash : 04E5855F
+/// @DnDArgument : "value" "100"
+/// @DnDArgument : "var" "token"
+global.token = 100;

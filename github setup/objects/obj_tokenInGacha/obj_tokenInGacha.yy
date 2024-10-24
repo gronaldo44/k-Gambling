@@ -1,18 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"obj_black_jack",
+  "%Name":"obj_tokenInGacha",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":true,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":true,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":true,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":13,"eventType":5,"isDnD":true,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_black_jack",
+  "name":"obj_tokenInGacha",
   "overriddenProperties":[],
   "parent":{
-    "name":"Buildings",
-    "path":"folders/Objects/Buildings.yy",
+    "name":"Gacha",
+    "path":"folders/Objects/Gacha.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -33,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_black_jack",
-    "path":"sprites/spr_black_jack/spr_black_jack.yy",
+    "name":"spr_token_amount",
+    "path":"sprites/spr_token_amount/spr_token_amount.yy",
   },
   "spriteMaskId":null,
   "visible":true,
