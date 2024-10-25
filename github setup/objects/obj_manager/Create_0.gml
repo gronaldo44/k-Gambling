@@ -44,6 +44,12 @@ global.days = 0;
 /// @DnDAction : YoYo Games.Common.Set_Global
 /// @DnDVersion : 1
 /// @DnDHash : 04E5855F
-/// @DnDArgument : "value" "100"
+/// @DnDArgument : "value" "1000"
 /// @DnDArgument : "var" "token"
-global.token = 100;
+global.token = 1000;
+
+/// @DnDAction : YoYo Games.Common.Set_Global
+/// @DnDVersion : 1
+/// @DnDHash : 44B9AC74
+/// @DnDArgument : "var" "gachaPulled"
+global.gachaPulled = 0;
