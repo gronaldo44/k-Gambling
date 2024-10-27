@@ -47,9 +47,16 @@ global.purchase_room = function(loc, roomType) {
     } else {
         show_debug_message("purchase_room on invalid lot: " + string(loc));
     }
+
 	var shop_ui = instance_find(obj_shop_ui, 0);
 	with(shop_ui){
 		visible = false;
 		room_loc = -1;
 		}
 };
+
+
+global.start_casino = function() {
+	
+}
+
