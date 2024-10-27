@@ -1,4 +1,4 @@
-global.purchase_room(room_index, ROOM_TYPE.OPEN);	// tmp
+// global.purchase_room(room_index, ROOM_TYPE.OPEN);
 // TDOO display_shop_ui(loc);
 switch (roomType) {
 	case ROOM_TYPE.LOCKED:
@@ -6,6 +6,11 @@ switch (roomType) {
 	
 	case ROOM_TYPE.OPEN:
 		// display_shop_ui(room_index);
+		shop_ui = instance_find(obj_shop_ui, 0);
+		with(shop_ui){
+			visible = true;
+			room_loc = obj_grid_room.room_index;
+			}
 		
 	case ROOM_TYPE.LOBBY:
 		// display_tips_ui(room_index);
