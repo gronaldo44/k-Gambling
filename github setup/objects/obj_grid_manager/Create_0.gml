@@ -48,3 +48,7 @@ global.purchase_room = function(loc, roomType) {
         show_debug_message("purchase_room on invalid lot: " + string(loc));
     }
 };
+
+global.start_casino = function() {
+	
+}
