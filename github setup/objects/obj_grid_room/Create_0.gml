@@ -9,16 +9,16 @@ var OnBarUpdate = function()
 
 global.start_room = function() {
 	switch (roomType) {
-	case ROOM_TYPE.OPEN:
-		// play meep-merp sound
-	
-	case ROOM_TYPE.BAR:
-		// display_shop_ui(room_index);
+		case ROOM_TYPE.OPEN:
+			// play meep-merp sound
 		
-	case ROOM_TYPE.LOBBY:
-		// display_tips_ui(room_index);
+		case ROOM_TYPE.BAR:
+			// display_shop_ui(room_index);
 		
-	default:
-		// display_room_ui(room_index, roomType);
+		case ROOM_TYPE.LOBBY:
+			// display_tips_ui(room_index);
+		
+		default:
+			// display_room_ui(room_index, roomType);
 	}
 }
