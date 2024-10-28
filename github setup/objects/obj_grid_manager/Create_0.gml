@@ -12,7 +12,7 @@ enum ROOM_TYPE {
 }
 
 // Create event of obj_grid_manager
-global.grid_rooms = array_create(8, ROOM_TYPE.LOCKED); // Initialize with LOCKED rooms
+grid_rooms = array_create(8, ROOM_TYPE.LOCKED); // Initialize with LOCKED rooms
 
 // Set room positions in a 2x4 grid
 var grid_width = 4;  // Number of columns in the grid
@@ -29,13 +29,14 @@ for (var i = 0; i < grid_width * grid_height; i++) {
 	if (i == 6){
 		r.roomType = ROOM_TYPE.OPEN;	
 		r.image_index = r.roomType;
+		grid_rooms[i] = ROOM_TYPE.OPEN;
 	}
 }
 
 // Define the purchase_room function
 global.purchase_room = function(loc, roomType) {
-    if (global.grid_rooms[loc] == ROOM_TYPE.OPEN || true) {
-        global.grid_rooms[loc] = roomType; // Corrected roomType capitalization
+    if (grid_rooms[loc] == ROOM_TYPE.OPEN) {
+        grid_rooms[loc] = roomType; // Corrected roomType capitalization
 		
 		show_debug_message(string(loc) + " set to " + string(roomType));
 		
@@ -43,13 +44,21 @@ global.purchase_room = function(loc, roomType) {
 		if (room_instance != noone) {
 			room_instance.roomType = roomType;
 			room_instance.image_index = roomType;
+			room_instance.start_room();
 		}
     } else {
         show_debug_message("purchase_room on invalid lot: " + string(loc));
     }
+
 	var shop_ui = instance_find(obj_shop_ui, 0);
 	with(shop_ui){
 		visible = false;
 		room_loc = -1;
 		}
 };
+
+
+global.start_casino = function() {
+	
+}
+
