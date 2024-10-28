@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_shop_ui_background",
-    "path":"sprites/spr_shop_ui_background/spr_shop_ui_background.yy",
+    "name":"spr_shop_background",
+    "path":"sprites/spr_shop_background/spr_shop_background.yy",
   },
   "spriteMaskId":null,
   "visible":true,
