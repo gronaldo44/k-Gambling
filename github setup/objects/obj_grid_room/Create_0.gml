@@ -1,6 +1,8 @@
 roomType = ROOM_TYPE.LOCKED;
 image_index = roomType;
 room_index = -1;	// changed to positive in grid_manager creation
+// room_level = 0;
+// character = "";
 
 OnBarUpdate = function()
 {
@@ -11,14 +13,22 @@ BarTimer = time_source_create(time_source_game, 1, time_source_units_seconds, On
 
 OnBlackjackUpdate = function()
 {
+	var wager = 20;
+	var winrate = 52;
+	
 	// Generate a random outcome: assume house wins 52% of the time for simulation
-    var houseWins = irandom_range(1, 100) <= 52; // 52% chance for house to win
+    var houseWins = irandom_range(1, 100) <= winrate; // 52% chance for house to win
+	
+	// wager = get_char_ability_wager(wager, character);
+	// winrate = get_char_ability_wr(winrate, character);
 
     if (houseWins) {
-        global.token += 20; // House wins, increase tokens
+		// gain_tokens(wager, character)
+        global.token += wager; // House wins, increase tokens
         show_debug_message("House wins! Tokens increased by 20.");
     } else {
-        global.token -= 20; // House loses, decrease tokens
+		// lose_tokens(wager, character)
+        global.token -= wager; // House loses, decrease tokens
         show_debug_message("House loses! Tokens decreased by 20.");
     }
 

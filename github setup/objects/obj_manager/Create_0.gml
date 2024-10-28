@@ -7,6 +7,7 @@ global.daytimer = 0;
 global.days = 0;
 global.token = 75;
 global.gachaPulled = 0;
+// global.gamespeed = 1;
 
 global.gain_exp = function(exp_gained){
 	global.exp += exp_gained;
