@@ -1,25 +1,23 @@
-width = 64;
-height = 104;
+width = 750;
+height = 600;
 
-op_border = 8;
-op_space = 16;
+op_border = 15;
+op_space = 50;
 
 pos = 0;
 
 count = 0;
 
-for(var i = 0; i < global.characters_length; i++)
+for(var i = 0; i <  array_length(global.characters); i++)
 {
 	if(global.characters[i] != 0){
-		str = global.characterName[count] + " " + string(global.characters[count]);
+		str = string(global.characters[i]) + "x " + global.charactersName[i];
 		option[count] = str;
 		count++;
 	}		
 }
 
-op_length = array_length(option);
-
-if(op_length <= 0){
+if(count <= 0){
 	option[0] = "You have no Characters";
 }
 
