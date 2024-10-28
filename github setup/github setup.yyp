@@ -81,6 +81,7 @@
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"spr_background","path":"sprites/spr_background/spr_background.yy",},},
     {"id":{"name":"spr_bar","path":"sprites/spr_bar/spr_bar.yy",},},
+    {"id":{"name":"spr_black_jack_2","path":"sprites/spr_black_jack_2/spr_black_jack_2.yy",},},
     {"id":{"name":"spr_black_jack","path":"sprites/spr_black_jack/spr_black_jack.yy",},},
     {"id":{"name":"spr_blkjak_table","path":"sprites/spr_blkjak_table/spr_blkjak_table.yy",},},
     {"id":{"name":"spr_character_icon","path":"sprites/spr_character_icon/spr_character_icon.yy",},},
