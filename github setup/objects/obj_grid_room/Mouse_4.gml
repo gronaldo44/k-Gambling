@@ -19,6 +19,7 @@ switch (roomType) {
 		
 	default:
 		show_debug_message("Casino Room Clicked: " + string(room_index));
+		show_debug_message(string(room_index) + " is Casino Room type " + string(roomType));
 		// display_room_ui(room_index, roomType);
 		break;
 }
