@@ -14,7 +14,7 @@ enum ROOM_TYPE {
 // Set room positions in a 2x4 grid
 grid_width = 4;  // Number of columns in the grid
 grid_height = 2; // Number of rows in the grid
-tile_size = 448;  // Size of each room in pixels (width/height)
+tile_size = 410;  // Size of each room in pixels (width/height)
 grid_rooms = array_create(grid_width * grid_height);
 
 for (var i = 0; i < grid_width * grid_height; i++) {

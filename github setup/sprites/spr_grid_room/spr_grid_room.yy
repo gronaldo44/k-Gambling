@@ -2,9 +2,9 @@
   "$GMSprite":"",
   "%Name":"spr_grid_room",
   "bboxMode":0,
-  "bbox_bottom":447,
+  "bbox_bottom":409,
   "bbox_left":0,
-  "bbox_right":447,
+  "bbox_right":409,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -25,7 +25,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":448,
+  "height":410,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"fd5ea8ff-2c89-4c1f-a1d5-5e3899a6e9f2","blendMode":0,"displayName":"default","isLocked":false,"name":"fd5ea8ff-2c89-4c1f-a1d5-5e3899a6e9f2","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -122,5 +122,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":448,
+  "width":410,
 }

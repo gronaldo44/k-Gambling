@@ -25,9 +25,9 @@ if(pos == 0){
 }
 if(pos == 1){
 	draw_sprite_ext(spr_bar, 0, 1700, 535, .35, .33, 0, c_white, 1);
-	draw_text_transformed(1500, 700, "+1 coin every 5 seconds", .75, .75, 0);
+	draw_text_transformed(1500, 700, "+6 coin every second", .75, .75, 0);
 }
 if(pos == 2){
-	draw_sprite_ext(spr_black_jack, 0, 1700, 535, .35, .33, 0, c_white, 1);
-	draw_text_transformed(1500, 700, "51% for +1 token, 49% for -1", .75, .75, 0);
+	draw_sprite_ext(spr_black_jack, 0, 1700, 535, .70, .66, 0, c_white, 1);
+	draw_text_transformed(1500, 700, "51% for +20 token, 49% for -20", .60, .60, 0);
 }
