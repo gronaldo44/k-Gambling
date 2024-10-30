@@ -15,11 +15,13 @@ switch (roomType) {
 	case ROOM_TYPE.LOBBY:
 		show_debug_message("Lobby Room Clicked: " + string(room_index));
 		// display_tips_ui(room_index);
+		global.display_lobby_ui(room_index)
 		break;
 		
 	default:
 		show_debug_message("Casino Room Clicked: " + string(room_index));
 		show_debug_message(string(room_index) + " is Casino Room type " + string(roomType));
 		// display_room_ui(room_index, roomType);
+		global.display_room_ui(room_index, roomType)
 		break;
 }

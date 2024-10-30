@@ -40,7 +40,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.8.0.169",
+    "IDEVersion":"2024.8.1.171",
   },
   "name":"github setup",
   "resources":[
@@ -63,10 +63,12 @@
     {"id":{"name":"obj_Game_Manager","path":"objects/obj_Game_Manager/obj_Game_Manager.yy",},},
     {"id":{"name":"obj_grid_manager","path":"objects/obj_grid_manager/obj_grid_manager.yy",},},
     {"id":{"name":"obj_grid_room","path":"objects/obj_grid_room/obj_grid_room.yy",},},
+    {"id":{"name":"obj_lobby_ui","path":"objects/obj_lobby_ui/obj_lobby_ui.yy",},},
     {"id":{"name":"obj_manager","path":"objects/obj_manager/obj_manager.yy",},},
     {"id":{"name":"obj_menu","path":"objects/obj_menu/obj_menu.yy",},},
     {"id":{"name":"obj_nextweek_button","path":"objects/obj_nextweek_button/obj_nextweek_button.yy",},},
     {"id":{"name":"obj_report","path":"objects/obj_report/obj_report.yy",},},
+    {"id":{"name":"obj_room_ui","path":"objects/obj_room_ui/obj_room_ui.yy",},},
     {"id":{"name":"obj_seat","path":"objects/obj_seat/obj_seat.yy",},},
     {"id":{"name":"obj_shop_ui","path":"objects/obj_shop_ui/obj_shop_ui.yy",},},
     {"id":{"name":"obj_shopbutton","path":"objects/obj_shopbutton/obj_shopbutton.yy",},},
