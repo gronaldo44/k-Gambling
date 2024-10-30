@@ -80,3 +80,8 @@ global.stop_casino = function() {
         }
     }
 };
+
+global.get_room_stats = function(room_index){
+	var room_instance = grid_rooms[room_index];
+	return room_instance.get_room_stats();
+}

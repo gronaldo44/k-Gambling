@@ -7,10 +7,18 @@ global.daytimer = 0;
 global.days = 0;
 global.token = 75;
 global.gachaPulled = 0;
+
+// profit is used like the word total/net here
+global.profit_tokens = 0;
+global.profit_exp = 0;
+global.profit_tokens_wager = 0;
+global.profit_tokens_lost = 0;
+global.profit_tokens_earned = 0;
 // global.gamespeed = 1;
 
 global.gain_exp = function(exp_gained){
 	global.exp += exp_gained;
+	global.profit_exp += exp_gained;
 	while (global.exp >= (global.level * 100)){
 		level_up()
 	}

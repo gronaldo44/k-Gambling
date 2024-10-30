@@ -17,11 +17,11 @@ for ( var i = 0; i < op_length; i++)
 	
 //display stats of room
 if(pos == 0){
-	draw_text_transformed(1450, 700, "Gambling is very risky, maybe walk away!", .50, .50, 0);
+	draw_text_transformed(1450, 500, get_lobby_tip(), .50, .50, 0);
 }
 if(pos == 1){
 	draw_text_transformed(1500, 700, "Under Construction", .75, .75, 0);
 }
 if(pos == 2){
-	draw_text_transformed(1500, 700, "Under Construction", .60, .60, 0);
+	draw_text_transformed(1500, 500, global.get_room_stats(room_loc), .60, .60, 0);
 }

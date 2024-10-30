@@ -14,7 +14,7 @@ visible = false;
 
 option[0] = "Info";
 option[1] = "Stats";
-option[2] = "Profit Earned";
+option[2] = "Upgrade";
 
 op_length = array_length(option);
 
