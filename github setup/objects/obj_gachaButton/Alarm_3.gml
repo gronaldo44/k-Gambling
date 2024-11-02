@@ -6,7 +6,7 @@ result_2 = floor(random_range(0, 2 + 1));
 
 if(result_2 == 0)
 {
-	global.characters[0] = global.characters[0] + 1;
+	global.setCharacter("Chip guy", 1);
 
 	show_debug_message(string("You get a chipguy"));
 	
@@ -15,7 +15,7 @@ if(result_2 == 0)
 
 if(result_2 == 1)
 {
-	global.characters[1] = global.characters[0] + 1;
+	global.setCharacter("Cool chip guy", 1);
 
 	show_debug_message(string("You get a cool chipguy"));
 	
@@ -24,7 +24,7 @@ if(result_2 == 1)
 
 if(result_2 == 2)
 {
-	global.characters[2] = global.characters[0] + 1;
+	global.setCharacter("Cow man", 1);
 
 	show_debug_message(string("You get a cowman"));
 	

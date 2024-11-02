@@ -8,6 +8,7 @@ pos = 0;
 
 count = 0;
 
+/**
 for(var i = 0; i <  array_length(global.characters); i++)
 {
 	if(global.characters[i] != 0){
@@ -15,6 +16,16 @@ for(var i = 0; i <  array_length(global.characters); i++)
 		option[count] = str;
 		count++;
 	}		
+}
+**/
+
+for(var key = ds_map_find_first(characters); key != undefined; key = ds_map_find_next(characters, key)){
+	num = ds_map_find_value(characters, key) != 0
+	if(num != 0){
+		str = string(num) + "x " + string(key);
+		option[count] = str;
+		count++;
+	}
 }
 
 if(count <= 0){
