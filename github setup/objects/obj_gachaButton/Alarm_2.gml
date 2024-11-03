@@ -1,6 +1,6 @@
 show_debug_message(string("You get a 3 star"));
 	
-	global.setCharacter("The girl", 1);
+	ds_map_replace(global.characters, "The girl", ds_map_find_value(global.characters, "The girl") + 1);
 
 	show_debug_message(string("You get the girl"));
 	
