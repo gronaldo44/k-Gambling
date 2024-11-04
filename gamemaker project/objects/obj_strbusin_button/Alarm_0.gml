@@ -3,21 +3,30 @@
 /// @DnDHash : 57A29A67
 /// @DnDArgument : "obj" "obj_bar_room"
 /// @DnDSaveInfo : "obj" "obj_bar_room"
-var l57A29A67_0 = false;l57A29A67_0 = instance_exists(obj_bar_room);if(l57A29A67_0){	/// @DnDAction : YoYo Games.Common.Set_Global
+var l57A29A67_0 = false;
+l57A29A67_0 = instance_exists(obj_bar_room);
+if(l57A29A67_0)
+{
+	/// @DnDAction : YoYo Games.Common.Set_Global
 	/// @DnDVersion : 1
 	/// @DnDHash : 3070468C
 	/// @DnDParent : 57A29A67
 	/// @DnDArgument : "value" "global.profit_bar"
 	/// @DnDArgument : "value_relative" "1"
 	/// @DnDArgument : "var" "global.weeklyprofit"
-	global.weeklyprofit += global.profit_bar;}
+	global.weeklyprofit += global.profit_bar;
+}
 
 /// @DnDAction : YoYo Games.Instances.If_Instance_Exists
 /// @DnDVersion : 1
 /// @DnDHash : 7A86EF9E
 /// @DnDArgument : "obj" "obj_black_jack"
 /// @DnDSaveInfo : "obj" "obj_black_jack"
-var l7A86EF9E_0 = false;l7A86EF9E_0 = instance_exists(obj_black_jack);if(l7A86EF9E_0){	/// @DnDAction : YoYo Games.Random.Get_Random_Number
+var l7A86EF9E_0 = false;
+l7A86EF9E_0 = instance_exists(obj_black_jack);
+if(l7A86EF9E_0)
+{
+	/// @DnDAction : YoYo Games.Random.Get_Random_Number
 	/// @DnDVersion : 1
 	/// @DnDHash : 62A9175C
 	/// @DnDParent : 7A86EF9E
@@ -34,27 +43,34 @@ var l7A86EF9E_0 = false;l7A86EF9E_0 = instance_exists(obj_black_jack);if(l7A86
 	/// @DnDArgument : "var" "prob"
 	/// @DnDArgument : "op" "3"
 	/// @DnDArgument : "value" "75"
-	if(prob <= 75){	/// @DnDAction : YoYo Games.Common.Set_Global
+	if(prob <= 75)
+	{
+		/// @DnDAction : YoYo Games.Common.Set_Global
 		/// @DnDVersion : 1
 		/// @DnDHash : 7DCB92A3
 		/// @DnDParent : 308E3A54
 		/// @DnDArgument : "value" "global.profit_BJ"
 		/// @DnDArgument : "value_relative" "1"
 		/// @DnDArgument : "var" "global.weeklyprofit"
-		global.weeklyprofit += global.profit_BJ;}
+		global.weeklyprofit += global.profit_BJ;
+	}
 
 	/// @DnDAction : YoYo Games.Common.Else
 	/// @DnDVersion : 1
 	/// @DnDHash : 0FBA718D
 	/// @DnDParent : 7A86EF9E
-	else{	/// @DnDAction : YoYo Games.Common.Set_Global
+	else
+	{
+		/// @DnDAction : YoYo Games.Common.Set_Global
 		/// @DnDVersion : 1
 		/// @DnDHash : 07ACAD08
 		/// @DnDParent : 0FBA718D
 		/// @DnDArgument : "value" "-global.profit_BJ/2"
 		/// @DnDArgument : "value_relative" "1"
 		/// @DnDArgument : "var" "global.weeklyprofit"
-		global.weeklyprofit += -global.profit_BJ/2;}}
+		global.weeklyprofit += -global.profit_BJ/2;
+	}
+}
 
 /// @DnDAction : YoYo Games.Instances.Create_Instance
 /// @DnDVersion : 1
