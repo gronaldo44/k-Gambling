@@ -6,14 +6,12 @@ room_exp_earned = 0;
 room_tokens_earned = 0;
 room_tokens_lost = 0;
 room_tokens_wagered = 0;
-// character = "";
+room_character = -1;
 
 
 OnBarUpdate = function()
 {
-	global.token += 6;	
-	global.profit_tokens += 6;
-	global.profit_tokens_earned += 6;
+	global.gain_tokens(6, room_character);
 	room_tokens_earned += 6;
 	
 	global.gain_exp(5);
@@ -25,29 +23,23 @@ OnBlackjackUpdate = function()
 {
 	var wager = 20;
 	var winrate = 52;
+	wager = get_char_ability_wager(wager);
+	winrate = get_char_ability_wr(winrate);
 	
-	// Generate a random outcome: assume house wins 52% of the time for simulation
-    var houseWins = irandom_range(1, 100) <= winrate; // 52% chance for house to win
+    var houseWins = irandom_range(1, 100) <= winrate;
 	
-	// wager = get_char_ability_wager(wager, character);
-	// winrate = get_char_ability_wr(winrate, character);
 	room_tokens_wagered += wager;
 	global.profit_tokens_wager += wager;
 
     if (houseWins) {
-		// gain_tokens(wager, character)
-        global.token += wager; // House wins, increase tokens
-		global.profit_tokens += wager;
-		global.profit_tokens_earned += wager;
+		global.gain_tokens(wager, room_character);
 		room_tokens_earned += wager;
-        show_debug_message("House wins! Tokens increased by 20.");
+        show_debug_message("House wins! " + string(room_index));
     } else {
 		// lose_tokens(wager, character)
-        global.token -= wager; // House loses, decrease tokens
-		global.profit_tokens -= wager;
-		global.profit_tokens_lost += wager;
+        global.gain_tokens(-wager, room_character);
 		room_tokens_lost += wager;
-        show_debug_message("House loses! Tokens decreased by 20.");
+        show_debug_message("House loses! " + string(room_index));
     }
 
 	var exp_per_update = 15;
@@ -133,4 +125,43 @@ get_room_stats = function(){
 		default:
 			return("Not yet implemented.");
 	}
+}
+
+get_char_ability_wager = function(wager){
+	switch (room_character) {
+		case CHARACTER.CHIP_GUY:
+			wager = ceil(wager * 1.5);
+			break;
+		
+		case CHARACTER.COOL_CHIP_GUY:
+			wager *= 2;
+			break;
+		
+		case CHARACTER.COW_MAN:
+			wager *= 5;
+			break;
+		
+		case CHARACTER.THE_GIRL:
+			wager *= 2;
+			break;
+	}
+	return wager;
+}
+
+get_char_ability_wr = function(wr){
+	switch (room_character) {
+		case CHARACTER.CHIP_GUY:
+			break;
+		
+		case CHARACTER.COOL_CHIP_GUY:
+			wr += 1;
+			break;
+		
+		case CHARACTER.COW_MAN:
+			break;
+		
+		case CHARACTER.THE_GIRL:
+			break;
+	}	
+	return wr;
 }

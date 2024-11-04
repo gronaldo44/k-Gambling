@@ -54,6 +54,22 @@ global.set_roomtype = function(loc, roomType) {
     }
 };
 
+// Set the character at room "loc"
+global.set_roomChar = function(loc, c) {
+    var room_instance = grid_rooms[loc];
+    
+    if (room_instance != noone) {
+        room_instance.room_character = c;
+        
+        show_debug_message("Room " + string(loc) + " character set to " + string(c));
+    }
+    
+    var shop_ui = instance_find(obj_shop_ui, 0);
+    with(shop_ui) {
+        visible = false;
+        room_loc = -1;
+    }
+};
 
 global.start_casino = function() {
     show_debug_message("Starting Casino rooms");

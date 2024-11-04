@@ -16,6 +16,34 @@ global.profit_tokens_lost = 0;
 global.profit_tokens_earned = 0;
 // global.gamespeed = 1;
 
+global.gain_tokens = function(tokens, char){
+	switch (char) {
+		case CHARACTER.CHIP_GUY:
+			tokens += 1;
+			break;
+		
+		case CHARACTER.COOL_CHIP_GUY:
+			tokens += 2;
+			break;
+		
+		case CHARACTER.COW_MAN:
+			tokens += ceil(tokens * 0.15);
+			break;
+		
+		case CHARACTER.THE_GIRL:
+			tokens += ceil(tokens * 0.25);
+			break;
+	}
+	
+	global.token += tokens;
+	global.profit_tokens += tokens;
+	if (tokens > 0){
+		global.profit_tokens_earned += tokens;
+	} else {
+		global.profit_tokens_lost += tokens;
+	}
+}
+
 global.gain_exp = function(exp_gained){
 	global.exp += exp_gained;
 	global.profit_exp += exp_gained;
