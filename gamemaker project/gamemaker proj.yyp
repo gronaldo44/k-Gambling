@@ -1,6 +1,6 @@
 {
   "$GMProject":"",
-  "%Name":"github setup",
+  "%Name":"gamemaker proj",
   "AudioGroups":[
     {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
@@ -40,9 +40,9 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.8.0.169",
+    "IDEVersion":"2024.6.2.162",
   },
-  "name":"github setup",
+  "name":"gamemaker proj",
   "resources":[
     {"id":{"name":"fnt_gacha","path":"fonts/fnt_gacha/fnt_gacha.yy",},},
     {"id":{"name":"obj_bar_room","path":"objects/obj_bar_room/obj_bar_room.yy",},},

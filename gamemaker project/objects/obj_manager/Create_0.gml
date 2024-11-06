@@ -1,11 +1,11 @@
 global.isPrepare = true;
-global.level = 0;
+global.level = 1;
 global.exp = 0;
 global.weeklyprofit = 0;
 global.weeklyloss = 0;
 global.daytimer = 0;
 global.days = 0;
-global.token = 75;
+global.token = 100;
 global.gachaPulled = 0;
 
 // profit is used like the word total/net here

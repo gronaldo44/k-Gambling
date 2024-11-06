@@ -8,7 +8,7 @@ enum ROOM_TYPE {
 	SLOTS = 6,
 	BACCARAT = 7,
 	CRAPS = 8,
-	PACHINKO = 9
+	PACHINKO = 9,
 }
 
 // Set room positions in a 2x4 grid
@@ -29,8 +29,12 @@ for (var i = 0; i < grid_width * grid_height; i++) {
     grid_rooms[i] = r; // Store the instance in the array
 
     // Set starting room for level 0
-    if (i == 6){
+	if (i == 5){
         r.roomType = ROOM_TYPE.OPEN;	
+        r.image_index = r.roomType;
+	}
+    if (i == 6){
+        r.roomType = ROOM_TYPE.LOBBY;	
         r.image_index = r.roomType;
     }
 }
