@@ -6,7 +6,7 @@ result_2 = floor(random_range(0, 2 + 1));
 
 if(result_2 == 0)
 {
-	ds_map_replace(global.characters, "Chip guy", ds_map_find_value(global.characters,"Chip guy") + 1);
+	ds_map_replace(global.characters, CHARACTER.CHIP_GUY, ds_map_find_value(global.characters,CHARACTER.CHIP_GUY) + 1);
 
 	show_debug_message(string("You get a chipguy"));
 	
@@ -15,7 +15,7 @@ if(result_2 == 0)
 
 if(result_2 == 1)
 {
-	ds_map_replace(global.characters, "Cool chip guy", ds_map_find_value(global.characters,"Cool chip guy") + 1);
+	ds_map_replace(global.characters, CHARACTER.COOL_CHIP_GUY, ds_map_find_value(global.characters,CHARACTER.COOL_CHIP_GUY) + 1);
 
 	show_debug_message(string("You get a cool chipguy"));
 	
@@ -24,7 +24,7 @@ if(result_2 == 1)
 
 if(result_2 == 2)
 {
-	ds_map_replace(global.characters, "Cow man", ds_map_find_value(global.characters,"Cow man") + 1);
+	ds_map_replace(global.characters, CHARACTER.COW_MAN, ds_map_find_value(global.characters,CHARACTER.COW_MAN) + 1);
 
 	show_debug_message(string("You get a cowman"));
 	
