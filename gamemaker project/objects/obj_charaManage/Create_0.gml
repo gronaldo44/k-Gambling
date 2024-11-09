@@ -7,6 +7,8 @@ enum CHARACTER {
 	THE_GIRL = 3
 }
 
+
+
 global.characters = ds_map_create();
 ds_map_add(global.characters, CHARACTER.CHIP_GUY, 0);
 ds_map_add(global.characters, CHARACTER.COOL_CHIP_GUY, 0);

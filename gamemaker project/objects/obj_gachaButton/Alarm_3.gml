@@ -10,7 +10,7 @@ if(result_2 == 0)
 
 	show_debug_message(string("You get a chipguy"));
 	
-	instance_create_layer(960, 590, "Instances", obj_clipguy_result);
+	instance_create_layer(960, 590, "Gacha", obj_clipguy_result);
 }
 
 if(result_2 == 1)
@@ -19,7 +19,7 @@ if(result_2 == 1)
 
 	show_debug_message(string("You get a cool chipguy"));
 	
-	instance_create_layer(960, 590, "Instances", obj_coolclipguy_result);
+	instance_create_layer(960, 590, "Gacha", obj_coolclipguy_result);
 }
 
 if(result_2 == 2)
@@ -28,5 +28,5 @@ if(result_2 == 2)
 
 	show_debug_message(string("You get a cowman"));
 	
-	instance_create_layer(960, 590, "Instances", obj_cowman_result);
+	instance_create_layer(960, 590, "Gacha", obj_cowman_result);
 }

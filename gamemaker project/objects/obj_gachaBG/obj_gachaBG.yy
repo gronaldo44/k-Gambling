@@ -1,21 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_gachaButton_enter",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_gachaBG",
+  "eventList":[],
   "managed":true,
-  "name":"obj_gachaButton_enter",
+  "name":"obj_gachaBG",
   "overriddenProperties":[],
   "parent":{
     "name":"Gacha",
     "path":"folders/Objects/Gacha.yy",
   },
-  "parentObjectId":{
-    "name":"obj_button_parent",
-    "path":"objects/obj_button_parent/obj_button_parent.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -34,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_gacha_icon",
-    "path":"sprites/spr_gacha_icon/spr_gacha_icon.yy",
+    "name":"spr_gachaBG2",
+    "path":"sprites/spr_gachaBG2/spr_gachaBG2.yy",
   },
   "spriteMaskId":null,
   "visible":true,

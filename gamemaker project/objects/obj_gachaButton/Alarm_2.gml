@@ -4,4 +4,4 @@ show_debug_message(string("You get a 3 star"));
 
 	show_debug_message(string("You get the girl"));
 	
-	instance_create_layer(960, 590, "Instances", obj_thegirl_result);
+	instance_create_layer(960, 590, "Gacha", obj_thegirl_result);
