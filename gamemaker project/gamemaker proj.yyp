@@ -51,6 +51,7 @@
     {"id":{"name":"obj_button_parent","path":"objects/obj_button_parent/obj_button_parent.yy",},},
     {"id":{"name":"obj_character_button","path":"objects/obj_character_button/obj_character_button.yy",},},
     {"id":{"name":"obj_charaManage","path":"objects/obj_charaManage/obj_charaManage.yy",},},
+    {"id":{"name":"obj_cheat_manage","path":"objects/obj_cheat_manage/obj_cheat_manage.yy",},},
     {"id":{"name":"obj_clipguy_result","path":"objects/obj_clipguy_result/obj_clipguy_result.yy",},},
     {"id":{"name":"obj_coolclipguy_result","path":"objects/obj_coolclipguy_result/obj_coolclipguy_result.yy",},},
     {"id":{"name":"obj_cowman_result","path":"objects/obj_cowman_result/obj_cowman_result.yy",},},
