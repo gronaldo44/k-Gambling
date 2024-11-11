@@ -8,7 +8,7 @@ room_tokens_lost = 0;
 room_tokens_wagered = 0;
 room_character = -1;
 
-
+// Bar OnUpdate
 OnBarUpdate = function()
 {
 	global.gain_tokens(6, room_character);
@@ -19,6 +19,7 @@ OnBarUpdate = function()
 }
 BarTimer = time_source_create(time_source_game, 1, time_source_units_seconds, OnBarUpdate, [], -1);
 
+// Blackjack OnUpdate
 OnBlackjackUpdate = function()
 {
 	var wager = 20;
@@ -48,6 +49,7 @@ OnBlackjackUpdate = function()
 }
 BlackjackTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnBlackjackUpdate, [], -1);
 
+// Starts this room's OnUpdate
 start_room = function() {
 	switch (roomType) {
 		case ROOM_TYPE.OPEN:
@@ -70,9 +72,14 @@ start_room = function() {
 			show_debug_message("Starting BLACKJACK room " + string(room_index));
 			time_source_start(BlackjackTimer);
 			break;
+			
+		default:
+			show_debug_message("StartRoom() not implemented yet " + string(room_index));
+			break;
 	}
 }
 
+// Stops this room's OnUpdate
 stop_room = function() {
 	switch (roomType) {
 		case ROOM_TYPE.OPEN:
@@ -123,7 +130,7 @@ get_room_stats = function(){
 				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
 		
 		default:
-			return("Not yet implemented.");
+			return("Get_Room_Stats() Not yet implemented.");
 	}
 }
 

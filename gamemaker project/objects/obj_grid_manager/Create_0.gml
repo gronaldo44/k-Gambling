@@ -1,4 +1,4 @@
-enum ROOM_TYPE {
+enum ROOM_TYPE {	// frame for this room on the sprite
 	LOCKED = 0,
 	OPEN = 1,
 	BAR = 2,
