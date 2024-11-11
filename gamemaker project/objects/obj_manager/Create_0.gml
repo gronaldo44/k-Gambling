@@ -16,6 +16,8 @@ global.profit_tokens_lost = 0;
 global.profit_tokens_earned = 0;
 // global.gamespeed = 1;
 
+global.is_gacha = false
+
 global.gain_tokens = function(tokens, char){
 	switch (char) {
 		case CHARACTER.CHIP_GUY:

@@ -77,6 +77,7 @@
     {"id":{"name":"obj_strbusin_button","path":"objects/obj_strbusin_button/obj_strbusin_button.yy",},},
     {"id":{"name":"obj_table_ui","path":"objects/obj_table_ui/obj_table_ui.yy",},},
     {"id":{"name":"obj_thegirl_result","path":"objects/obj_thegirl_result/obj_thegirl_result.yy",},},
+    {"id":{"name":"obj_token_result","path":"objects/obj_token_result/obj_token_result.yy",},},
     {"id":{"name":"obj_token","path":"objects/obj_token/obj_token.yy",},},
     {"id":{"name":"obj_tokenInGacha","path":"objects/obj_tokenInGacha/obj_tokenInGacha.yy",},},
     {"id":{"name":"pth_blkjak_customers","path":"paths/pth_blkjak_customers/pth_blkjak_customers.yy",},},

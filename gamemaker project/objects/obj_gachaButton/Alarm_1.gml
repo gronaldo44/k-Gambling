@@ -24,9 +24,7 @@ result_1 = floor(random_range(0, 2 + 1));
 /// @DnDVersion : 1
 /// @DnDHash : 23749474
 /// @DnDArgument : "var" "result_1"
-if(result_1 == 0)
-{
-	/// @DnDAction : YoYo Games.Common.Set_Global
+if(result_1 == 0){	/// @DnDAction : YoYo Games.Common.Set_Global
 	/// @DnDVersion : 1
 	/// @DnDHash : 36450632
 	/// @DnDParent : 23749474
@@ -41,16 +39,24 @@ if(result_1 == 0)
 	/// @DnDParent : 23749474
 	/// @DnDArgument : "msg" ""You get 1 token""
 	show_debug_message(string("You get 1 token"));
-}
+
+	/// @DnDAction : YoYo Games.Instances.Create_Instance
+	/// @DnDVersion : 1
+	/// @DnDHash : 2BA4334C
+	/// @DnDParent : 23749474
+	/// @DnDArgument : "xpos" "960"
+	/// @DnDArgument : "ypos" "590"
+	/// @DnDArgument : "objectid" "obj_token_result"
+	/// @DnDArgument : "layer" ""Gacha""
+	/// @DnDSaveInfo : "objectid" "obj_token_result"
+	instance_create_layer(960, 590, "Gacha", obj_token_result);}
 
 /// @DnDAction : YoYo Games.Common.If_Variable
 /// @DnDVersion : 1
 /// @DnDHash : 0BE32A53
 /// @DnDArgument : "var" "result_1"
 /// @DnDArgument : "value" "1"
-if(result_1 == 1)
-{
-	/// @DnDAction : YoYo Games.Common.Set_Global
+if(result_1 == 1){	/// @DnDAction : YoYo Games.Common.Set_Global
 	/// @DnDVersion : 1
 	/// @DnDHash : 2250549C
 	/// @DnDParent : 0BE32A53
@@ -65,16 +71,24 @@ if(result_1 == 1)
 	/// @DnDParent : 0BE32A53
 	/// @DnDArgument : "msg" ""You get 5 token""
 	show_debug_message(string("You get 5 token"));
-}
+
+	/// @DnDAction : YoYo Games.Instances.Create_Instance
+	/// @DnDVersion : 1
+	/// @DnDHash : 405E3A5B
+	/// @DnDParent : 0BE32A53
+	/// @DnDArgument : "xpos" "960"
+	/// @DnDArgument : "ypos" "590"
+	/// @DnDArgument : "objectid" "obj_token_result"
+	/// @DnDArgument : "layer" ""Gacha""
+	/// @DnDSaveInfo : "objectid" "obj_token_result"
+	instance_create_layer(960, 590, "Gacha", obj_token_result);}
 
 /// @DnDAction : YoYo Games.Common.If_Variable
 /// @DnDVersion : 1
 /// @DnDHash : 0F31B123
 /// @DnDArgument : "var" "result_1"
 /// @DnDArgument : "value" "2"
-if(result_1 == 2)
-{
-	/// @DnDAction : YoYo Games.Common.Set_Global
+if(result_1 == 2){	/// @DnDAction : YoYo Games.Common.Set_Global
 	/// @DnDVersion : 1
 	/// @DnDHash : 3DD1357D
 	/// @DnDParent : 0F31B123
@@ -89,4 +103,14 @@ if(result_1 == 2)
 	/// @DnDParent : 0F31B123
 	/// @DnDArgument : "msg" ""You get 10 token""
 	show_debug_message(string("You get 10 token"));
-}
+
+	/// @DnDAction : YoYo Games.Instances.Create_Instance
+	/// @DnDVersion : 1
+	/// @DnDHash : 11990538
+	/// @DnDParent : 0F31B123
+	/// @DnDArgument : "xpos" "960"
+	/// @DnDArgument : "ypos" "590"
+	/// @DnDArgument : "objectid" "obj_token_result"
+	/// @DnDArgument : "layer" ""Gacha""
+	/// @DnDSaveInfo : "objectid" "obj_token_result"
+	instance_create_layer(960, 590, "Gacha", obj_token_result);}
