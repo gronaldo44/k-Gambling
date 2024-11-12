@@ -195,34 +195,34 @@ OnPachinkoUpdate = function()
 }
 PachinkoTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnPachinkoUpdate, [], -1);
 
-OnSlotsUpdate = function()
-{
-    var wager = 400;
-    var winrate = 72;
-    wager = get_char_ability_wager(wager);
-    winrate = get_char_ability_wr(winrate);
+//OnSlotsUpdate = function()
+//{
+//    var wager = 400;
+//    var winrate = 72;
+//    wager = get_char_ability_wager(wager);
+//    winrate = get_char_ability_wr(winrate);
 
-    var houseWins = irandom_range(1, 100) <= winrate;
+//    var houseWins = irandom_range(1, 100) <= winrate;
 
-    room_tokens_wagered += wager;
-    global.profit_tokens_wager += wager;
+//    room_tokens_wagered += wager;
+//    global.profit_tokens_wager += wager;
 
-    if (houseWins) {
-        global.gain_tokens(wager, room_character);
-        room_tokens_earned += wager;
-        show_debug_message("House wins! " + string(room_index));
-    } else {
-        // lose_tokens(wager, character)
-        global.gain_tokens(-wager, room_character);
-        room_tokens_lost += wager;
-        show_debug_message("House loses! " + string(room_index));
-    }
+//    if (houseWins) {
+//        global.gain_tokens(wager, room_character);
+//        room_tokens_earned += wager;
+//        show_debug_message("House wins! " + string(room_index));
+//    } else {
+//        // lose_tokens(wager, character)
+//        global.gain_tokens(-wager, room_character);
+//        room_tokens_lost += wager;
+//        show_debug_message("House loses! " + string(room_index));
+//    }
 
-    var exp_per_update = 50;
-    global.gain_exp(exp_per_update);
-    room_exp_earned += exp_per_update;
-}
-SlotsTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnSlotsUpdate(), [], -1);
+//    var exp_per_update = 50;
+//    global.gain_exp(exp_per_update);
+//    room_exp_earned += exp_per_update;
+//}
+//SlotsTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnSlotsUpdate(), [], -1);
 
 
 // Starts this room's OnUpdate
