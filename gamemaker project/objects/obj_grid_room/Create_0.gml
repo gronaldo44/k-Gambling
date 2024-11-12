@@ -270,11 +270,11 @@ start_room = function() {
             break;
 			
 			case ROOM_TYPE.SLOTS:
-            show_debug_message("Starting PACHINKO room " + string(room_index));
+            show_debug_message("Starting SLOTS room " + string(room_index));
             time_source_start(RouletteTimer);
             break;
 			
-			case ROOM_TYPE.SLOTS:
+			case ROOM_TYPE.CRAPS:
             show_debug_message("Starting CRAPS room " + string(room_index));
             time_source_start(RouletteTimer);
             break;
@@ -318,8 +318,8 @@ stop_room = function() {
             time_source_pause(PokerTimer);
             break;
 			
-			case ROOM_TYPE.POKER:
-            show_debug_message("Pausing POKER room " + string(room_index));
+			case ROOM_TYPE.ROULETTE:
+            show_debug_message("Pausing ROULETTE room " + string(room_index));
             time_source_pause(RouletteTimer);
             break;
 			
