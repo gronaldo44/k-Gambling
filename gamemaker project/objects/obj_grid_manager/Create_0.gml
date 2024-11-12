@@ -1,15 +1,15 @@
 enum ROOM_TYPE {	// frame for this room on the sprite
-	LOCKED = 0,
-	OPEN = 1,
+	OPEN = 0,
+	LOCKED = 1,
 	BAR = 2,
-	BLACKJACK = 3,
+	PACHINKO = 3,
 	LOBBY = 4,
-	ROULETTE = 5,
-	SLOTS = 6,
-	BACCARAT = 7,
-	CRAPS = 8,
-	PACHINKO = 9,
-	POKER = 10,
+	BLACKJACK = 5,
+	BACCARAT = 6,
+	POKER = 7,
+	ROULETTE = 8,
+	SLOTS = 9,
+	CRAPS = 10,
 }
 
 // Set room positions in a 2x4 grid
