@@ -31,5 +31,11 @@ if(accept_key){
 				global.set_roomtype(room_loc, ROOM_TYPE.BLACKJACK)
 			}
 			break;
+			case 3:
+			//spawn in black jack room
+			if (try_spend_tokens(10)){
+				global.set_roomtype(room_loc, ROOM_TYPE.BACCARAT)
+			}
+			break;
 	}
 }

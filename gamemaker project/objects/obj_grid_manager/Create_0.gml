@@ -9,6 +9,7 @@ enum ROOM_TYPE {	// frame for this room on the sprite
 	BACCARAT = 7,
 	CRAPS = 8,
 	PACHINKO = 9,
+	POKER = 10,
 }
 
 // Set room positions in a 2x4 grid

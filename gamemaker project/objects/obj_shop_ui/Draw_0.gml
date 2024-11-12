@@ -31,3 +31,7 @@ if(pos == 2){
 	draw_sprite_ext(spr_black_jack, 0, 1700, 535, .70, .66, 0, c_white, 1);
 	draw_text_transformed(1500, 700, "51% for +20 token, 49% for -20", .60, .60, 0);
 }
+if(pos == 3){
+	draw_sprite_ext(spr_black_jack_2, 0, 1700, 535, .70, .66, 0, c_white, 1);
+	draw_text_transformed(1500, 700, "51% for +20 token, 49% for -20", .60, .60, 0);
+}

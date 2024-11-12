@@ -15,6 +15,7 @@ visible = false;
 option[0] = "[75] Lobby";
 option[1] = "[100] Bar Room";
 option[2] = "[125] Black Jack Room"
+option[3] = "[10] Baccart Room"
 
 op_length = array_length(option);
 
