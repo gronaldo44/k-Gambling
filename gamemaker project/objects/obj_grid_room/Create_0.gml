@@ -49,7 +49,7 @@ OnBlackjackUpdate = function()
 }
 BlackjackTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnBlackjackUpdate, [], -1)
 
-OnBaccaratUpdate = function()
+OnCrapsUpdate = function()
 {
     var wager = 50;
     var winrate = 54;
@@ -72,11 +72,157 @@ OnBaccaratUpdate = function()
         show_debug_message("House loses! " + string(room_index));
     }
 
-    var exp_per_update = 45;
+    var exp_per_update = 35;
+    global.gain_exp(exp_per_update);
+    room_exp_earned += exp_per_update;
+}
+CrapsTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnCrapsUpdate, [], -1);
+
+
+OnBaccaratUpdate = function()
+{
+    var wager = 90;
+    var winrate = 56;
+    wager = get_char_ability_wager(wager);
+    winrate = get_char_ability_wr(winrate);
+
+    var houseWins = irandom_range(1, 100) <= winrate;
+
+    room_tokens_wagered += wager;
+    global.profit_tokens_wager += wager;
+
+    if (houseWins) {
+        global.gain_tokens(wager, room_character);
+        room_tokens_earned += wager;
+        show_debug_message("House wins! " + string(room_index));
+    } else {
+        // lose_tokens(wager, character)
+        global.gain_tokens(-wager, room_character);
+        room_tokens_lost += wager;
+        show_debug_message("House loses! " + string(room_index));
+    }
+
+    var exp_per_update = 35;
     global.gain_exp(exp_per_update);
     room_exp_earned += exp_per_update;
 }
 BaccaratTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnBaccaratUpdate, [], -1);
+
+OnPokerUpdate = function()
+{
+    var wager = 150;
+    var winrate = 58;
+    wager = get_char_ability_wager(wager);
+    winrate = get_char_ability_wr(winrate);
+
+    var houseWins = irandom_range(1, 100) <= winrate;
+
+    room_tokens_wagered += wager;
+    global.profit_tokens_wager += wager;
+
+    if (houseWins) {
+        global.gain_tokens(wager, room_character);
+        room_tokens_earned += wager;
+        show_debug_message("House wins! " + string(room_index));
+    } else {
+        // lose_tokens(wager, character)
+        global.gain_tokens(-wager, room_character);
+        room_tokens_lost += wager;
+        show_debug_message("House loses! " + string(room_index));
+    }
+
+    var exp_per_update = 50;
+    global.gain_exp(exp_per_update);
+    room_exp_earned += exp_per_update;
+}
+PokerTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnPokerUpdate, [], -1);
+
+OnRouletteUpdate = function()
+{
+    var wager = 200;
+    var winrate = 62;
+    wager = get_char_ability_wager(wager);
+    winrate = get_char_ability_wr(winrate);
+
+    var houseWins = irandom_range(1, 100) <= winrate;
+
+    room_tokens_wagered += wager;
+    global.profit_tokens_wager += wager;
+
+    if (houseWins) {
+        global.gain_tokens(wager, room_character);
+        room_tokens_earned += wager;
+        show_debug_message("House wins! " + string(room_index));
+    } else {
+        // lose_tokens(wager, character)
+        global.gain_tokens(-wager, room_character);
+        room_tokens_lost += wager;
+        show_debug_message("House loses! " + string(room_index));
+    }
+
+    var exp_per_update = 50;
+    global.gain_exp(exp_per_update);
+    room_exp_earned += exp_per_update;
+}
+RouletteTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnRouletteUpdate, [], -1);
+
+OnPachinkoUpdate = function()
+{
+    var wager = 300;
+    var winrate = 66;
+    wager = get_char_ability_wager(wager);
+    winrate = get_char_ability_wr(winrate);
+
+    var houseWins = irandom_range(1, 100) <= winrate;
+
+    room_tokens_wagered += wager;
+    global.profit_tokens_wager += wager;
+
+    if (houseWins) {
+        global.gain_tokens(wager, room_character);
+        room_tokens_earned += wager;
+        show_debug_message("House wins! " + string(room_index));
+    } else {
+        // lose_tokens(wager, character)
+        global.gain_tokens(-wager, room_character);
+        room_tokens_lost += wager;
+        show_debug_message("House loses! " + string(room_index));
+    }
+
+    var exp_per_update = 50;
+    global.gain_exp(exp_per_update);
+    room_exp_earned += exp_per_update;
+}
+PachinkoTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnPachinkoUpdate, [], -1);
+
+OnSlotsUpdate = function()
+{
+    var wager = 400;
+    var winrate = 72;
+    wager = get_char_ability_wager(wager);
+    winrate = get_char_ability_wr(winrate);
+
+    var houseWins = irandom_range(1, 100) <= winrate;
+
+    room_tokens_wagered += wager;
+    global.profit_tokens_wager += wager;
+
+    if (houseWins) {
+        global.gain_tokens(wager, room_character);
+        room_tokens_earned += wager;
+        show_debug_message("House wins! " + string(room_index));
+    } else {
+        // lose_tokens(wager, character)
+        global.gain_tokens(-wager, room_character);
+        room_tokens_lost += wager;
+        show_debug_message("House loses! " + string(room_index));
+    }
+
+    var exp_per_update = 50;
+    global.gain_exp(exp_per_update);
+    room_exp_earned += exp_per_update;
+}
+SlotsTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnSlotsUpdate(), [], -1);
 
 
 // Starts this room's OnUpdate
@@ -104,9 +250,33 @@ start_room = function() {
 			break;
 			
 			case ROOM_TYPE.BACCARAT:
-            // display_room_ui(room_index, roomType);
             show_debug_message("Starting BACCARAT room " + string(room_index));
             time_source_start(BaccaratTimer);
+            break;
+			
+			case ROOM_TYPE.POKER:
+            show_debug_message("Starting POKER room " + string(room_index));
+            time_source_start(PokerTimer);
+            break;
+			
+			case ROOM_TYPE.ROULETTE:
+            show_debug_message("Starting POKER room " + string(room_index));
+            time_source_start(RouletteTimer);
+            break;
+			
+			case ROOM_TYPE.PACHINKO:
+            show_debug_message("Starting PACHINKO room " + string(room_index));
+            time_source_start(RouletteTimer);
+            break;
+			
+			case ROOM_TYPE.SLOTS:
+            show_debug_message("Starting PACHINKO room " + string(room_index));
+            time_source_start(RouletteTimer);
+            break;
+			
+			case ROOM_TYPE.SLOTS:
+            show_debug_message("Starting CRAPS room " + string(room_index));
+            time_source_start(RouletteTimer);
             break;
 			
 		default:
@@ -139,9 +309,33 @@ stop_room = function() {
 			break;
 			
 			case ROOM_TYPE.BACCARAT:
-            // display_room_ui(room_index, roomType);
             show_debug_message("Pausing BACCARAT room " + string(room_index));
             time_source_pause(BaccaratTimer);
+            break;
+			
+			case ROOM_TYPE.POKER:
+            show_debug_message("Pausing POKER room " + string(room_index));
+            time_source_pause(PokerTimer);
+            break;
+			
+			case ROOM_TYPE.POKER:
+            show_debug_message("Pausing POKER room " + string(room_index));
+            time_source_pause(RouletteTimer);
+            break;
+			
+			case ROOM_TYPE.PACHINKO:
+            show_debug_message("Pausing PACHINKO room " + string(room_index));
+            time_source_pause(RouletteTimer);
+            break;
+			
+			case ROOM_TYPE.SLOTS:
+            show_debug_message("Pausing PACHINKO room " + string(room_index));
+            time_source_pause(RouletteTimer);
+            break;
+			
+			case ROOM_TYPE.CRAPS:
+            show_debug_message("Pausing PACHINKO room " + string(room_index));
+            time_source_pause(RouletteTimer);
             break;
 	}
 }
@@ -177,6 +371,46 @@ get_room_stats = function(){
 				"\nTokens Lost: " + string(room_tokens_lost) +
 				"\nTokens Wagered: " + string(room_tokens_wagered) +
 				"\nHouse Winrate: 54%" +
+				"\n\nExperience Gained: " + string(room_exp_earned) +
+				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
+				
+				case ROOM_TYPE.POKER:
+			return("Tokens Earned: " + string(room_tokens_earned) +
+				"\nTokens Lost: " + string(room_tokens_lost) +
+				"\nTokens Wagered: " + string(room_tokens_wagered) +
+				"\nHouse Winrate: 57%" +
+				"\n\nExperience Gained: " + string(room_exp_earned) +
+				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
+				
+				case ROOM_TYPE.ROULETTE:
+			return("Tokens Earned: " + string(room_tokens_earned) +
+				"\nTokens Lost: " + string(room_tokens_lost) +
+				"\nTokens Wagered: " + string(room_tokens_wagered) +
+				"\nHouse Winrate: 57%" +
+				"\n\nExperience Gained: " + string(room_exp_earned) +
+				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
+				
+					case ROOM_TYPE.PACHINKO:
+			return("Tokens Earned: " + string(room_tokens_earned) +
+				"\nTokens Lost: " + string(room_tokens_lost) +
+				"\nTokens Wagered: " + string(room_tokens_wagered) +
+				"\nHouse Winrate: 57%" +
+				"\n\nExperience Gained: " + string(room_exp_earned) +
+				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
+				
+				case ROOM_TYPE.SLOTS:
+			return("Tokens Earned: " + string(room_tokens_earned) +
+				"\nTokens Lost: " + string(room_tokens_lost) +
+				"\nTokens Wagered: " + string(room_tokens_wagered) +
+				"\nHouse Winrate: 57%" +
+				"\n\nExperience Gained: " + string(room_exp_earned) +
+				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
+				
+				case ROOM_TYPE.CRAPS:
+			return("Tokens Earned: " + string(room_tokens_earned) +
+				"\nTokens Lost: " + string(room_tokens_lost) +
+				"\nTokens Wagered: " + string(room_tokens_wagered) +
+				"\nHouse Winrate: 57%" +
 				"\n\nExperience Gained: " + string(room_exp_earned) +
 				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
 				
