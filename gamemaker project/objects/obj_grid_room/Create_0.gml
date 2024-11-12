@@ -47,7 +47,37 @@ OnBlackjackUpdate = function()
     global.gain_exp(exp_per_update);
 	room_exp_earned += exp_per_update;
 }
-BlackjackTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnBlackjackUpdate, [], -1);
+BlackjackTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnBlackjackUpdate, [], -1)
+
+OnBaccaratUpdate = function()
+{
+    var wager = 50;
+    var winrate = 54;
+    wager = get_char_ability_wager(wager);
+    winrate = get_char_ability_wr(winrate);
+
+    var houseWins = irandom_range(1, 100) <= winrate;
+
+    room_tokens_wagered += wager;
+    global.profit_tokens_wager += wager;
+
+    if (houseWins) {
+        global.gain_tokens(wager, room_character);
+        room_tokens_earned += wager;
+        show_debug_message("House wins! " + string(room_index));
+    } else {
+        // lose_tokens(wager, character)
+        global.gain_tokens(-wager, room_character);
+        room_tokens_lost += wager;
+        show_debug_message("House loses! " + string(room_index));
+    }
+
+    var exp_per_update = 45;
+    global.gain_exp(exp_per_update);
+    room_exp_earned += exp_per_update;
+}
+BaccaratTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnBaccaratUpdate, [], -1);
+
 
 // Starts this room's OnUpdate
 start_room = function() {
@@ -72,6 +102,12 @@ start_room = function() {
 			show_debug_message("Starting BLACKJACK room " + string(room_index));
 			time_source_start(BlackjackTimer);
 			break;
+			
+			case ROOM_TYPE.BACCARAT:
+            // display_room_ui(room_index, roomType);
+            show_debug_message("Starting BACCARAT room " + string(room_index));
+            time_source_start(BaccaratTimer);
+            break;
 			
 		default:
 			show_debug_message("StartRoom() not implemented yet " + string(room_index));
@@ -101,6 +137,12 @@ stop_room = function() {
 			show_debug_message("Pausing BLACKJACK room " + string(room_index));
 			time_source_pause(BlackjackTimer);
 			break;
+			
+			case ROOM_TYPE.BACCARAT:
+            // display_room_ui(room_index, roomType);
+            show_debug_message("Pausing BACCARAT room " + string(room_index));
+            time_source_pause(BaccaratTimer);
+            break;
 	}
 }
 
@@ -128,6 +170,17 @@ get_room_stats = function(){
 				"\nHouse Winrate: 52%" +
 				"\n\nExperience Gained: " + string(room_exp_earned) +
 				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
+				
+				
+		case ROOM_TYPE.BACCARAT:
+			return("Tokens Earned: " + string(room_tokens_earned) +
+				"\nTokens Lost: " + string(room_tokens_lost) +
+				"\nTokens Wagered: " + string(room_tokens_wagered) +
+				"\nHouse Winrate: 54%" +
+				"\n\nExperience Gained: " + string(room_exp_earned) +
+				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
+				
+				 
 		
 		default:
 			return("Get_Room_Stats() Not yet implemented.");

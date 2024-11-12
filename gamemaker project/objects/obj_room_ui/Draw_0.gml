@@ -25,6 +25,10 @@ if(pos == 0){
 		case ROOM_TYPE.BLACKJACK:
 			draw_text_transformed(1450, 500, "The Blackjack Room is a classic\nattraction that draws players looking for big\nwins. While skilled players can pose a risk,\nthe house edge ensures steady returns.\nUpgrading the room can attract high rollers\nand keep players engaged, making it\na valuable profit source for any casino.", .50, .50, 0);
 			break;
+			
+			case ROOM_TYPE.BACCARAT:
+			draw_text_transformed(1450, 500, "The Blackjack Room is a classic\nattraction that draws players looking for big\nwins. While skilled players can pose a risk,\nthe house edge ensures steady returns.\nUpgrading the room can attract high rollers\nand keep players engaged, making it\na valuable profit source for any casino.", .50, .50, 0);
+			break;
 		
 		default:
 			draw_text_transformed(1450, 700, "Gambling is very risky, maybe walk away!", .50, .50, 0);
@@ -38,6 +42,10 @@ if(pos == 1){
 			break;
 			
 		case ROOM_TYPE.BLACKJACK:
+			draw_text_transformed(1450, 500, global.get_room_stats(room_loc), .50, .50, 0);
+			break;
+			
+			case ROOM_TYPE.BACCARAT:
 			draw_text_transformed(1450, 500, global.get_room_stats(room_loc), .50, .50, 0);
 			break;
 		
