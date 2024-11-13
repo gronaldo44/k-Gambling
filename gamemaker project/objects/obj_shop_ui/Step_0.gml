@@ -15,7 +15,7 @@ if(close){
 }
 
 //selecting the room
-if(accept_key){
+if(accept_key && visible = true){
 	switch(pos){
 		case 0:
 			//spawn in bar room
