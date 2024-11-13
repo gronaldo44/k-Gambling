@@ -59,6 +59,17 @@ global.set_roomtype = function(loc, roomType) {
     }
 };
 
+// Gets the character at room "loc"
+global.get_roomChar = function(loc){
+	var room_instance = grid_rooms[loc];
+	
+	if (room_instance != noone) {
+		return room_instance.room_character;
+	} else {
+		show_debug_message("ROOM DOES NOT EXIST");
+	}	
+}
+
 // Set the character at room "loc" returns t/f if character was set
 global.set_roomChar = function(loc, c) {
     var room_instance = grid_rooms[loc];
@@ -84,10 +95,10 @@ global.set_roomChar = function(loc, c) {
         show_debug_message("Room " + string(loc) + " character set to " + string(c));
     }
     
-    var shop_ui = instance_find(obj_shop_ui, 0);
-    with(shop_ui) {
+    var room_ui = instance_find(obj_room_ui, 0);
+    with(room_ui) {
         visible = true;
-        room_loc = -1;
+        room_loc = loc;
     }
 	return true;
 };

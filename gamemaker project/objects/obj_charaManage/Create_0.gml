@@ -36,10 +36,10 @@ global.char_getLength = function(){
 
 global.char_getCharacterName = function(c)
 {
-	if(num = 0){return "Chippy"}
-	if(num = 1){return "Chipper"}
-	if(num = 2){return "Cowman"}
-	if(num = 3){return "Yuki"}
-	if(num = 4){return "Slotsy"}
+	if(c = CHARACTER.CHIP_GUY){return "Chippy"}
+	if(c = CHARACTER.COOL_CHIP_GUY){return "Chipper"}
+	if(c = CHARACTER.COW_MAN){return "Cowman"}
+	if(c = CHARACTER.THE_GIRL){return "Yuki"}
+	if(c = CHARACTER.SLOTSY){return "Slotsy"}
 }
 
