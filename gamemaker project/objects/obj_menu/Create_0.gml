@@ -23,14 +23,14 @@ for(var key = ds_map_find_first(global.characters); key != undefined; key = ds_m
 	num = ds_map_find_value(global.characters, key) //!= 0
 	show_debug_message(string(num));
 	if(num != 0){
-		str = global.getCharacterName(key) + " x " + string(num);
+		str = global.char_getCharacterName(key) + " x " + string(num);
 		option[count] = str;
 		count++;
 	}
 }
 
 if(count <= 0){
-	option[0] = "You have no Characters";
+	option[0] = "All your Employees are busy.";
 }
 
 op_length = array_length(option);

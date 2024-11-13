@@ -36,4 +36,6 @@ if(accept_key){
 		default:
 			show_debug_message("Set room char option not yet implemented");
 	}
+	global.uiopen = false;
+	instance_destroy();
 }
