@@ -31,10 +31,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_room_ui",
-    "path":"sprites/spr_room_ui/spr_room_ui.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
