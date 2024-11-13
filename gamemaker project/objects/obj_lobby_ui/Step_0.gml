@@ -2,7 +2,7 @@
 up_key = keyboard_check_pressed(vk_enter);
 down_key = keyboard_check_pressed(vk_rshift);
 //accept_key = keyboard_check_pressed(vk_space);
-close = keyboard_check_pressed(vk_backspace);
+close = keyboard_check_pressed(vk_escape);
 
 //move through the rooms
 pos += down_key - up_key;
