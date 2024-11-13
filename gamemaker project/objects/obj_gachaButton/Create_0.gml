@@ -13,6 +13,6 @@ text = "";
 /// @DnDAction : YoYo Games.Common.Variable
 /// @DnDVersion : 1
 /// @DnDHash : 68AB162F
-/// @DnDArgument : "expr" "100"
+/// @DnDArgument : "expr" "150"
 /// @DnDArgument : "var" "drawCost"
-drawCost = 100;
+drawCost = 150;
