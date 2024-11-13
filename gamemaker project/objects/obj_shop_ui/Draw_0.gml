@@ -5,7 +5,7 @@ draw_sprite_ext(sprite_index, image_index, x, y, width/sprite_width, height/spri
 draw_set_font(fnt_gacha);
 draw_set_valign(fa_top);
 draw_set_halign(fa_left);
-
+//MUST CHANGED CODE LATER
 // Define the number of items per column and the spacing between columns
 var items_per_column = 5; // Number of items in each column
 var column_spacing = 250; // Horizontal spacing between columns
@@ -46,7 +46,7 @@ if(pos == 1){
 
 if(pos == 2){
 	draw_sprite_ext(spr_craps, 0, 1199, 270, .44, .41, 0, c_white, 1);
-	draw_text_transformed_color(1010, 400, "56% for +90 token, 44% for -90", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1010, 400, "54% for +50 token, 44% for -50", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
 }
 
 
@@ -58,21 +58,21 @@ if(pos == 3){
 
 if(pos == 4){
 	draw_sprite_ext(spr_poker, 0, 1199, 270, .44, .41, 0, c_white, 1);
-	draw_text_transformed_color(1010, 400, "56% for +90 token, 44% for -90", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1010, 400, "58% for +150 token, 42% for -150", .55, .55, 0, c_black, c_black, c_black, c_black, 1);
 }
 
 if(pos == 5){
 	draw_sprite_ext(spr_roulette, 0, 1199, 270, .44, .41, 0, c_white, 1);
-	draw_text_transformed_color(1010, 400, "56% for +90 token, 44% for -90", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1010, 400, "62% for +200 token, 38% for -200", .55, .55, 0, c_black, c_black, c_black, c_black, 1);
 }
 
 if(pos == 6){
 	draw_sprite_ext(spr_pachinko, 0, 1199, 270, .44, .41, 0, c_white, 1);
-	draw_text_transformed_color(1010, 400, "56% for +90 token, 44% for -90", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1010, 400, "66% for +300 token, 34% for -300", .55, .55, 0, c_black, c_black, c_black, c_black, 1);
 }
 
 if(pos == 7){
 	draw_sprite_ext(spr_slots, 0, 1199, 270, .44, .41, 0, c_white, 1);
-	draw_text_transformed_color(1010, 400, "56% for +90 token, 44% for -90", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1010, 400, "72% for +400 token, 28% for -400", .55, .55, 0, c_black, c_black, c_black, c_black, 1);
 }
 

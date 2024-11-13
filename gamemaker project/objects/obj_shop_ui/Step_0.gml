@@ -37,21 +37,23 @@ if(accept_key && visible = true){
 				global.uiopen = false;
 			}
 			break;
+			
 			case 2:
-			//spawn in baccarat room
+			//spawn in CRAPS room
 			if (try_spend_tokens(180)){
-				global.set_roomtype(room_loc, ROOM_TYPE.BACCARAT)
+				global.set_roomtype(room_loc, ROOM_TYPE.CRAPS)
 				global.uiopen = false;
 			}
 			break;
 			
 			case 3:
-			//spawn in CRAPS room
+			//spawn in baccarat room
 			if (try_spend_tokens(250)){
-				global.set_roomtype(room_loc, ROOM_TYPE.CRAPS)
+				global.set_roomtype(room_loc, ROOM_TYPE.BACCARAT)
 				global.uiopen = false;
 			}
 			break;
+			
 			
 			case 4:
 			//spawn in POKER room
