@@ -59,41 +59,49 @@ function level_up(){
 	global.exp -= global.level * 100;
 	global.level++;
 	show_debug_message("Level Up: " + string(global.level));
+	obj_level_display.image_index = 0;
 	
 	// level 1
 	if (global.level == 1){
 		global.set_roomtype(5, ROOM_TYPE.OPEN);
 		global.token += 100;
+		obj_level_display.image_index = 1;
 	}
 	
 	// level 2
 	if (global.level == 2){
 		global.set_roomtype(7, ROOM_TYPE.OPEN);
+		obj_level_display.image_index = 2;
 	}
 	
 	// level 3
 	if (global.level == 3){
 		global.set_roomtype(4, ROOM_TYPE.OPEN);	
+		obj_level_display.image_index = 3;
 	}
 	
 	// level 4
 	if (global.level == 4){
 		global.set_roomtype(3, ROOM_TYPE.OPEN);
+		obj_level_display.image_index = 4;
 	}
 	
 	// level 5
 	if (global.level == 5){
 		global.set_roomtype(2, ROOM_TYPE.OPEN);	
+		obj_level_display.image_index = 5;
 	}
 	
 	// level 6
 		if (global.level == 6){
 		global.set_roomtype(1, ROOM_TYPE.OPEN);	
+		obj_level_display.image_index = 6;
 	}
 	
 	// level 7
 		if (global.level == 7){
 		global.set_roomtype(0, ROOM_TYPE.OPEN);	
+		obj_level_display.image_index = 7;
 	}
 	
 }

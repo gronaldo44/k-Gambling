@@ -12,10 +12,14 @@ pos = 0;
 room_loc = -1;
 visible = false;
 
-option[0] = "[75] Lobby";
-option[1] = "[100] Bar Room";
-option[2] = "[125] Black Jack Room"
-option[3] = "[10] Baccart Room"
+option[0] = "Bar";
+option[1] = "BlackJack"
+option[2] = "Baccart"
+option[3] = "Craps"
+option[4] = "Poker"
+option[5] = "Roulette"
+option[6] = "Pachinko"
+option[7] = "Slots"
 
 op_length = array_length(option);
 
