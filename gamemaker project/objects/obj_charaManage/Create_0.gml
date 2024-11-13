@@ -34,9 +34,9 @@ global.getLength = function(){
 
 global.getCharacterName = function(num)
 {
-	if(num = 0){return "Chip Guy"}
-	if(num = 1){return "Cool Chip Guy"}
-	if(num = 2){return "Cow Man"}
-	if(num = 3){return "The Girl"}
+	if(num = 0){return "Chippy"}
+	if(num = 1){return "Chipper"}
+	if(num = 2){return "Cowman"}
+	if(num = 3){return "Yuki"}
 }
 
