@@ -32,10 +32,45 @@ if(accept_key){
 				global.uiopen = false;
 			}
 			break;
-			case 2:
+		case 2:
 			//spawn in baccarat room
 			if (try_spend_tokens(180)){
 				global.set_roomtype(room_loc, ROOM_TYPE.BACCARAT)
+				global.uiopen = false;
+			}
+			break;
+		case 3:
+			//spawn in craps room
+			//if (try_spend_tokens(250)){
+			//	global.set_roomtype(room_loc, ROOM_TYPE.BACCARAT)
+			//	global.uiopen = false;
+			//}
+			//break;
+		case 4:
+			//spawn in poker room
+			if (try_spend_tokens(350)){
+				global.set_roomtype(room_loc, ROOM_TYPE.POKER)
+				global.uiopen = false;
+			}
+			break;
+		case 5:
+			//spawn in roulette room
+			if (try_spend_tokens(475)){
+				global.set_roomtype(room_loc, ROOM_TYPE.ROULETTE)
+				global.uiopen = false;
+			}
+			break;
+		case 6:
+			//spawn in pachinko room
+			if (try_spend_tokens(580)){
+				global.set_roomtype(room_loc, ROOM_TYPE.PACHINKO)
+				global.uiopen = false;
+			}
+			break;
+		case 7:
+			//spawn in Slots room
+			if (try_spend_tokens(700)){
+				global.set_roomtype(room_loc, ROOM_TYPE.SLOTS)
 				global.uiopen = false;
 			}
 			break;
