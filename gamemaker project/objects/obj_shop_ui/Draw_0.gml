@@ -5,7 +5,7 @@ draw_sprite_ext(sprite_index, image_index, x, y, width/sprite_width, height/spri
 draw_set_font(fnt_gacha);
 draw_set_valign(fa_top);
 draw_set_halign(fa_left);
-for ( var i = 0; i < 4; i++)
+for ( var i = 0; i < 8; i++)
 	{
 	var _c = c_black;
 	if(pos == i){_c = #800000};
@@ -25,6 +25,17 @@ if(pos == 1){
 	draw_text_transformed_color(1010, 400, "51% for +20 token, 49% for -20", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
 }
 if(pos == 2){
-	draw_sprite_ext(spr_black_jack_2, 0, 1199, 270, .44, .41, 0, c_white, 1);
+	draw_sprite_ext(spr_baccarat, 0, 1199, 270, .44, .41, 0, c_white, 1);
 	draw_text_transformed_color(1010, 400, "56% for +90 token, 44% for -90", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
 }
+
+if(pos == 3){
+	draw_sprite_ext(spr_craps, 0, 1199, 270, .44, .41, 0, c_white, 1);
+	draw_text_transformed_color(1010, 400, "56% for +90 token, 44% for -90", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+}
+
+if(pos == 4){
+	draw_sprite_ext(spr_craps, 0, 1199, 270, .44, .41, 0, c_white, 1);
+	draw_text_transformed_color(1010, 400, "56% for +90 token, 44% for -90", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+}
+
