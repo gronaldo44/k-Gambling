@@ -14,8 +14,8 @@ visible = false;
 
 option[0] = "Bar";
 option[1] = "BlackJack"
-option[2] = "Baccart"
-option[3] = "Craps"
+option[2] = "Craps"
+option[3] = "Baccart"
 option[4] = "Poker"
 option[5] = "Roulette"
 option[6] = "Pachinko"
