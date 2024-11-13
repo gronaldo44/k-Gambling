@@ -18,25 +18,25 @@ ds_map_add(global.characters, CHARACTER.THE_GIRL, 0);
 //ds_map_replace(characters, "The girl", 1);
 
 //set the number of the character relative
-global.setCharacter = function(c, _num)
+global.char_setCharacter = function(c, _num)
 {
-	var count = ds_map_find_value(characters, c) + _num;
-	ds_map_replace(characters, c, count);
+	var count = ds_map_find_value(global.characters, c) + _num;
+	ds_map_replace(global.characters, c, count);
 }
 
-global.getValue = function(c){
-	return ds_map_find_value(characters, c);
+global.char_getValue = function(c){
+	return ds_map_find_value(global.characters, c);
 }
 
-global.getLength = function(){
-	return ds_map_size(characters);
+global.char_getLength = function(){
+	return ds_map_size(global.characters);
 }
 
-global.getCharacterName = function(num)
+global.char_getCharacterName = function(c)
 {
-	if(num = 0){return "Chip Guy"}
-	if(num = 1){return "Cool Chip Guy"}
-	if(num = 2){return "Cow Man"}
-	if(num = 3){return "The Girl"}
+	if(c = CHARACTER.CHIP_GUY){return "Chip Guy"}
+	if(c = CHARACTER.COOL_CHIP_GUY){return "Cool Chip Guy"}
+	if(c = CHARACTER.COW_MAN){return "Cow Man"}
+	if(c = CHARACTER.THE_GIRL){return "The Girl"}
 }
 

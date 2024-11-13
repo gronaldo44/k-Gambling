@@ -59,11 +59,26 @@ global.set_roomtype = function(loc, roomType) {
     }
 };
 
-// Set the character at room "loc"
+// Set the character at room "loc" returns t/f if character was set
 global.set_roomChar = function(loc, c) {
     var room_instance = grid_rooms[loc];
+	
+	// check if that character is available
+	if (global.char_getValue(c) > 0){
+		global.char_setCharacter(c, -1);
+	} else {
+		show_debug_message("set_roomchar " + string(loc) + " character unavailable.");	
+		return false;
+	}
     
+	// check if that room exists
     if (room_instance != noone) {
+		// Remove old character
+		if (room_instance.room_character > 0){
+			global.char_setCharacter(room_instance.room_character, 1);
+		}
+		
+		// Add new character
         room_instance.room_character = c;
         
         show_debug_message("Room " + string(loc) + " character set to " + string(c));
@@ -71,9 +86,10 @@ global.set_roomChar = function(loc, c) {
     
     var shop_ui = instance_find(obj_shop_ui, 0);
     with(shop_ui) {
-        visible = false;
+        visible = true;
         room_loc = -1;
     }
+	return true;
 };
 
 global.start_casino = function() {

@@ -18,26 +18,22 @@ if(close){
 if(accept_key){
 	switch(pos){
 		case 0:
-			//spawn in bar room
-			if (try_spend_tokens(75)){
-				global.set_roomtype(room_loc, ROOM_TYPE.BAR)
-				global.uiopen = false;
-			}
+			// Chippy
+			global.set_roomChar(room_loc, CHARACTER.CHIP_GUY);
 			break;
-		
 		case 1:
-			//spawn in black jack room
-			if (try_spend_tokens(125)){
-				global.set_roomtype(room_loc, ROOM_TYPE.BLACKJACK)
-				global.uiopen = false;
-			}
+			// Chipper
+			global.set_roomChar(room_loc, CHARACTER.COOL_CHIP_GUY);
 			break;
-			case 2:
-			//spawn in baccarat room
-			if (try_spend_tokens(180)){
-				global.set_roomtype(room_loc, ROOM_TYPE.BACCARAT)
-				global.uiopen = false;
-			}
+		case 2:
+			// Cow
+			global.set_roomChar(room_loc, CHARACTER.COW_MAN);
 			break;
+		case 3:
+			// Yuki
+			global.set_roomChar(room_loc, CHARACTER.THE_GIRL);
+			break;
+		default:
+			show_debug_message("Set room char option not yet implemented");
 	}
 }
