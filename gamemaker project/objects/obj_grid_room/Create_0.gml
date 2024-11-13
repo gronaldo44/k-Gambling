@@ -369,7 +369,7 @@ get_room_stats = function(){
 			return("Tokens Earned: " + string(room_tokens_earned) +
 				"\nTokens Lost: " + string(room_tokens_lost) +
 				"\nTokens Wagered: " + string(room_tokens_wagered) +
-				"\nHouse Winrate: 54%" +
+				"\nHouse Winrate: 56%" +
 				"\n\nExperience Gained: " + string(room_exp_earned) +
 				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
 				
@@ -377,7 +377,7 @@ get_room_stats = function(){
 			return("Tokens Earned: " + string(room_tokens_earned) +
 				"\nTokens Lost: " + string(room_tokens_lost) +
 				"\nTokens Wagered: " + string(room_tokens_wagered) +
-				"\nHouse Winrate: 57%" +
+				"\nHouse Winrate: 58%" +
 				"\n\nExperience Gained: " + string(room_exp_earned) +
 				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
 				
@@ -385,7 +385,7 @@ get_room_stats = function(){
 			return("Tokens Earned: " + string(room_tokens_earned) +
 				"\nTokens Lost: " + string(room_tokens_lost) +
 				"\nTokens Wagered: " + string(room_tokens_wagered) +
-				"\nHouse Winrate: 57%" +
+				"\nHouse Winrate: 62%" +
 				"\n\nExperience Gained: " + string(room_exp_earned) +
 				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
 				
@@ -393,7 +393,7 @@ get_room_stats = function(){
 			return("Tokens Earned: " + string(room_tokens_earned) +
 				"\nTokens Lost: " + string(room_tokens_lost) +
 				"\nTokens Wagered: " + string(room_tokens_wagered) +
-				"\nHouse Winrate: 57%" +
+				"\nHouse Winrate: 66%" +
 				"\n\nExperience Gained: " + string(room_exp_earned) +
 				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
 				
@@ -401,7 +401,7 @@ get_room_stats = function(){
 			return("Tokens Earned: " + string(room_tokens_earned) +
 				"\nTokens Lost: " + string(room_tokens_lost) +
 				"\nTokens Wagered: " + string(room_tokens_wagered) +
-				"\nHouse Winrate: 57%" +
+				"\nHouse Winrate: 70%" +
 				"\n\nExperience Gained: " + string(room_exp_earned) +
 				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
 				
@@ -409,7 +409,7 @@ get_room_stats = function(){
 			return("Tokens Earned: " + string(room_tokens_earned) +
 				"\nTokens Lost: " + string(room_tokens_lost) +
 				"\nTokens Wagered: " + string(room_tokens_wagered) +
-				"\nHouse Winrate: 57%" +
+				"\nHouse Winrate: 54%" +
 				"\n\nExperience Gained: " + string(room_exp_earned) +
 				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
 				
