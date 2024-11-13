@@ -87,6 +87,7 @@
     {"id":{"name":"room_casino","path":"rooms/room_casino/room_casino.yy",},},
     {"id":{"name":"room_gacha_menu","path":"rooms/room_gacha_menu/room_gacha_menu.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"Building_Poker","path":"sprites/Building_Poker/Building_Poker.yy",},},
     {"id":{"name":"spr_baccarat","path":"sprites/spr_baccarat/spr_baccarat.yy",},},
     {"id":{"name":"spr_baccaratdsa","path":"sprites/spr_baccaratdsa/spr_baccaratdsa.yy",},},
     {"id":{"name":"spr_background","path":"sprites/spr_background/spr_background.yy",},},

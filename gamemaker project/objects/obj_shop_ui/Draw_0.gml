@@ -5,6 +5,7 @@ draw_sprite_ext(sprite_index, image_index, x, y, width/sprite_width, height/spri
 draw_set_font(fnt_gacha);
 draw_set_valign(fa_top);
 draw_set_halign(fa_left);
+
 // Define the number of items per column and the spacing between columns
 var items_per_column = 5; // Number of items in each column
 var column_spacing = 250; // Horizontal spacing between columns
