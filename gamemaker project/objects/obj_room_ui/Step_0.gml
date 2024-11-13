@@ -11,6 +11,7 @@ if(pos < 0){pos = op_length-1};
 
 if(close){
 	visible = false;
+	global.uiopen = false;
 }
 
 //selecting the room

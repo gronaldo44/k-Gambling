@@ -7,6 +7,7 @@ global.daytimer = 0;
 global.days = 0;
 global.token = 100;
 global.gachaPulled = 0;
+global.uiopen = false;
 
 // profit is used like the word total/net here
 global.profit_tokens = 0;

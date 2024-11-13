@@ -16,6 +16,7 @@ if(accept_key){
 			//spawn in front desk
 			if (try_spend_tokens(75)){
 				global.set_roomtype(room_loc, ROOM_TYPE.LOBBY)
+				global.uiopen = false;
 			}
 			break;
 	
@@ -23,6 +24,7 @@ if(accept_key){
 			//spawn in bar room
 			if (try_spend_tokens(100)){
 				global.set_roomtype(room_loc, ROOM_TYPE.BAR)
+				global.uiopen = false;
 			}
 			break;
 		
@@ -30,12 +32,14 @@ if(accept_key){
 			//spawn in black jack room
 			if (try_spend_tokens(125)){
 				global.set_roomtype(room_loc, ROOM_TYPE.BLACKJACK)
+				global.uiopen = false;
 			}
 			break;
 			case 3:
 			//spawn in black jack room
 			if (try_spend_tokens(10)){
 				global.set_roomtype(room_loc, ROOM_TYPE.BACCARAT)
+				global.uiopen = false;
 			}
 			break;
 	}
