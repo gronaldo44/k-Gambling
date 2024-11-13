@@ -16,15 +16,19 @@ for ( var i = 0; i < 4; i++)
 //display stats of room
 if(pos == 0){
 	//draws the sprite of the room into the display box
-	draw_sprite_ext(spr_bar, 0, 1199, 270, .35, .33, 0, c_white, 1);
+	draw_sprite_ext(spr_Schpguy_splash, 0, 1260, 270, .20, .16, 0, c_white, 1);
 	//info text of the room
-	draw_text_transformed_color(1020, 400, "+6 coin every second", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1050, 450, "Red chip", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
 }
 if(pos == 1){
-	draw_sprite_ext(spr_black_jack_2, 0, 1199, 270, .44, .41, 0, c_white, 1);
-	draw_text_transformed_color(1010, 400, "51% for +20 token, 49% for -20", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+	draw_sprite_ext(spr_coolChip_splash, 0, 1260, 270, .20, .16, 0, c_white, 1);
+	draw_text_transformed_color(1050, 450, "Cool black chip", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
 }
 if(pos == 2){
-	draw_sprite_ext(spr_black_jack_2, 0, 1199, 270, .44, .41, 0, c_white, 1);
-	draw_text_transformed_color(1010, 400, "56% for +90 token, 44% for -90", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+	draw_sprite_ext(spr_cow_splash, 0, 1260, 270, .20, .16, 0, c_white, 1);
+	draw_text_transformed_color(1050, 450, "Cow Man", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+}
+if(pos == 3){
+	draw_sprite_ext(spr_sgirl_splash, 0, 1260, 270, .20, .16, 0, c_white, 1);
+	draw_text_transformed_color(1050, 450, "Cow Man", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
 }

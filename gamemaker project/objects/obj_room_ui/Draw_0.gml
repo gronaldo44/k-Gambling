@@ -61,6 +61,7 @@ if(pos == 2){
 	draw_text_transformed(1020, 400, "Under Construction", .60, .60, 0);
 }
 if(pos == 3){
+
 	var room_char = global.get_roomChar(room_loc)
 	if (room_char >= 0){
 		// TODO Display the char sprite
