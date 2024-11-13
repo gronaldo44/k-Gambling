@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_cow_splash",
-    "path":"sprites/spr_cow_splash/spr_cow_splash.yy",
+    "name":"spr_splash_cowman",
+    "path":"sprites/spr_splash_cowman/spr_splash_cowman.yy",
   },
   "spriteMaskId":null,
   "visible":true,

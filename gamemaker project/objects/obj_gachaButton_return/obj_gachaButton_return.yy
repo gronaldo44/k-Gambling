@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_gachaButton1",
-    "path":"sprites/spr_gachaButton1/spr_gachaButton1.yy",
+    "name":"spr_close_button",
+    "path":"sprites/spr_close_button/spr_close_button.yy",
   },
   "spriteMaskId":null,
   "visible":true,

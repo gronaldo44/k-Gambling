@@ -6,13 +6,13 @@ event_inherited();
 /// @DnDAction : YoYo Games.Common.Variable
 /// @DnDVersion : 1
 /// @DnDHash : 49A9FACC
-/// @DnDArgument : "expr" ""Pull One!""
+/// @DnDArgument : "expr" """"
 /// @DnDArgument : "var" "text"
-text = "Pull One!";
+text = "";
 
 /// @DnDAction : YoYo Games.Common.Variable
 /// @DnDVersion : 1
 /// @DnDHash : 68AB162F
-/// @DnDArgument : "expr" "25"
+/// @DnDArgument : "expr" "100"
 /// @DnDArgument : "var" "drawCost"
-drawCost = 25;
+drawCost = 100;

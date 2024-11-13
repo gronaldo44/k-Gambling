@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_sgirl_splash",
-    "path":"sprites/spr_sgirl_splash/spr_sgirl_splash.yy",
+    "name":"spr_splash_yuki",
+    "path":"sprites/spr_splash_yuki/spr_splash_yuki.yy",
   },
   "spriteMaskId":null,
   "visible":true,
