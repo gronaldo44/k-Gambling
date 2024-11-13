@@ -13,7 +13,7 @@ room_loc = -1;
 visible = false;
 
 option[0] = "Bar";
-option[1] = "BlackJack"
+option[1] = "Blackjack"
 option[2] = "Craps"
 option[3] = "Baccart"
 option[4] = "Poker"
