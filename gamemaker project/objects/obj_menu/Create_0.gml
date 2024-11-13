@@ -20,7 +20,8 @@ for(var i = 0; i <  array_length(global.characters); i++)
 **/
 
 for(var key = ds_map_find_first(global.characters); key != undefined; key = ds_map_find_next(global.characters, key)){
-	num = ds_map_find_value(global.characters, key) != 0
+	num = ds_map_find_value(global.characters, key) //!= 0
+	show_debug_message(string(num));
 	if(num != 0){
 		str = global.getCharacterName(key) + " x " + string(num);
 		option[count] = str;
