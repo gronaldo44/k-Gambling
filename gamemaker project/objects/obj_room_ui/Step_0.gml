@@ -23,9 +23,8 @@ switch(pos){
 		break;
 	case 3:
 		if(accept_key){
-			visible = false
 			show_debug_message("Created Character Selection")
-			instance_create_layer(x, y, 1, obj_character_selection);
+			instance_create_layer(x, y, 1, obj_gacha_ui);
 		}
 		break;
 }
