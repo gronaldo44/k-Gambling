@@ -1,12 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_tutorial",
+  "%Name":"obj_tutorial_screen",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":27,"eventType":9,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_tutorial",
+  "name":"obj_tutorial_screen",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -31,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_tutorial_icon",
-    "path":"sprites/spr_tutorial_icon/spr_tutorial_icon.yy",
+    "name":"spr_tutorial_screen",
+    "path":"sprites/spr_tutorial_screen/spr_tutorial_screen.yy",
   },
   "spriteMaskId":null,
   "visible":true,
