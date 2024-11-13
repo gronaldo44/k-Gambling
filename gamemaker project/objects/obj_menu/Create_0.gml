@@ -22,7 +22,7 @@ for(var i = 0; i <  array_length(global.characters); i++)
 for(var key = ds_map_find_first(global.characters); key != undefined; key = ds_map_find_next(global.characters, key)){
 	num = ds_map_find_value(global.characters, key) != 0
 	if(num != 0){
-		str = string(num) + "x " + string(key);
+		str = global.getCharacterName(key) + " x " + string(num);
 		option[count] = str;
 		count++;
 	}

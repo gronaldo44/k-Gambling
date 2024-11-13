@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Sprite29",
-    "path":"sprites/Sprite29/Sprite29.yy",
+    "name":"spr_tutorial_icon",
+    "path":"sprites/spr_tutorial_icon/spr_tutorial_icon.yy",
   },
   "spriteMaskId":null,
   "visible":true,

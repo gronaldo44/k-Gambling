@@ -32,3 +32,11 @@ global.getLength = function(){
 	return ds_map_size(characters);
 }
 
+global.getCharacterName = function(num)
+{
+	if(num = 0){return "Chip Guy"}
+	if(num = 1){return "Cool Chip Guy"}
+	if(num = 2){return "Cow Man"}
+	if(num = 3){return "The Girl"}
+}
+
