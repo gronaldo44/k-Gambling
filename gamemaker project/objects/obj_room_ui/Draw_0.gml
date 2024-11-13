@@ -63,28 +63,8 @@ if(pos == 2){
 if(pos == 3){
 	var room_char = global.get_roomChar(room_loc)
 	if (room_char >= 0){
-		// Display the char sprite
-		switch(c){
-			case CHARACTER.CHIP_GUY:
-				draw_sprite_ext(spr_Schpguy_splash, 0, 1199, 270, .35, .33, 0, c_white, 1);
-				break;
-			
-			case CHARACTER.COOL_CHIP_GUY:
-				draw_sprite_ext(spr_coolChip_splash, 0, 1199, 270, .35, .33, 0, c_white, 1);
-				break;
-		
-			case CHARACTER.COW_MAN:
-				draw_sprite_ext(spr_cow_splash, 0, 1199, 270, .35, .33, 0, c_white, 1);
-				break;
-		
-			case CHARACTER.SLOTSY:
-				draw_sprite_ext(spr_splash_yuki, 0, 1199, 270, .35, .33, 0, c_white, 1);
-				break;
-		
-			case CHARACTER.THE_GIRL:
-				draw_sprite_ext(spr_splash_yuki, 0, 1199, 270, .35, .33, 0, c_white, 1);
-				break;
-		}
+		// TODO Display the char sprite
+		draw_text_transformed(1020, 400, global.char_getCharacterName(room_char), .50, .50, 0);
 	} else {
 		draw_text_transformed(1020, 400, "No Employee working in this room", .60, .60, 0);	
 	}
