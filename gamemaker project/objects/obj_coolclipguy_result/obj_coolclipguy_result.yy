@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_coolChip_splash",
-    "path":"sprites/spr_coolChip_splash/spr_coolChip_splash.yy",
+    "name":"spr_splash_chipper",
+    "path":"sprites/spr_splash_chipper/spr_splash_chipper.yy",
   },
   "spriteMaskId":null,
   "visible":true,
