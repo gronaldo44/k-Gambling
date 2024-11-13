@@ -34,23 +34,7 @@ if(pos == 0){
 	}
 }
 if(pos == 1){
-	switch (room_type) {
-		case ROOM_TYPE.BAR:
-			draw_text_transformed(1020, 400, global.get_room_stats(room_loc), .45, .45, 0);
-			break;
-			
-		case ROOM_TYPE.BLACKJACK:
-			draw_text_transformed(1020, 400, global.get_room_stats(room_loc), .45, .45, 0);
-			break;
-			
-			case ROOM_TYPE.BACCARAT:
-			draw_text_transformed(1020, 400, global.get_room_stats(room_loc), .45, .45, 0);
-			break;
-		
-		default:
-			draw_text_transformed(1020, 400, "Under Construction", .45, .45, 0);
-			break;
-	}
+	draw_text_transformed(1020, 400, global.get_room_stats(room_loc), .45, .45, 0);
 }
 if(pos == 2){
 	draw_text_transformed(1020, 400, "Under Construction", .60, .60, 0);
