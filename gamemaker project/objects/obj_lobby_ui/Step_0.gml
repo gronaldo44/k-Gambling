@@ -1,8 +1,8 @@
 //get mouse location
-up_key = keyboard_check_pressed(vk_enter);
-down_key = keyboard_check_pressed(vk_rshift);
+up_key = keyboard_check_pressed(mouse_wheel_down());
+down_key = keyboard_check_pressed(mouse_wheel_up());
 //accept_key = keyboard_check_pressed(vk_space);
-close = keyboard_check_pressed(vk_escape);
+close = keyboard_check_pressed(mb_right);
 
 //move through the rooms
 pos += down_key - up_key;
