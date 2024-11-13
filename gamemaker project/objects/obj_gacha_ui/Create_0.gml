@@ -10,7 +10,7 @@ op_space = 100;
 pos = 0;
 
 room_loc = -1;
-visible = false;
+visible = true;
 
 option[0] = "Chippy";
 option[1] = "Chipper"
