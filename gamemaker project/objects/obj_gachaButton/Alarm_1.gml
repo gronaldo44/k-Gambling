@@ -4,6 +4,16 @@
 /// @DnDArgument : "msg" ""You get a 1 star""
 show_debug_message(string("You get a 1 star"));
 
+/// @DnDAction : YoYo Games.Instances.Create_Instance
+/// @DnDVersion : 1
+/// @DnDHash : 342A65D1
+/// @DnDArgument : "xpos_relative" "1"
+/// @DnDArgument : "ypos_relative" "1"
+/// @DnDArgument : "objectid" "obj_anim_3star"
+/// @DnDArgument : "layer" ""Gacha""
+/// @DnDSaveInfo : "objectid" "obj_anim_3star"
+instance_create_layer(x + 0, y + 0, "Gacha", obj_anim_3star);
+
 /// @DnDAction : YoYo Games.Common.Set_Global
 /// @DnDVersion : 1
 /// @DnDHash : 353302FA

@@ -24,7 +24,7 @@
   ],
   "name":"spr_slotmachine",
   "nineSlice":null,
-  "origin":4,
+  "origin":9,
   "parent":{
     "name":"Gacha",
     "path":"folders/Sprites/Gacha.yy",
@@ -80,7 +80,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":1280,
-    "yorigin":720,
+    "yorigin":600,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

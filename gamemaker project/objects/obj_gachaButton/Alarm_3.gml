@@ -2,6 +2,8 @@ show_debug_message(string("You get a 4 star"));
 
 global.gachaPulled += 1;
 
+instance_create_layer(x + 0, y + 0, "Gacha", obj_anim_4star);
+
 result_2 = floor(random_range(0, 3 + 1));
 
 if(result_2 == 0)
