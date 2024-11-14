@@ -1,8 +1,17 @@
 //get mouse location
 up_key = keyboard_check_pressed(mouse_wheel_down());
 down_key = keyboard_check_pressed(mouse_wheel_up());
-accept_key = mouse_check_button_pressed(mb_right);
+accept_key = mouse_check_button_pressed(mb_left);
 close = keyboard_check_pressed(vk_escape);
+
+if (visible && !allow_accept) {
+    allow_accept = true; // Enable accept after the UI has been visible for a frame
+}
+
+if (visible && !is_opened) {
+    is_opened = true;       // Mark as opened
+    allow_accept = false;    // Disable immediate purchases
+}
 
 //move through the rooms
 pos += down_key - up_key;
@@ -15,22 +24,22 @@ if(close){
 }
 
 //selecting the room
-if(accept_key){
+if(accept_key && visible && allow_accept && is_opened){
 	switch(pos){
 		case 0:
-			// Chippy
+		
 			global.set_roomChar(room_loc, CHARACTER.CHIP_GUY);
 			break;
 		case 1:
-			// Chipper
+
 			global.set_roomChar(room_loc, CHARACTER.COOL_CHIP_GUY);
 			break;
 		case 2:
-			// Cow
+
 			global.set_roomChar(room_loc, CHARACTER.COW_MAN);
 			break;
 		case 3:
-			// Yuki
+
 			global.set_roomChar(room_loc, CHARACTER.THE_GIRL);
 			break;
 		default:
@@ -39,3 +48,4 @@ if(accept_key){
 	global.uiopen = false;
 	instance_destroy();
 }
+
