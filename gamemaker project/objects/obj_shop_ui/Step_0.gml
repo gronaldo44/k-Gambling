@@ -11,7 +11,10 @@ if (visible && !allow_accept) {
 if (visible && !is_opened) {
     is_opened = true;       // Mark as opened
     allow_accept = false;    // Disable immediate purchases
+	
 }
+
+
 //move through the rooms
 pos += down_key - up_key;
 if(pos >= op_length){pos = 0};
@@ -21,6 +24,9 @@ if(close){
 	visible = false;
 	global.uiopen = false;
 	global.start_casino();
+	pos = 0;               // Reset hover position to the first option
+    allow_accept = false;  // Prevent immediate clicks on reopening
+    is_opened = false;  
 }
 
 if visible = true {
