@@ -27,8 +27,7 @@ if(close){
 if(accept_key && visible && allow_accept && is_opened){
 	switch(pos){
 		case 0:
-		
-			global.set_roomChar(room_loc, CHARACTER.CHIP_GUY);
+		global.set_roomChar(room_loc, CHARACTER.CHIP_GUY);
 			break;
 		case 1:
 
@@ -47,5 +46,7 @@ if(accept_key && visible && allow_accept && is_opened){
 	}
 	global.uiopen = false;
 	instance_destroy();
+	show_debug_message("UI closed. Visible: " + string(visible) + ", UI open: " + string(global.uiopen));
+
 }
 
