@@ -2,7 +2,7 @@ show_debug_message(string("You get a 5 star"));
 
 result_2 = floor(random_range(0, 1 + 1));
 
-instance_create_layer(x + 0, y + 0, "Gacha", obj_anim_5star);
+
 	
 if(result_2 == 0)
 {
