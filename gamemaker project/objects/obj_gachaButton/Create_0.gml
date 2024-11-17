@@ -29,6 +29,8 @@ display_result = function(result)
 {
 	instance_create_layer(960, 590, "Gacha", obj_gacha_result);
 	
+	isPulling = false;
+	
 	switch (result)
 	{
 	case 1:

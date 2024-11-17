@@ -1,6 +1,6 @@
-if(global.token >= drawCost)
+if(global.token >= drawCost && !isPulling)
 {
-// reset anim
+// reset anim and result
 	if(instance_exists(obj_anim_3star))
 	{
 		instance_destroy(obj_anim_3star);
@@ -36,19 +36,19 @@ if(global.token >= drawCost)
 //player get a 3 star
 	if(result <= 80)
 {
-	instance_create_layer(x + 0, y + 0, "Gacha", obj_anim_3star);
+	instance_create_layer(x + 0, y + 0, "anim", obj_anim_3star);
 }
 //player get a 5 star
 	else
 {
 	if(result > 95)
 {
-	instance_create_layer(x + 0, y + 0, "Gacha", obj_anim_5star);
+	instance_create_layer(x + 0, y + 0, "anim", obj_anim_5star);
 }
 //player get a 4 star	
 		else
 {
-	instance_create_layer(x + 0, y + 0, "Gacha", obj_anim_4star);
+	instance_create_layer(x + 0, y + 0, "anim", obj_anim_4star);
 }
 }
 }

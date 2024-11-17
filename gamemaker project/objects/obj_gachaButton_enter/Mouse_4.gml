@@ -4,5 +4,6 @@ if(global.level >= 1)
 	layer_set_visible("Gacha", true);
 	layer_set_visible("GachaBG", true);
 	layer_set_visible("slotmachine", true);
+	layer_set_visible("anim", true);
 	global.is_gacha = true;
 }
