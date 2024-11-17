@@ -10,7 +10,7 @@ if(result_2 == 0)
 
 	show_debug_message(string("You get the girl"));
 	
-	instance_create_layer(960, 590, "Gacha", obj_thegirl_result);
+	display_result(5);
 }
 	
 if(result_2 == 1)
@@ -19,5 +19,5 @@ if(result_2 == 1)
 
 	show_debug_message(string("You get a cowman"));
 	
-	instance_create_layer(960, 590, "Gacha", obj_cowman_result);
+	display_result(4);
 }
