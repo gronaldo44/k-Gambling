@@ -8,6 +8,8 @@ room_tokens_lost = 0;
 room_tokens_wagered = 0;
 room_character = -1;
 
+// TODO upgrade room stats
+
 // Bar OnUpdate
 OnBarUpdate = function()
 {
