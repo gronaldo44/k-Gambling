@@ -60,10 +60,10 @@ global.set_roomtype = function(loc, roomType) {
 };
 
 // Gets the character at room "loc"
-global.get_roomChar = function(loc){
+global.get_roomChar = function(loc, character_id){
 	var room_instance = grid_rooms[loc];
 	
-	if (room_instance != noone) {
+	if (room_instance != noone) { 
 		return room_instance.room_character;
 	} else {
 		show_debug_message("ROOM DOES NOT EXIST");
@@ -133,3 +133,6 @@ global.get_room_stats = function(room_index){
 	var room_instance = grid_rooms[room_index];
 	return room_instance.get_room_stats();
 }
+
+
+

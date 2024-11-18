@@ -460,3 +460,4 @@ get_char_ability_wr = function(wr){
 	}	
 	return wr;
 }
+

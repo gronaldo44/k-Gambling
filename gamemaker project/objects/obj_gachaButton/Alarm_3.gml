@@ -2,6 +2,8 @@ show_debug_message(string("You get a 4 star"));
 
 global.gachaPulled += 1;
 
+
+
 result_2 = floor(random_range(0, 3 + 1));
 
 if(result_2 == 0)
@@ -10,7 +12,7 @@ if(result_2 == 0)
 
 	show_debug_message(string("You get a chipguy"));
 	
-	instance_create_layer(960, 590, "Gacha", obj_clipguy_result);
+	display_result(2);
 }
 
 if(result_2 == 1)
@@ -19,7 +21,7 @@ if(result_2 == 1)
 
 	show_debug_message(string("You get a cool chipguy"));
 	
-	instance_create_layer(960, 590, "Gacha", obj_coolclipguy_result);
+	display_result(3);
 }
 
 if(result_2 == 2)
@@ -28,7 +30,7 @@ if(result_2 == 2)
 
 	show_debug_message(string("You get a slotsy"));
 	
-	instance_create_layer(960, 590, "Gacha", obj_slotsy2_result);
+	display_result(6);
 }
 
 if(result_2 == 3)
@@ -37,5 +39,5 @@ if(result_2 == 3)
 
 	show_debug_message(string("You get a carbert"));
 	
-	instance_create_layer(960, 590, "Gacha", obj_carbert_result);
+	display_result(7);
 }

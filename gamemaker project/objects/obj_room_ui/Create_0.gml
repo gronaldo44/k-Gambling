@@ -1,6 +1,10 @@
 width = 950;
 height = 500;
 
+allow_accept = false;
+is_opened = false;
+
+
 sub_width = 240;
 sub_height = 170;
 
