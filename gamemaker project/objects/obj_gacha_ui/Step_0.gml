@@ -27,7 +27,8 @@ if(close){
 if(accept_key && visible && allow_accept && is_opened){
 	switch(pos){
 		case 0:
-		global.set_roomChar(room_loc, CHARACTER.CHIP_GUY);
+		
+			global.set_roomChar(room_loc, CHARACTER.CHIP_GUY);
 			break;
 		case 1:
 

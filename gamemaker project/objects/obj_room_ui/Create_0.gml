@@ -29,4 +29,5 @@ global.display_room_ui = function(room_index, roomType){
 	visible = true;
 	room_loc = room_index;
 	room_type = roomType;
+	pos = 0;
 }

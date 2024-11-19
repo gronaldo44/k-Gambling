@@ -36,6 +36,8 @@ switch(pos){
 			show_debug_message("Created Character Selection " + string(x) + ", " + string(y));
 			var gacha_ui = instance_create_layer(x, y, "UI", obj_gacha_ui);
 			gacha_ui.room_loc = room_loc;
+			
+			// Reset
 		}
 		break;
 }

@@ -1,18 +1,33 @@
-//draw the shop ui
-draw_sprite_ext(sprite_index, image_index, x, y, width/sprite_width, height/sprite_height, 0, c_white, 1);
+// Draw the room UI background
+draw_sprite_ext(sprite_index, image_index, x, y, width / sprite_width, height / sprite_height, 0, c_white, 1);
 
-//draw the options
+// Draw the options
 draw_set_font(fnt_gacha);
 draw_set_valign(fa_top);
 draw_set_halign(fa_left);
-for ( var i = 0; i < op_length; i++)
-	{
-	var _c = c_black;
-	draw_sprite_ext(spr_shop_button, 0, x+op_border - 260, (y+op_border - 200) + op_space*i, 0.6, 0.32, 0, c_white, 1)
-	if(pos == i){_c = #800000};
-	draw_text_color(x+op_border - 465, (y+op_border - 230) + op_space*i, option[i], _c, _c ,_c, _c, 1);
-	}
-	
+
+// Define hover and default box colors
+var default_color = c_white;      // Default white color
+var hover_color = make_color_rgb(128, 0, 0);  // Dark red for hover effect
+var default_font_color = c_black;  // Default black font color
+var hover_font_color = c_white;   // White font color when hovered
+
+// Draw the options with hover effect
+for (var i = 0; i < op_length; i++) {
+    // Calculate positions for the box and text
+    var button_x = x + op_border - 260;
+    var button_y = (y + op_border - 200) + op_space * i;
+
+    // Determine box and font color based on hover state
+    var box_color = (pos == i) ? hover_color : default_color;
+    var font_color = (pos == i) ? hover_font_color : default_font_color;
+
+    // Draw the box with hover effect
+    draw_sprite_ext(spr_shop_button, 0, button_x, button_y, 0.6, 0.32, 0, box_color, 1);
+
+    // Draw the text
+    draw_text_color(button_x - 205, button_y - 30, option[i], font_color, font_color, font_color, font_color, 1);
+}
 //display stats of room
 if(pos == 0){
 	switch (room_type) {
