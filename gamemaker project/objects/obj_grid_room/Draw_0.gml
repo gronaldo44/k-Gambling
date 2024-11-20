@@ -5,9 +5,7 @@ if (sprite_index != noone) {
 
 // Draw the assigned character sprite (if any)
 if (room_character_sprite != noone) {
-    // Default offsets
-    var character_x_offset = 0;
-    var character_y_offset = -50;
+ 
 
     // Adjust character position based on the room type
     switch (roomType) {
