@@ -61,8 +61,8 @@ if (room_character_sprite != noone) {
         0,                     // Subimage index
         x + sprite_width / 2 + character_x_offset,  // X position
         y + sprite_height / 2 + character_y_offset, // Y position
-        1,                     // X scale
-        1,                     // Y scale
+        .8,                     // X scale
+        .8,                     // Y scale
         0,                     // Rotation
         c_white,               // Color tint
         1                      // Alpha

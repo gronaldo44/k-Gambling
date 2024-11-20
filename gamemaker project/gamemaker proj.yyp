@@ -154,6 +154,7 @@
     {"id":{"name":"spr_tutorial_icon","path":"sprites/spr_tutorial_icon/spr_tutorial_icon.yy",},},
     {"id":{"name":"spr_tutorial_screen","path":"sprites/spr_tutorial_screen/spr_tutorial_screen.yy",},},
     {"id":{"name":"Sprite27","path":"sprites/Sprite27/Sprite27.yy",},},
+    {"id":{"name":"Sprite66","path":"sprites/Sprite66/Sprite66.yy",},},
     {"id":{"name":"t_red_carpet","path":"tilesets/t_red_carpet/t_red_carpet.yy",},},
   ],
   "resourceType":"GMProject",

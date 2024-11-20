@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_gacha_icon",
-    "path":"sprites/spr_gacha_icon/spr_gacha_icon.yy",
+    "name":"Sprite66",
+    "path":"sprites/Sprite66/Sprite66.yy",
   },
   "spriteMaskId":null,
   "visible":true,
