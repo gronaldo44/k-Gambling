@@ -70,38 +70,52 @@ global.get_roomChar = function(loc, character_id){
 	}	
 }
 
-// Set the character at room "loc" returns t/f if character was set
 global.set_roomChar = function(loc, c) {
     var room_instance = grid_rooms[loc];
-	
-	// check if that character is available
-	if (global.char_getValue(c) > 0){
-		global.char_setCharacter(c, -1);
-	} else {
-		show_debug_message("set_roomchar " + string(loc) + " character unavailable.");	
-		return false;
-	}
     
-	// check if that room exists
+    // Ensure the room exists
     if (room_instance != noone) {
-		// Remove old character
-		if (room_instance.room_character > 0){
-			global.char_setCharacter(room_instance.room_character, 1);
-		}
-		
-		// Add new character
-        room_instance.room_character = c;
+        // Remove the old character from the room and return it to the pool
+        if (room_instance.room_character >= 0) {
+            global.char_setCharacter(room_instance.room_character, 1); // Return old character to the pool
+        }
         
-        show_debug_message("Room " + string(loc) + " character set to " + string(c));
+        // Deduct the new character from the pool if available
+        if (global.char_getValue(c) > 0) {
+            global.char_setCharacter(c, -1);
+            
+            // Set the new character and update the sprite
+            room_instance.room_character = c;
+            switch (c) {
+                case CHARACTER.CHIP_GUY:
+                    room_instance.room_character_sprite = IG_Chippy;
+                    break;
+                case CHARACTER.COOL_CHIP_GUY:
+                    room_instance.room_character_sprite = IG_Chipper;
+                    break;
+                case CHARACTER.COW_MAN:
+                    room_instance.room_character_sprite = IG_Cowman;
+                    break;
+                case CHARACTER.THE_GIRL:
+                    room_instance.room_character_sprite = IG_Yuki;
+                    break;
+                default:
+                    room_instance.room_character_sprite = noone; // Fallback for invalid character
+            }
+
+            show_debug_message("Assigned " + string(c) + " to room " + string(loc));
+            return true;
+        } else {
+            show_debug_message("Character " + string(c) + " is not available.");
+            return false;
+        }
+    } else {
+        show_debug_message("Room not found for index: " + string(loc));
+        return false;
     }
-    
-    var room_ui = instance_find(obj_room_ui, 0);
-    with(room_ui) {
-        visible = true;
-        room_loc = loc;
-    }
-	return true;
 };
+
+
 
 global.start_casino = function() {
     show_debug_message("Starting Casino rooms");
@@ -133,6 +147,7 @@ global.get_room_stats = function(room_index){
 	var room_instance = grid_rooms[room_index];
 	return room_instance.get_room_stats();
 }
+
 
 
 
