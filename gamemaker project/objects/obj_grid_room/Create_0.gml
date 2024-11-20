@@ -464,3 +464,8 @@ get_char_ability_wr = function(wr){
 room_character = -1;          // No character assigned initially
 room_character_sprite = noone; // No sprite assigned initially
 
+daily_update = function()
+{
+
+}
+
