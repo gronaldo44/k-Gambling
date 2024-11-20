@@ -33,6 +33,7 @@
     {"$GMFolder":"","%Name":"Gacha","folderPath":"folders/Sprites/Gacha.yy","name":"Gacha","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"gachaCharacters","folderPath":"folders/Sprites/gachaCharacters.yy","name":"gachaCharacters","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"gachasplashart","folderPath":"folders/Sprites/gachasplashart.yy","name":"gachasplashart","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"InGameModels","folderPath":"folders/Sprites/InGameModels.yy","name":"InGameModels","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Top Down Characters","folderPath":"folders/Sprites/Top Down Characters.yy","name":"Top Down Characters","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Timelines","folderPath":"folders/Timelines.yy","name":"Timelines","resourceType":"GMFolder","resourceVersion":"2.0",},
