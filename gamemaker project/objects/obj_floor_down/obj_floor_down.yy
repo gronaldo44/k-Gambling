@@ -1,13 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_front_desk",
-  "eventList":[],
+  "%Name":"obj_floor_down",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_front_desk",
+  "name":"obj_floor_down",
   "overriddenProperties":[],
   "parent":{
-    "name":"Buildings",
-    "path":"folders/Objects/Buildings.yy",
+    "name":"Rooms",
+    "path":"folders/Objects/Rooms.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -28,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_rec",
-    "path":"sprites/spr_rec/spr_rec.yy",
+    "name":"spr_casino_floorDown",
+    "path":"sprites/spr_casino_floorDown/spr_casino_floorDown.yy",
   },
   "spriteMaskId":null,
   "visible":true,

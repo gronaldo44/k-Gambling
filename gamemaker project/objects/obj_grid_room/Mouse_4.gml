@@ -1,36 +1,42 @@
 // global.purchase_room(room_index, ROOM_TYPE.OPEN);	tmp
-
-switch (roomType) {
-	case ROOM_TYPE.LOCKED:
-		show_debug_message("Locked Room Clicked: " + string(room_index));
-		// play meep-merp 
-		break;
+if (visible){
+	switch (roomType) {
+		case ROOM_TYPE.LOCKED:
+			show_debug_message("Locked Room Clicked: " + string(room_index));
+			// add room to your casino for a cost
+			if (global.token >= global.new_room_cost){
+				global.token -= global.new_room_cost;
+				global.new_room_cost *= 2;
+				global.set_roomtype(room_index, ROOM_TYPE.OPEN);
+			}
+			break;
 	
-	case ROOM_TYPE.OPEN:
-		// display_shop_ui(room_index);
-		if(global.uiopen == false){
-			show_debug_message("Open Room Clicked: " + string(room_index));
-			global.display_shop_ui(room_index)
-			global.uiopen = true;
+		case ROOM_TYPE.OPEN:
+			// display_shop_ui(room_index);
+			if(global.uiopen == false){
+				show_debug_message("Open Room Clicked: " + string(room_index));
+				global.display_shop_ui(room_index)
+				global.uiopen = true;
+			}
 			break;
-		}
 		
-	case ROOM_TYPE.LOBBY:
-		// display_tips_ui(room_index);
-		if(global.uiopen == false){
-			show_debug_message("Lobby Room Clicked: " + string(room_index));
-			global.display_lobby_ui(room_index)
-			global.uiopen = true;
+		case ROOM_TYPE.LOBBY:
+			// display_tips_ui(room_index);
+			if(global.uiopen == false){
+				show_debug_message("Lobby Room Clicked: " + string(room_index));
+				global.display_lobby_ui(room_index)
+				global.uiopen = true;
+			}
 			break;
-		}
 		
-	default:
-		// display_room_ui(room_index, roomType);
-		if(global.uiopen == false){
-		show_debug_message("Casino Room Clicked: " + string(room_index));
-		show_debug_message(string(room_index) + " is Casino Room type " + string(roomType));
-		global.display_room_ui(room_index, roomType)
-		global.uiopen = true;
-		break;
-		}
+		default:
+			// display_room_ui(room_index, roomType);
+			if(global.uiopen == false){
+				show_debug_message("Casino Room Clicked: " + string(room_index));
+				show_debug_message(string(room_index) + " is Casino Room type " + string(roomType));
+				global.display_room_ui(room_index, roomType)
+				global.uiopen = true;
+			}
+			break;
+	}
 }

@@ -11,8 +11,8 @@
   "name":"obj_grid_room",
   "overriddenProperties":[],
   "parent":{
-    "name":"Buildings",
-    "path":"folders/Objects/Buildings.yy",
+    "name":"Rooms",
+    "path":"folders/Objects/Rooms.yy",
   },
   "parentObjectId":null,
   "persistent":false,

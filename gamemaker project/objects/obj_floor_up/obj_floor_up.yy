@@ -1,15 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_blkjak_table",
+  "%Name":"obj_floor_up",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_blkjak_table",
+  "name":"obj_floor_up",
   "overriddenProperties":[],
   "parent":{
-    "name":"pathtest",
-    "path":"folders/Objects/pathtest.yy",
+    "name":"Rooms",
+    "path":"folders/Objects/Rooms.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_blkjak_table",
-    "path":"sprites/spr_blkjak_table/spr_blkjak_table.yy",
+    "name":"spr_casino_floorUp",
+    "path":"sprites/spr_casino_floorUp/spr_casino_floorUp.yy",
   },
   "spriteMaskId":null,
   "visible":true,
