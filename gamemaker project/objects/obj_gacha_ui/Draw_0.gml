@@ -45,18 +45,18 @@ for (var i = 0; i < op_length; i++) {
 
 // Display stats for the selected character
 if (pos == 0) {
-    draw_sprite_ext(spr_Schpguy_splash, 0, 1260, 270, .20, .16, 0, c_white, 1);
-    draw_text_transformed_color(1050, 450, "Red chip", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+    draw_sprite_ext(spr_Schpguy_splash, 0, 1260, 290, .18, .14, 0, c_white, 1);
+    draw_text_transformed_color(1050, 450, "1.5x wager increase \non table placed at.", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
 }
 if (pos == 1) {
-    draw_sprite_ext(spr_coolChip_splash, 0, 1260, 270, .20, .16, 0, c_white, 1);
-    draw_text_transformed_color(1050, 450, "Cool black chip", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+    draw_sprite_ext(spr_coolChip_splash, 0, 1265, 290, .18, .14, 0, c_white, 1);
+    draw_text_transformed_color(1050, 450, "2x wager & +1% winrate \nincrease on table placed at.", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
 }
 if (pos == 2) {
-    draw_sprite_ext(spr_cow_splash, 0, 1260, 270, .20, .16, 0, c_white, 1);
-    draw_text_transformed_color(1050, 450, "Cow Man", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+    draw_sprite_ext(spr_cow_splash, 0, 1260, 290, .18, .14, 0, c_white, 1);
+    draw_text_transformed_color(1050, 450, "5x wager & 15% tip increase \non table placed at.", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
 }
 if (pos == 3) {
-    draw_sprite_ext(spr_sgirl_splash, 0, 1260, 270, .20, .16, 0, c_white, 1);
-    draw_text_transformed_color(1050, 450, "Yuki", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+    draw_sprite_ext(spr_sgirl_splash, 0, 1260, 290, .18, .14, 0, c_white, 1);
+    draw_text_transformed_color(1050, 450, "2x wager & 25% tip increase \non table placed at.", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
 }

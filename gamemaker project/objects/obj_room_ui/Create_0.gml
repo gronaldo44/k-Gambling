@@ -19,7 +19,7 @@ visible = false;
 option[0] = "Info";
 option[1] = "Stats";
 option[2] = "Upgrade";
-option[3] = "Character"
+option[3] = "Character";
 
 op_length = array_length(option);
 
