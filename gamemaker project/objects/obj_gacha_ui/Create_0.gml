@@ -1,6 +1,15 @@
 width = 950;
 height = 500;
 
+sprite_offset_x = 1260; //X position for sprites
+sprite_offset_y = 300;  //Y position sprites
+
+sprite_scale_x = 0.15; //X scale sprites
+sprite_scale_y = 0.15; //Y scale sprites
+
+text_x_offset = 1250;
+
+
 allow_accept = false;
 is_opened = false;
 

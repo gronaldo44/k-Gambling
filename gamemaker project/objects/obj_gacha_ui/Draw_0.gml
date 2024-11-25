@@ -43,20 +43,66 @@ for (var i = 0; i < op_length; i++) {
     draw_text_transformed_color(button_x - 205, button_y - 30, display_text, 0.8, 0.8, 0, font_color, font_color, font_color, font_color, 1);
 }
 
+// Use local offsets and scaling for sprite positions
+var sprite_x = sprite_offset_x;
+var sprite_y = sprite_offset_y;
+var scale_x = sprite_scale_x;
+var scale_y = sprite_scale_y;
+
+
 // Display stats for the selected character
 if (pos == 0) {
-    draw_sprite_ext(spr_Schpguy_splash, 0, 1260, 270, .20, .16, 0, c_white, 1);
-    draw_text_transformed_color(1050, 450, "Red chip", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+    draw_sprite_ext(spr_Schpguy_splash, 0, sprite_x, sprite_y, scale_x, scale_y, 0, c_white, 1);
+
+    // Center-align text
+    draw_set_halign(fa_center);
+    draw_text_transformed_color(
+        text_x_offset, 450, // Center the text around x = 1150
+        "Chip Guy increases token\n earnings by 10%.", 
+        0.60, 0.60, 0, 
+        c_black, c_black, c_black, c_black, 1
+    );
+    draw_set_halign(fa_left); // Reset alignment to default
 }
+
 if (pos == 1) {
-    draw_sprite_ext(spr_coolChip_splash, 0, 1260, 270, .20, .16, 0, c_white, 1);
-    draw_text_transformed_color(1050, 450, "Cool black chip", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+    draw_sprite_ext(spr_coolChip_splash, 0, sprite_x, sprite_y, scale_x, scale_y, 0, c_white, 1);
+
+    // Center-align text
+    draw_set_halign(fa_center);
+    draw_text_transformed_color(
+        text_x_offset, 450, // Center the text around x = 1150
+        "Cool black chip", 
+        0.60, 0.60, 0, 
+        c_black, c_black, c_black, c_black, 1
+    );
+    draw_set_halign(fa_left); // Reset alignment to default
 }
+
 if (pos == 2) {
-    draw_sprite_ext(spr_cow_splash, 0, 1260, 270, .20, .16, 0, c_white, 1);
-    draw_text_transformed_color(1050, 450, "Cow Man", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+    draw_sprite_ext(spr_cow_splash, 0, sprite_x, sprite_y, scale_x, scale_y, 0, c_white, 1);
+
+    // Center-align text
+    draw_set_halign(fa_center);
+    draw_text_transformed_color(
+       text_x_offset, 450, // Center the text around x = 1150
+        "Cow Man", 
+        0.60, 0.60, 0, 
+        c_black, c_black, c_black, c_black, 1
+    );
+    draw_set_halign(fa_left); // Reset alignment to default
 }
+
 if (pos == 3) {
-    draw_sprite_ext(spr_sgirl_splash, 0, 1260, 270, .20, .16, 0, c_white, 1);
-    draw_text_transformed_color(1050, 450, "Yuki", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+    draw_sprite_ext(spr_sgirl_splash, 0, sprite_x, sprite_y, scale_x, scale_y, 0, c_white, 1);
+
+    // Center-align text
+    draw_set_halign(fa_center);
+    draw_text_transformed_color(
+       text_x_offset, 450, // Center the text around x = 1150
+        "Yuki", 
+        0.60, 0.60, 0, 
+        c_black, c_black, c_black, c_black, 1
+    );
+    draw_set_halign(fa_left); // Reset alignment to default
 }

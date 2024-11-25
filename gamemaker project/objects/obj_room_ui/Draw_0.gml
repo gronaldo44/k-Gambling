@@ -75,13 +75,96 @@ if(pos == 1){
 if(pos == 2){
 	draw_text_transformed(1020, 400, "Under Construction", .60, .60, 0);
 }
-if(pos == 3){
 
-	var room_char = global.get_roomChar(room_loc)
-	if (room_char >= 0){
-		// TODO Display the char sprite
-		draw_text_transformed(1020, 400, global.char_getCharacterName(room_char), .50, .50, 0);
-	} else {
-		draw_text_transformed(1020, 400, "No Employee working in this room", .60, .60, 0);	
-	}
+
+if (pos == 3) {
+    var room_char = global.get_roomChar(room_loc);
+
+    if (room_char >= 0) {
+        var char_name = global.char_getCharacterName(room_char);
+        var char_function = ""; // Placeholder for character functionality description
+        var char_sprite = noone; // Placeholder for character sprite
+
+        // Define functionality and sprite for each character
+        switch (room_char) {
+            case CHARACTER.CHIP_GUY:
+                char_function = "Chip Guy increases token earnings by 10%.";
+                char_sprite = spr_Schpguy_splash;
+                break;
+            case CHARACTER.COOL_CHIP_GUY:
+                char_function = "Cool Chip Guy boosts wager win rate by 2%.";
+                char_sprite = spr_coolChip_splash
+                break;
+            case CHARACTER.COW_MAN:
+                char_function = "Cow Man doubles token wager amounts.";
+                char_sprite = spr_cow_splash;
+                break;
+            case CHARACTER.THE_GIRL:
+                char_function = "Yuki reduces token losses by 50%.";
+                char_sprite = spr_sgirl_splash;
+                break;
+            default:
+                char_function = "No functionality assigned.";
+                char_sprite = noone;
+                break;
+        }
+
+        // Independent positions for the components
+        var frame_x = 1150; // Frame position X
+        var frame_y = 250;  // Frame position Y
+        var frame_width = 200; // Frame width
+        var frame_height = 200; // Frame height
+
+        var sprite_x = 1250; // Sprite position X
+        var sprite_y = 350;  // Sprite position Y
+
+        var name_x = 1250;   // Name position X
+        var name_y = 460;    // Name position Y
+
+        var function_x = 1250; // Functionality description position X
+        var function_y = 520;  // Functionality description position Y
+
+        // Draw the frame
+        draw_rectangle_color(
+            frame_x, frame_y, 
+            frame_x + frame_width, frame_y + frame_height, 
+            make_color_rgb(240, 240, 240), make_color_rgb(240, 240, 240), 
+            make_color_rgb(240, 240, 240), make_color_rgb(240, 240, 240), 
+            false
+        );
+
+        // Draw the character sprite
+        if (char_sprite != noone) {
+            draw_sprite_ext(
+                char_sprite,  // Character's sprite
+                0,            // Subimage index
+                sprite_x,     // Independent sprite X
+                sprite_y,     // Independent sprite Y
+                0.2,          // X scale (smaller to fit the UI)
+                0.2,          // Y scale
+                0,            // Rotation
+                c_white,      // Color tint
+                1             // Alpha
+            );
+        }
+
+        // Draw the character's name
+        draw_set_halign(fa_center);
+        draw_text_transformed_color(
+            name_x, name_y, char_name, 
+            0.6, 0.6, 0, c_black, c_black, c_black, c_black, 1
+        );
+
+        // Draw the character's functionality description
+        draw_text_transformed_color(
+            function_x, function_y, char_function, 
+            0.4, 0.4, 0, c_black, c_black, c_black, c_black, 1
+        );
+        draw_set_halign(fa_left);
+    } else {
+        draw_text_transformed(1020, 400, "No Employee working in this room", 0.6, 0.6, 0);
+    }
 }
+
+
+

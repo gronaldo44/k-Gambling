@@ -1,6 +1,6 @@
 roomType = ROOM_TYPE.LOCKED;
 image_index = roomType;
-room_index = -1;	// changed to positive in grid_manager creation
+room_index = -1; // Changed to positive in grid_manager creation
 room_level = 1;
 room_exp_earned = 0;
 room_tokens_earned = 0;
@@ -8,340 +8,364 @@ room_tokens_lost = 0;
 room_tokens_wagered = 0;
 room_character = -1;
 
-// TODO upgrade room stats
+// Room-specific variables
+room_bad_beat_pool = 0;        // Poker-specific Bad Beat Pool
+room_bad_beat_losses = 0;      // Poker-specific Bad Beat Losses
+room_baccarat_tie_pot = 0;     // Baccarat-specific Tie Pot
+room_baccarat_tie_pot_threshold = 500; // Threshold for Tie Pot Jackpot
 
-// Bar OnUpdate
-OnBarUpdate = function()
-{
-	global.gain_tokens(6, room_character);
-	room_tokens_earned += 6;
-	
-	global.gain_exp(5);
-	room_exp_earned += 5;
-}
+// --- Bar Room ---
+OnBarUpdate = function() {
+    global.gain_tokens(6, room_character);
+    room_tokens_earned += 6;
+    global.gain_exp(5);
+    room_exp_earned += 5;
+};
 BarTimer = time_source_create(time_source_game, 1, time_source_units_seconds, OnBarUpdate, [], -1);
 
-// Blackjack OnUpdate
-OnBlackjackUpdate = function()
-{
-	var wager = 20;
-	var winrate = 52;
-	wager = get_char_ability_wager(wager);
-	winrate = get_char_ability_wr(winrate);
-	
-    var houseWins = irandom_range(1, 100) <= winrate;
-	
-	room_tokens_wagered += wager;
-	global.profit_tokens_wager += wager;
+// --- Blackjack Room ---
+OnBlackjackUpdate = function() {
+    var base_wager = 22;
+    var base_win_amount = base_wager;
+    var base_lose_amount = 20;
+    var base_winrate = 52;
+
+    var wager_bonus = get_character_ability(room_character, "wager_bonus");
+    var winrate_bonus = get_character_ability(room_character, "win_rate");
+    var loss_reduction = get_character_ability(room_character, "loss_reduction");
+    var win_multiplier = get_character_ability(room_character, "win_multiplier");
+
+    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+    var adjusted_win_amount = base_win_amount * (1 + win_multiplier / 100);
+    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+    var adjusted_winrate = base_winrate + winrate_bonus;
+
+    var houseWins = irandom_range(1, 100) <= adjusted_winrate;
+
+    room_tokens_wagered += adjusted_wager;
+    global.profit_tokens_wager += adjusted_wager;
 
     if (houseWins) {
-		global.gain_tokens(wager, room_character);
-		room_tokens_earned += wager;
-        show_debug_message("House wins! " + string(room_index));
+        global.gain_tokens(adjusted_win_amount, room_character);
+        room_tokens_earned += adjusted_win_amount;
+        show_debug_message("House wins in Blackjack! " + string(room_index));
     } else {
-		// lose_tokens(wager, character)
-        global.gain_tokens(-wager, room_character);
-		room_tokens_lost += wager;
-        show_debug_message("House loses! " + string(room_index));
+        global.gain_tokens(-adjusted_lose_amount, room_character);
+        room_tokens_lost += adjusted_lose_amount;
+        show_debug_message("House loses in Blackjack! " + string(room_index));
     }
 
-	var exp_per_update = 15;
-    global.gain_exp(exp_per_update);
-	room_exp_earned += exp_per_update;
-}
-BlackjackTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnBlackjackUpdate, [], -1)
+    global.gain_exp(15);
+    room_exp_earned += 15;
+};
+BlackjackTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnBlackjackUpdate, [], -1);
 
-OnCrapsUpdate = function()
-{
-    var wager = 50;
-    var winrate = 54;
-    wager = get_char_ability_wager(wager);
-    winrate = get_char_ability_wr(winrate);
+// --- Craps Room ---
+OnCrapsUpdate = function() {
+    var base_wager = 50;
+    var base_win_amount = base_wager;
+    var base_lose_amount = base_wager;
+    var base_winrate = 54;
 
-    var houseWins = irandom_range(1, 100) <= winrate;
+    var wager_bonus = get_character_ability(room_character, "wager_bonus");
+    var winrate_bonus = get_character_ability(room_character, "win_rate");
+    var loss_reduction = get_character_ability(room_character, "loss_reduction");
+    var win_multiplier = get_character_ability(room_character, "win_multiplier");
 
-    room_tokens_wagered += wager;
-    global.profit_tokens_wager += wager;
+    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+    var adjusted_win_amount = base_win_amount * (1 + win_multiplier / 100);
+    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+    var adjusted_winrate = base_winrate + winrate_bonus;
+
+    var houseWins = irandom_range(1, 100) <= adjusted_winrate;
+
+    room_tokens_wagered += adjusted_wager;
+    global.profit_tokens_wager += adjusted_wager;
 
     if (houseWins) {
-        global.gain_tokens(wager, room_character);
-        room_tokens_earned += wager;
-        show_debug_message("House wins! " + string(room_index));
+        global.gain_tokens(adjusted_win_amount, room_character);
+        room_tokens_earned += adjusted_win_amount;
+        show_debug_message("House wins in Craps! " + string(room_index));
     } else {
-        // lose_tokens(wager, character)
-        global.gain_tokens(-wager, room_character);
-        room_tokens_lost += wager;
-        show_debug_message("House loses! " + string(room_index));
+        global.gain_tokens(-adjusted_lose_amount, room_character);
+        room_tokens_lost += adjusted_lose_amount;
+        show_debug_message("House loses in Craps! " + string(room_index));
     }
 
-    var exp_per_update = 35;
-    global.gain_exp(exp_per_update);
-    room_exp_earned += exp_per_update;
-}
+    global.gain_exp(35);
+    room_exp_earned += 35;
+};
 CrapsTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnCrapsUpdate, [], -1);
 
+// --- Baccarat Room ---
+OnBaccaratUpdate = function() {
+    var base_wager = 90;
+    var base_win_amount = base_wager;
+    var base_lose_amount = base_wager;
+    var base_winrate = 56;
+    var tie_chance_on_loss = 15; // 15% chance for a tie on loss
 
-OnBaccaratUpdate = function()
-{
-    var wager = 90;
-    var winrate = 56;
-    wager = get_char_ability_wager(wager);
-    winrate = get_char_ability_wr(winrate);
+    var wager_bonus = get_character_ability(room_character, "wager_bonus");
+    var winrate_bonus = get_character_ability(room_character, "win_rate");
+    var loss_reduction = get_character_ability(room_character, "loss_reduction");
+    var win_multiplier = get_character_ability(room_character, "win_multiplier");
 
-    var houseWins = irandom_range(1, 100) <= winrate;
+    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+    var adjusted_win_amount = base_win_amount * (1 + win_multiplier / 100);
+    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+    var adjusted_winrate = base_winrate + winrate_bonus;
 
-    room_tokens_wagered += wager;
-    global.profit_tokens_wager += wager;
+    var outcome = irandom_range(1, 100);
 
-    if (houseWins) {
-        global.gain_tokens(wager, room_character);
-        room_tokens_earned += wager;
-        show_debug_message("House wins! " + string(room_index));
+    if (outcome <= adjusted_winrate) {
+        // House wins
+        global.gain_tokens(adjusted_win_amount, room_character);
+        room_tokens_earned += adjusted_win_amount;
+
+        // Add to the tie pot (from house win wager)
+        room_baccarat_tie_pot += adjusted_wager * 0.1; // 10% of wager
+        show_debug_message("House wins in Baccarat! Tie Pot: " + string(room_baccarat_tie_pot));
     } else {
-        // lose_tokens(wager, character)
-        global.gain_tokens(-wager, room_character);
-        room_tokens_lost += wager;
-        show_debug_message("House loses! " + string(room_index));
+        // House loses
+        var tie_roll = irandom_range(1, 100);
+        if (tie_roll <= tie_chance_on_loss) {
+            // Loss converted to tie
+            room_baccarat_tie_pot += adjusted_wager * 0.05; // 5% of wager
+            show_debug_message("It's a tie in Baccarat! Tie Pot: " + string(room_baccarat_tie_pot));
+        } else {
+            // Regular loss
+            global.gain_tokens(-adjusted_lose_amount, room_character);
+            room_tokens_lost += adjusted_lose_amount;
+            show_debug_message("House loses in Baccarat! " + string(room_index));
+        }
     }
 
-    var exp_per_update = 35;
-    global.gain_exp(exp_per_update);
-    room_exp_earned += exp_per_update;
-}
+    room_tokens_wagered += adjusted_wager;
+    global.profit_tokens_wager += adjusted_wager;
+
+    // Check for Tie Pot Jackpot
+    if (room_baccarat_tie_pot >= room_baccarat_tie_pot_threshold) {
+        // Trigger jackpot payout
+        global.gain_tokens(room_baccarat_tie_pot, room_character);
+        room_tokens_earned += room_baccarat_tie_pot;
+
+        // Reset the Tie Pot
+        room_baccarat_tie_pot = 0;
+        show_debug_message("Baccarat Tie Pot Jackpot Triggered! Room: " + string(room_index));
+    }
+};
 BaccaratTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnBaccaratUpdate, [], -1);
 
-OnPokerUpdate = function()
-{
-    var wager = 150;
-    var winrate = 58;
-    wager = get_char_ability_wager(wager);
-    winrate = get_char_ability_wr(winrate);
+// --- Poker Room ---
+OnPokerUpdate = function() {
+    var base_wager = 150;
+    var base_win_amount = base_wager;
+    var base_lose_amount = base_wager;
+    var base_winrate = 58;
 
-    var houseWins = irandom_range(1, 100) <= winrate;
+    var wager_bonus = get_character_ability(room_character, "wager_bonus");
+    var winrate_bonus = get_character_ability(room_character, "win_rate");
+    var loss_reduction = get_character_ability(room_character, "loss_reduction");
+    var win_multiplier = get_character_ability(room_character, "win_multiplier");
 
-    room_tokens_wagered += wager;
-    global.profit_tokens_wager += wager;
+    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+    var adjusted_win_amount = base_win_amount * (1 + win_multiplier / 100);
+    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+    var adjusted_winrate = base_winrate + winrate_bonus;
+
+    var houseWins = irandom_range(1, 100) <= adjusted_winrate;
+
+    room_tokens_wagered += adjusted_wager;
+    global.profit_tokens_wager += adjusted_wager;
 
     if (houseWins) {
-        global.gain_tokens(wager, room_character);
-        room_tokens_earned += wager;
-        show_debug_message("House wins! " + string(room_index));
+        global.gain_tokens(adjusted_win_amount, room_character);
+        room_tokens_earned += adjusted_win_amount;
+        show_debug_message("House wins in Poker!");
     } else {
-        // lose_tokens(wager, character)
-        global.gain_tokens(-wager, room_character);
-        room_tokens_lost += wager;
-        show_debug_message("House loses! " + string(room_index));
-    }
+        global.gain_tokens(-adjusted_lose_amount, room_character);
+        room_tokens_lost += adjusted_lose_amount;
 
-    var exp_per_update = 50;
-    global.gain_exp(exp_per_update);
-    room_exp_earned += exp_per_update;
-}
+        room_bad_beat_pool += adjusted_wager * 0.1;
+        room_bad_beat_losses += 1;
+
+        if (room_bad_beat_losses >= 5) {
+            global.gain_tokens(room_bad_beat_pool, room_character);
+            room_tokens_earned += room_bad_beat_pool;
+
+            room_bad_beat_pool = 0;
+            room_bad_beat_losses = 0;
+            show_debug_message("Poker Bad Beat Jackpot Triggered!");
+        }
+    }
+};
 PokerTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnPokerUpdate, [], -1);
 
-OnRouletteUpdate = function()
-{
-    var wager = 200;
-    var winrate = 62;
-    wager = get_char_ability_wager(wager);
-    winrate = get_char_ability_wr(winrate);
 
-    var houseWins = irandom_range(1, 100) <= winrate;
+// --- Roulette Room ---
+OnRouletteUpdate = function() {
+    var base_wager = 200;
+    var base_win_amount = base_wager;
+    var base_lose_amount = base_wager;
+    var base_winrate = 62;
 
-    room_tokens_wagered += wager;
-    global.profit_tokens_wager += wager;
+    var wager_bonus = get_character_ability(room_character, "wager_bonus");
+    var winrate_bonus = get_character_ability(room_character, "win_rate");
+    var loss_reduction = get_character_ability(room_character, "loss_reduction");
+    var win_multiplier = get_character_ability(room_character, "win_multiplier");
+
+    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+    var adjusted_win_amount = base_win_amount * (1 + win_multiplier / 100);
+    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+    var adjusted_winrate = base_winrate + winrate_bonus;
+
+    var houseWins = irandom_range(1, 100) <= adjusted_winrate;
+
+    room_tokens_wagered += adjusted_wager;
+    global.profit_tokens_wager += adjusted_wager;
 
     if (houseWins) {
-        global.gain_tokens(wager, room_character);
-        room_tokens_earned += wager;
-        show_debug_message("House wins! " + string(room_index));
+        global.gain_tokens(adjusted_win_amount, room_character);
+        room_tokens_earned += adjusted_win_amount;
+        show_debug_message("House wins in Roulette! " + string(room_index));
     } else {
-        // lose_tokens(wager, character)
-        global.gain_tokens(-wager, room_character);
-        room_tokens_lost += wager;
-        show_debug_message("House loses! " + string(room_index));
+        global.gain_tokens(-adjusted_lose_amount, room_character);
+        room_tokens_lost += adjusted_lose_amount;
+        show_debug_message("House loses in Roulette! " + string(room_index));
     }
 
-    var exp_per_update = 50;
-    global.gain_exp(exp_per_update);
-    room_exp_earned += exp_per_update;
-}
+    global.gain_exp(50);
+    room_exp_earned += 50;
+};
 RouletteTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnRouletteUpdate, [], -1);
 
-OnPachinkoUpdate = function()
-{
-    var wager = 300;
-    var winrate = 66;
-    wager = get_char_ability_wager(wager);
-    winrate = get_char_ability_wr(winrate);
+// --- Pachinko Room ---
+OnPachinkoUpdate = function() {
+    var base_wager = 300;
+    var base_win_amount = base_wager;
+    var base_lose_amount = base_wager;
+    var base_winrate = 66;
 
-    var houseWins = irandom_range(1, 100) <= winrate;
+    var wager_bonus = get_character_ability(room_character, "wager_bonus");
+    var winrate_bonus = get_character_ability(room_character, "win_rate");
+    var loss_reduction = get_character_ability(room_character, "loss_reduction");
+    var win_multiplier = get_character_ability(room_character, "win_multiplier");
 
-    room_tokens_wagered += wager;
-    global.profit_tokens_wager += wager;
+    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+    var adjusted_win_amount = base_win_amount * (1 + win_multiplier / 100);
+    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+    var adjusted_winrate = base_winrate + winrate_bonus;
+
+    var houseWins = irandom_range(1, 100) <= adjusted_winrate;
+
+    room_tokens_wagered += adjusted_wager;
+    global.profit_tokens_wager += adjusted_wager;
 
     if (houseWins) {
-        global.gain_tokens(wager, room_character);
-        room_tokens_earned += wager;
-        show_debug_message("House wins! " + string(room_index));
+        global.gain_tokens(adjusted_win_amount, room_character);
+        room_tokens_earned += adjusted_win_amount;
+        show_debug_message("House wins in Pachinko! " + string(room_index));
     } else {
-        // lose_tokens(wager, character)
-        global.gain_tokens(-wager, room_character);
-        room_tokens_lost += wager;
-        show_debug_message("House loses! " + string(room_index));
+        global.gain_tokens(-adjusted_lose_amount, room_character);
+        room_tokens_lost += adjusted_lose_amount;
+        show_debug_message("House loses in Pachinko! " + string(room_index));
     }
 
-    var exp_per_update = 50;
-    global.gain_exp(exp_per_update);
-    room_exp_earned += exp_per_update;
-}
+    global.gain_exp(50);
+    room_exp_earned += 50;
+};
 PachinkoTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnPachinkoUpdate, [], -1);
 
-OnSlotsUpdate = function()
-{
-    var wager = 400;
-    var winrate = 72;
-    wager = get_char_ability_wager(wager);
-    winrate = get_char_ability_wr(winrate);
+// --- Slots Room ---
+OnSlotsUpdate = function() {
+    var base_wager = 400;
+    var base_win_amount = base_wager;
+    var base_lose_amount = base_wager;
+    var base_winrate = 72;
 
-    var houseWins = irandom_range(1, 100) <= winrate;
+    var wager_bonus = get_character_ability(room_character, "wager_bonus");
+    var winrate_bonus = get_character_ability(room_character, "win_rate");
+    var loss_reduction = get_character_ability(room_character, "loss_reduction");
+    var win_multiplier = get_character_ability(room_character, "win_multiplier");
 
-    room_tokens_wagered += wager;
-    global.profit_tokens_wager += wager;
+    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+    var adjusted_win_amount = base_win_amount * (1 + win_multiplier / 100);
+    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+    var adjusted_winrate = base_winrate + winrate_bonus;
+
+    var houseWins = irandom_range(1, 100) <= adjusted_winrate;
+
+    room_tokens_wagered += adjusted_wager;
+    global.profit_tokens_wager += adjusted_wager;
 
     if (houseWins) {
-        global.gain_tokens(wager, room_character);
-        room_tokens_earned += wager;
-        show_debug_message("House wins! " + string(room_index));
+        global.gain_tokens(adjusted_win_amount, room_character);
+        room_tokens_earned += adjusted_win_amount;
+        show_debug_message("House wins in Slots! " + string(room_index));
     } else {
-        // lose_tokens(wager, character)
-        global.gain_tokens(-wager, room_character);
-        room_tokens_lost += wager;
-        show_debug_message("House loses! " + string(room_index));
+        global.gain_tokens(-adjusted_lose_amount, room_character);
+        room_tokens_lost += adjusted_lose_amount;
+        show_debug_message("House loses in Slots! " + string(room_index));
     }
 
-    var exp_per_update = 50;
-    global.gain_exp(exp_per_update);
-    room_exp_earned += exp_per_update;
-}
+    global.gain_exp(50);
+    room_exp_earned += 50;
+};
 SlotsTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnSlotsUpdate, [], -1);
 
-// Starts this room's OnUpdate
+// --- Start and Stop Functions ---
 start_room = function() {
-	switch (roomType) {
-		case ROOM_TYPE.OPEN:
-			// nothing for now
-			break;
-		
-		case ROOM_TYPE.BAR:
-			// start making money
-			show_debug_message("Starting BAR room " + string(room_index));
-			time_source_start(BarTimer);
-			break;
-		
-		case ROOM_TYPE.LOBBY:
-			global.gain_exp(0);
-			// display_tips_ui(room_index);
-			break;
-		
-		case ROOM_TYPE.BLACKJACK:
-			// display_room_ui(room_index, roomType);
-			show_debug_message("Starting BLACKJACK room " + string(room_index));
-			time_source_start(BlackjackTimer);
-			break;
-			
-			case ROOM_TYPE.BACCARAT:
-            show_debug_message("Starting BACCARAT room " + string(room_index));
-            time_source_start(BaccaratTimer);
-            break;
-			
-			case ROOM_TYPE.POKER:
-            show_debug_message("Starting POKER room " + string(room_index));
-            time_source_start(PokerTimer);
-            break;
-			
-			case ROOM_TYPE.ROULETTE:
-            show_debug_message("Starting POKER room " + string(room_index));
-            time_source_start(RouletteTimer);
-            break;
-			
-			case ROOM_TYPE.PACHINKO:
-            show_debug_message("Starting PACHINKO room " + string(room_index));
-            time_source_start(PachinkoTimer);
-            break;
-			
-			case ROOM_TYPE.SLOTS:
-            show_debug_message("Starting SLOTS room " + string(room_index));
-            time_source_start(SlotsTimer);
-            break;
-			
-			case ROOM_TYPE.CRAPS:
-            show_debug_message("Starting CRAPS room " + string(room_index));
-            time_source_start(CrapsTimer);
-            break;
-			
-		default:
-			show_debug_message("StartRoom() not implemented yet " + string(room_index));
-			break;
-	}
-}
+    switch (roomType) {
+        case ROOM_TYPE.BAR: time_source_start(BarTimer); break;
+        case ROOM_TYPE.BLACKJACK: time_source_start(BlackjackTimer); break;
+        case ROOM_TYPE.CRAPS: time_source_start(CrapsTimer); break;
+        case ROOM_TYPE.BACCARAT: time_source_start(BaccaratTimer); break;
+        case ROOM_TYPE.POKER: time_source_start(PokerTimer); break;
+        case ROOM_TYPE.ROULETTE: time_source_start(RouletteTimer); break;
+        case ROOM_TYPE.PACHINKO: time_source_start(PachinkoTimer); break;
+        case ROOM_TYPE.SLOTS: time_source_start(SlotsTimer); break;
+        default: show_debug_message("StartRoom not implemented for " + string(roomType));
+    }
+};
 
-// Stops this room's OnUpdate
 stop_room = function() {
-	switch (roomType) {
-		case ROOM_TYPE.OPEN:
-			// nothing for now
-			break;
-		
-		case ROOM_TYPE.BAR:
-			// start making money
-			show_debug_message("Pausing BAR room " + string(room_index));
-			time_source_pause(BarTimer);
-			break;
-		
-		case ROOM_TYPE.LOBBY:
-			// display_tips_ui(room_index);
-			break;
-		
-		case ROOM_TYPE.BLACKJACK:
-			// display_room_ui(room_index, roomType);
-			show_debug_message("Pausing BLACKJACK room " + string(room_index));
-			time_source_pause(BlackjackTimer);
-			break;
-			
-			case ROOM_TYPE.BACCARAT:
-            show_debug_message("Pausing BACCARAT room " + string(room_index));
-            time_source_pause(BaccaratTimer);
-            break;
-			
-			case ROOM_TYPE.POKER:
-            show_debug_message("Pausing POKER room " + string(room_index));
-            time_source_pause(PokerTimer);
-            break;
-			
-			case ROOM_TYPE.ROULETTE:
-            show_debug_message("Pausing ROULETTE room " + string(room_index));
-            time_source_pause(RouletteTimer);
-            break;
-			
-			case ROOM_TYPE.PACHINKO:
-            show_debug_message("Pausing PACHINKO room " + string(room_index));
-            time_source_pause(PachinkoTimer);
-            break;
-			
-			case ROOM_TYPE.SLOTS:
-            show_debug_message("Pausing SLOTS room " + string(room_index));
-            time_source_pause(SlotsTimer);
-            break;
-			
-			case ROOM_TYPE.CRAPS:
-            show_debug_message("Pausing PACHINKO room " + string(room_index));
-            time_source_pause(CrapsTimer);
-            break;
-	}
-}
+    switch (roomType) {
+        case ROOM_TYPE.BAR: time_source_pause(BarTimer); break;
+        case ROOM_TYPE.BLACKJACK: time_source_pause(BlackjackTimer); break;
+        case ROOM_TYPE.CRAPS: time_source_pause(CrapsTimer); break;
+        case ROOM_TYPE.BACCARAT: time_source_pause(BaccaratTimer); break;
+        case ROOM_TYPE.POKER: time_source_pause(PokerTimer); break;
+        case ROOM_TYPE.ROULETTE: time_source_pause(RouletteTimer); break;
+        case ROOM_TYPE.PACHINKO: time_source_pause(PachinkoTimer); break;
+        case ROOM_TYPE.SLOTS: time_source_pause(SlotsTimer); break;
+        default: show_debug_message("StopRoom not implemented for " + string(roomType));
+    }
+};
 
-get_room_stats = function(){
+get_room_stats = function() {
+    var base_wager = 0; // Default base wager
+    var base_winrate = 0; // Default base win rate
+    var wager_bonus = 0; // Bonus to wager from character
+    var winrate_bonus = 0; // Bonus to win rate from character
+    var base_lose_amount = 0;
+    var loss_reduction = 0;
+    var adjusted_wager = 0;
+    var adjusted_winrate = 0;
+    var adjusted_lose_amount = 0;
+
+
+    // Get character abilities
+    if (room_character >= 0) {
+        wager_bonus = get_character_ability(room_character, "wager_bonus");
+        winrate_bonus = get_character_ability(room_character, "win_rate");
+		loss_reduction = get_character_ability(room_character, "loss_reduction");
+    }
+
+    // Adjusted values
+    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+    var adjusted_winrate = base_winrate + winrate_bonus;
+	
+	
 		switch (roomType) {
 		case ROOM_TYPE.OPEN:
 			// nothing for now
@@ -357,108 +381,163 @@ get_room_stats = function(){
 				"\n\nTotal Tokens Earned: " + string(global.profit_tokens_earned) +
 				"\nTotal Tokens Lost: " + string(global.profit_tokens_lost) +
 				"\nTotal Tokens Wagered: " + string(global.profit_tokens_wager));
+				
+				
 		
 		case ROOM_TYPE.BLACKJACK:
-			return("Tokens Earned: " + string(room_tokens_earned) +
-				"\nTokens Lost: " + string(room_tokens_lost) +
-				"\nTokens Wagered: " + string(room_tokens_wagered) +
-				"\nHouse Winrate: 52%" +
-				"\n\nExperience Gained: " + string(room_exp_earned) +
-				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
-				
-				
-		case ROOM_TYPE.BACCARAT:
-			return("Tokens Earned: " + string(room_tokens_earned) +
-				"\nTokens Lost: " + string(room_tokens_lost) +
-				"\nTokens Wagered: " + string(room_tokens_wagered) +
-				"\nHouse Winrate: 56%" +
-				"\n\nExperience Gained: " + string(room_exp_earned) +
-				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
-				
-				case ROOM_TYPE.POKER:
-			return("Tokens Earned: " + string(room_tokens_earned) +
-				"\nTokens Lost: " + string(room_tokens_lost) +
-				"\nTokens Wagered: " + string(room_tokens_wagered) +
-				"\nHouse Winrate: 58%" +
-				"\n\nExperience Gained: " + string(room_exp_earned) +
-				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
-				
-				case ROOM_TYPE.ROULETTE:
-			return("Tokens Earned: " + string(room_tokens_earned) +
-				"\nTokens Lost: " + string(room_tokens_lost) +
-				"\nTokens Wagered: " + string(room_tokens_wagered) +
-				"\nHouse Winrate: 62%" +
-				"\n\nExperience Gained: " + string(room_exp_earned) +
-				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
-				
-					case ROOM_TYPE.PACHINKO:
-			return("Tokens Earned: " + string(room_tokens_earned) +
-				"\nTokens Lost: " + string(room_tokens_lost) +
-				"\nTokens Wagered: " + string(room_tokens_wagered) +
-				"\nHouse Winrate: 66%" +
-				"\n\nExperience Gained: " + string(room_exp_earned) +
-				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
-				
-				case ROOM_TYPE.SLOTS:
-			return("Tokens Earned: " + string(room_tokens_earned) +
-				"\nTokens Lost: " + string(room_tokens_lost) +
-				"\nTokens Wagered: " + string(room_tokens_wagered) +
-				"\nHouse Winrate: 70%" +
-				"\n\nExperience Gained: " + string(room_exp_earned) +
-				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
-				
-				case ROOM_TYPE.CRAPS:
-			return("Tokens Earned: " + string(room_tokens_earned) +
-				"\nTokens Lost: " + string(room_tokens_lost) +
-				"\nTokens Wagered: " + string(room_tokens_wagered) +
-				"\nHouse Winrate: 54%" +
-				"\n\nExperience Gained: " + string(room_exp_earned) +
-				"\nProfit: " + string(room_tokens_earned - room_tokens_lost));
-				
+            base_wager = 22;
+            base_winrate = 52;
+            base_lose_amount = 20;
+
+            var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+            var adjusted_winrate = base_winrate + winrate_bonus;
+            var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+
+            return "Tokens Earned: " + string(room_tokens_earned) +
+                   "\nTokens Lost: " + string(room_tokens_lost) +
+                   "\nTokens Wagered: " + string(room_tokens_wagered) +
+                   "\nBase Wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
+                   "\nHouse Winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
+                   "\nLose Amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) +
+                   "\n\nExperience Gained: " + string(room_exp_earned) +
+                   "\nProfit: " + string(room_tokens_earned - room_tokens_lost);
+
+		case ROOM_TYPE.CRAPS:
+            base_wager = 50;
+            base_winrate = 54;
+            base_lose_amount = 50;
+
+            var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+            var adjusted_winrate = base_winrate + winrate_bonus;
+            var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+
+            return "Tokens Earned: " + string(room_tokens_earned) +
+                   "\nTokens Lost: " + string(room_tokens_lost) +
+                   "\nTokens Wagered: " + string(room_tokens_wagered) +
+                   "\nBase Wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
+                   "\nHouse Winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
+                   "\nLose Amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) +
+                   "\n\nExperience Gained: " + string(room_exp_earned) +
+                   "\nProfit: " + string(room_tokens_earned - room_tokens_lost);
 				 
+	case ROOM_TYPE.BACCARAT:
+    base_wager = 90;
+    base_winrate = 56;
+    base_lose_amount = 90;
+
+    adjusted_wager = base_wager * (1 + wager_bonus / 100);
+    adjusted_winrate = base_winrate + winrate_bonus;
+    adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+
+    return "Tokens Earned: " + string(room_tokens_earned) +
+           "\nTokens Lost: " + string(room_tokens_lost) +
+           "\nTokens Wagered: " + string(room_tokens_wagered) +
+           "\nBase Wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
+           "\nHouse Winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
+           "\nLose Amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) +
+           "\nBaccarat Tie Pot: " + string(room_baccarat_tie_pot) +
+           "\nTie Pot Threshold: " + string(room_baccarat_tie_pot_threshold) +
+           "\n\nExperience Gained: " + string(room_exp_earned) +
+           "\nProfit: " + string(room_tokens_earned - room_tokens_lost);
+
+
+       case ROOM_TYPE.POKER:
+		base_wager = 150;
+		base_winrate = 58;
+		base_lose_amount = 150;
+
+    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+    var adjusted_winrate = base_winrate + winrate_bonus;
+    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+
+    return "Tokens Earned: " + string(room_tokens_earned) +
+           "\nTokens Lost: " + string(room_tokens_lost) +
+           "\nTokens Wagered: " + string(room_tokens_wagered) +
+           "\nBase Wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
+           "\nHouse Winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
+           "\nLose Amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) +
+           "\n\nBad Beat Pool: " + string(room_bad_beat_pool) +
+           "\nBad Beat Losses: " + string(room_bad_beat_losses) +
+           "\nBad Beat Jackpot at 5 losses!" +
+           "\n\nExperience Gained: " + string(room_exp_earned) +
+           "\nProfit: " + string(room_tokens_earned - room_tokens_lost);
+
+        case ROOM_TYPE.ROULETTE:
+            base_wager = 200;
+            base_winrate = 62;
+			base_lose_amount = 200;
+			
+            var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+            var adjusted_winrate = base_winrate + winrate_bonus;
+            return "Tokens Earned: " + string(room_tokens_earned) +
+                   "\nTokens Lost: " + string(room_tokens_lost) +
+                   "\nTokens Wagered: " + string(room_tokens_wagered) +
+                   "\nHouse Winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
+                   "\nBase Wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
+				    "\nLose Amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) +
+                   "\n\nExperience Gained: " + string(room_exp_earned) +
+                   "\nProfit: " + string(room_tokens_earned - room_tokens_lost);
+
+        case ROOM_TYPE.PACHINKO:
+            base_wager = 300;
+            base_winrate = 66;
+			base_lose_amount = 300;
+			
+            var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+            var adjusted_winrate = base_winrate + winrate_bonus;
+            return "Tokens Earned: " + string(room_tokens_earned) +
+                   "\nTokens Lost: " + string(room_tokens_lost) +
+                   "\nTokens Wagered: " + string(room_tokens_wagered) +
+                   "\nHouse Winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
+                   "\nBase Wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
+				    "\nLose Amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) +
+                   "\n\nExperience Gained: " + string(room_exp_earned) +
+                   "\nProfit: " + string(room_tokens_earned - room_tokens_lost);
+
+        case ROOM_TYPE.SLOTS:
+            base_wager = 400;
+            base_winrate = 72;
+			base_lose_amount = 400;
+			
+            var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+            var adjusted_winrate = base_winrate + winrate_bonus;
+            return "Tokens Earned: " + string(room_tokens_earned) +
+                   "\nTokens Lost: " + string(room_tokens_lost) +
+                   "\nTokens Wagered: " + string(room_tokens_wagered) +
+                   "\nHouse Winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
+                   "\nBase Wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
+				    "\nLose Amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) +
+                   "\n\nExperience Gained: " + string(room_exp_earned) +
+                   "\nProfit: " + string(room_tokens_earned - room_tokens_lost);
+
 		
 		default:
-			return("Get_Room_Stats() Not yet implemented.");
-	}
-}
+            return "Get_Room_Stats() Not yet implemented.";
+    }
+};
 
-get_char_ability_wager = function(wager){
-	switch (room_character) {
-		case CHARACTER.CHIP_GUY:
-			wager = ceil(wager * 1.5);
-			break;
-		
-		case CHARACTER.COOL_CHIP_GUY:
-			wager *= 2;
-			break;
-		
-		case CHARACTER.COW_MAN:
-			wager *= 5;
-			break;
-		
-		case CHARACTER.THE_GIRL:
-			wager *= 2;
-			break;
-	}
-	return wager;
-}
+function get_character_ability(character_id, ability_type) {
+    switch (character_id) {
+        case CHARACTER.CHIP_GUY:
+            if (ability_type == "wager_bonus") return 10;  // +10% to wagers
+            break;
 
-get_char_ability_wr = function(wr){
-	switch (room_character) {
-		case CHARACTER.CHIP_GUY:
-			break;
-		
-		case CHARACTER.COOL_CHIP_GUY:
-			wr += 1;
-			break;
-		
-		case CHARACTER.COW_MAN:
-			break;
-		
-		case CHARACTER.THE_GIRL:
-			break;
-	}	
-	return wr;
+        case CHARACTER.COOL_CHIP_GUY:
+            if (ability_type == "win_rate") return 2;      // +2% win rate
+            break;
+
+        case CHARACTER.COW_MAN:
+            if (ability_type == "wager_bonus") return 100; // +100% to wagers
+            break;
+
+        case CHARACTER.THE_GIRL:
+            if (ability_type == "loss_reduction") return 50; // 50% reduction
+            break;
+
+        default:
+            return 0; // Default to no effect
+    }
+    return 0; // Default return for undefined ability_type
 }
 
 room_character = -1;          // No character assigned initially
