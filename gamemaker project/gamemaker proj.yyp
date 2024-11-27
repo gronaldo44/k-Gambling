@@ -85,6 +85,7 @@
     {"id":{"name":"room_gacha_menu","path":"rooms/room_gacha_menu/room_gacha_menu.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"smusic1","path":"sounds/smusic1/smusic1.yy",},},
+    {"id":{"name":"BTO_Background","path":"sprites/BTO_Background/BTO_Background.yy",},},
     {"id":{"name":"Building_Poker","path":"sprites/Building_Poker/Building_Poker.yy",},},
     {"id":{"name":"IG_Benjy","path":"sprites/IG_Benjy/IG_Benjy.yy",},},
     {"id":{"name":"IG_Carbert","path":"sprites/IG_Carbert/IG_Carbert.yy",},},
