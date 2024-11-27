@@ -10,8 +10,8 @@ if (room_character_sprite != noone) {
     // Adjust character position based on the room type
     switch (roomType) {
         case ROOM_TYPE.BAR:
-            character_x_offset = 0;
-            character_y_offset = -60; 
+            character_x_offset = 33;
+            character_y_offset = -95; 
             break;
 
         case ROOM_TYPE.BLACKJACK:
@@ -26,27 +26,27 @@ if (room_character_sprite != noone) {
 
         case ROOM_TYPE.POKER:
             character_x_offset = 0;
-            character_y_offset = -100;
+            character_y_offset = -85;
             break;
 
         case ROOM_TYPE.SLOTS:
-            character_x_offset = 90;
-            character_y_offset = 30; 
+            character_x_offset = 140;
+            character_y_offset = -10; 
             break;
 
         case ROOM_TYPE.ROULETTE:
-            character_x_offset = 5;
-            character_y_offset = -50; 
+            character_x_offset = -50;
+            character_y_offset = -100; 
             break;
 
         case ROOM_TYPE.PACHINKO:
-            character_x_offset = 0;
-            character_y_offset = -80; 
+            character_x_offset = 140;
+            character_y_offset = -10; 
             break;
 
         case ROOM_TYPE.CRAPS:
             character_x_offset = 0;
-            character_y_offset = -65;
+            character_y_offset = -85;
             break;
 
         default:

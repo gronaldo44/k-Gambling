@@ -6,7 +6,8 @@ enum CHARACTER {
 	COW_MAN = 2,
 	THE_GIRL = 3,
 	SLOTSY = 4,
-	CARBERT = 5
+	CARBERT = 5,
+	BENJY = 6
 }
 
 
@@ -18,6 +19,7 @@ ds_map_add(global.characters, CHARACTER.COW_MAN, 0);
 ds_map_add(global.characters, CHARACTER.THE_GIRL, 0);
 ds_map_add(global.characters, CHARACTER.SLOTSY, 0);
 ds_map_add(global.characters, CHARACTER.CARBERT, 0);
+ds_map_add(global.characters, CHARACTER.BENJY, 0);
 
 //ds_map_replace(characters, "The girl", 1);
 
@@ -45,6 +47,7 @@ global.char_getCharacterName = function(c)
 	if(c = CHARACTER.THE_GIRL){return "Yuki"}
 	if(c = CHARACTER.SLOTSY){return "Slotsy"}
 	if(c = CHARACTER.CARBERT){return "Carbert"}
+	if(c = CHARACTER.BENJY){return "BENJY"}
 
 }
 
