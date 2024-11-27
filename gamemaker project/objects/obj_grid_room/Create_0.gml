@@ -692,3 +692,4 @@ daily_update = function()
 
 }
 
+npc_animation = noone; 

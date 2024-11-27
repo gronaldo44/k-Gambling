@@ -41,23 +41,50 @@ for (var i = 0; i < grid_width * grid_height; i++) {
     }
 }
 
-// Set the room at "loc" to the type "roomType"
+
+
 global.set_roomtype = function(loc, roomType) {
     var room_instance = grid_rooms[loc + offset()];
     
     if (room_instance != noone) {
         room_instance.roomType = roomType;
         room_instance.image_index = roomType;
-        room_instance.start_room();
-        
-        show_debug_message("Room " + string(loc) + " set to type " + string(roomType));
+
+        // Create or update the NPC animation
+        var npc = instance_create_layer(room_instance.x, room_instance.y, "Animation", obj_npc_animation);
+        if (npc != noone) {
+            switch (roomType) {
+                case ROOM_TYPE.BAR:
+                    npc.npc_sprite = spr_bar_fade;
+                    break;
+                case ROOM_TYPE.BLACKJACK:
+                    npc.npc_sprite = spr_black_jack_fade;
+                    break;
+                case ROOM_TYPE.BACCARAT:
+                    npc.npc_sprite = spr_bacarat_fade;
+                    break;
+                case ROOM_TYPE.POKER:
+                    npc.npc_sprite = spr_poker_fade;
+                    break;
+                case ROOM_TYPE.ROULETTE:
+                    npc.npc_sprite = spr_roulette_fade;
+                    break;
+                case ROOM_TYPE.SLOTS:
+                    npc.npc_sprite = spr_slots_fade;
+                    break;
+                case ROOM_TYPE.PACHINKO:
+                    npc.npc_sprite = spr_pachinko_fade;
+                    break;
+                default:
+                    npc.npc_sprite = noone;
+                    break;
+            }
+            npc.npc_active = true; // Start animation
+            npc.room_index = loc;  // Link to room index
+        }
     }
-    
-    var shop_ui = instance_find(obj_shop_ui, 0);
-    with(shop_ui) {
-        visible = false;
-        room_loc = -1;
-    }
+
+    show_debug_message("Room " + string(loc) + " set to type " + string(roomType));
 };
 
 // Gets the character at room "loc"
@@ -227,11 +254,17 @@ function set_floor_visibility(visibility){
 				visible = visibility;	
 				show_debug_message("Room " + string(i) + " - RoomType " + string(roomType));
 			}
-        } else {
+        } 
+		else {
 			show_debug_message("set_floor_visibility Invalid or missing room at " + string(i));	
 		}
     }
 	
+// Manage visibility for NPC animations
+    with (obj_npc_animation) {
+        visible = global.is_visible_on_floor(room_index); // Update visibility based on floor
+        show_debug_message("NPC Animation for Room " + string(room_index) + " visibility set to " + string(visible));
+    }
 	show_debug_message("Floor " + string(grid_index) + " visibility set to " + string(visibility));
 }
 
@@ -261,3 +294,8 @@ global.grid_floorDown = function() {
 	}
 	show_debug_message("Casino set to floor " + string(grid_index));
 }
+
+global.is_visible_on_floor = function(room_index) {
+    var room_floor = floor(room_index / (grid_width * grid_height));
+    return room_floor == grid_index; // True if on the current floor
+};
