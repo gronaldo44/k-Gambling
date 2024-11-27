@@ -398,9 +398,9 @@ OnSlotsUpdate = function() {
         var jackpot_reward = 0;
 
         if (jackpot_roll == 1) { // 0.1% chance for mega jackpot
-            jackpot_reward = adjusted_wager * 50; // x50 payout
+            jackpot_reward = adjusted_wager * 1000; // x50 payout
         } else if (jackpot_roll <= 10) { // 1% chance for mini jackpot
-            jackpot_reward = adjusted_wager * 10; // x10 payout
+            jackpot_reward = adjusted_wager * 100; // x10 payout
         }
 
         // Add jackpot reward if applicable
