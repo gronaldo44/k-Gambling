@@ -21,6 +21,14 @@ for (var i = 0; i < op_length; i++) {
     // Determine box and font color based on hover state
     var box_color = (pos == i) ? hover_color : default_color;
     var font_color = (pos == i) ? hover_font_color : default_font_color;
+	
+	// Define colors for text
+	var stats_text_color = c_black;    // Color for stats text
+	var description_text_color = make_color_rgb(0, 0, 0); // Blue for room descriptions
+
+	// Set the text color for descriptions
+	draw_set_color(description_text_color);
+
 
     // Draw the box with hover effect
     draw_sprite_ext(spr_shop_button, 0, button_x, button_y, 0.6, 0.32, 0, box_color, 1);
@@ -32,6 +40,7 @@ for (var i = 0; i < op_length; i++) {
 if(pos == 0){
 	switch (room_type) {
 		case ROOM_TYPE.BAR:
+			draw_sprite_ext(spr_black_jack_2, 0, 1230, 305, .44, .41, 0, c_white, 1);
 			draw_text_transformed(1020, 400, "The Bar generates steady income and is\na strategic asset in any casino. With each \ndrink, patrons stay longer and become\nmore inclined to make risky bets, driving up\nprofits. A well-stocked Bar encourages\nplayers to chase losses and splurge,\nmaking it a powerful tool to boost revenue.", .50, .50, 0);
 			break;
 			
@@ -88,15 +97,15 @@ if (pos == 3) {
         // Define functionality and sprite for each character
         switch (room_char) {
             case CHARACTER.CHIP_GUY:
-                char_function = "Chip Guy increases token earnings by 10%.";
+                char_function = "Chippy increases token earnings by 10%.";
                 char_sprite = spr_Schpguy_splash;
                 break;
             case CHARACTER.COOL_CHIP_GUY:
-                char_function = "Cool Chip Guy boosts wager win rate by 2%.";
+                char_function = "Chipper boosts wager win rate by 2%.";
                 char_sprite = spr_coolChip_splash
                 break;
             case CHARACTER.COW_MAN:
-                char_function = "Cow Man doubles token wager amounts.";
+                char_function = "CowMan doubles token wager amounts.";
                 char_sprite = spr_cow_splash;
                 break;
             case CHARACTER.THE_GIRL:

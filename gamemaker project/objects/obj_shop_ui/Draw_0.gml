@@ -47,17 +47,20 @@ if(pos == 0){
 	//info text of the room
 	draw_text_transformed_color(1000, 380, "Income: +6 coin every second", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
 	draw_text_transformed_color(1000, 445, "Costs : [75] tokens", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 480, "Room ability: None", .45, .45, 0, c_black, c_black, c_black, c_black, 1);
 }
 if(pos == 1){
 	draw_sprite_ext(spr_black_jack_2, 0, 1199, 270, .44, .41, 0, c_white, 1);
 	draw_text_transformed_color(1000, 380, "Income: 52% for +20 tokens,\n48% for -20 tokens", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
 	draw_text_transformed_color(1000, 445, "Costs : [125] tokens", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 480, "Room ability: None", .45, .45, 0, c_black, c_black, c_black, c_black, 1);
 }
 
 if(pos == 2){
 	draw_sprite_ext(spr_craps, 0, 1199, 270, .44, .41, 0, c_white, 1);
 	draw_text_transformed_color(1000, 380, "Income: 54% for +50 tokens,\n46% for -50 tokens", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
 	draw_text_transformed_color(1000, 445, "Costs : [180] tokens", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 480, "Room ability: None", .45, .45, 0, c_black, c_black, c_black, c_black, 1);
 }
 
 
