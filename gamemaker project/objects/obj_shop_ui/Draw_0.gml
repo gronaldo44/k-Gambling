@@ -45,50 +45,52 @@ if(pos == 0){
 	//draws the sprite of the room into the display box
 	draw_sprite_ext(spr_bar, 0, 1199, 270, .35, .33, 0, c_white, 1);
 	//info text of the room
-	draw_text_transformed_color(1020, 400, "+6 coin every second", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
-	draw_text_transformed_color(1020, 450, "Costs : [75] tokens", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 380, "Income: +6 coin every second", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 440, "Costs : [75] tokens", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
 }
 if(pos == 1){
 	draw_sprite_ext(spr_black_jack_2, 0, 1199, 270, .44, .41, 0, c_white, 1);
-	draw_text_transformed_color(1010, 400, "52% for +20 token, 48% for -20", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
-	draw_text_transformed_color(1020, 450, "Costs : [125] tokens", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 380, "Income: 52% for +20 tokens,\n48% for -20 tokens", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 440, "Costs : [125] tokens", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
 }
 
 if(pos == 2){
 	draw_sprite_ext(spr_craps, 0, 1199, 270, .44, .41, 0, c_white, 1);
-	draw_text_transformed_color(1010, 400, "54% for +50 token, 46% for -50", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
-	draw_text_transformed_color(1020, 450, "Costs : [180] tokens", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 380, "Income: 54% for +50 tokens,\n46% for -50 tokens", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 440, "Costs : [180] tokens", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
 }
 
 
 if(pos == 3){
 	draw_sprite_ext(spr_baccarat, 0, 1199, 270, .44, .41, 0, c_white, 1);
-	draw_text_transformed_color(1010, 400, "56% for +90 token, 44% for -90", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
-	draw_text_transformed_color(1020, 450, "Costs : [250] tokens", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 380, "Income: 56% for +90 tokens,\n44% for -90 tokens", .60, .60, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 440, "Costs : [250] tokens", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
 }
 
 
 if(pos == 4){
 	draw_sprite_ext(spr_poker, 0, 1199, 270, .44, .41, 0, c_white, 1);
-	draw_text_transformed_color(1010, 400, "58% for +150 token, 42% for -150", .55, .55, 0, c_black, c_black, c_black, c_black, 1);
-	draw_text_transformed_color(1020, 450, "Costs : [350] tokens", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 380, "Income: 58% for +150 tokens,\n42% for -150 tokens", .55, .55, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 440, "Costs : [350] tokens", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
 }
 
 if(pos == 5){
 	draw_sprite_ext(spr_roulette, 0, 1199, 270, .44, .41, 0, c_white, 1);
-	draw_text_transformed_color(1010, 400, "62% for +200 token, 38% for -200", .55, .55, 0, c_black, c_black, c_black, c_black, 1);
-	draw_text_transformed_color(1020, 450, "Costs : [475] tokens", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 380, "Income: 62% for +200 tokens,\n38% for -200 tokens", .55, .55, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 440, "Costs : [475] tokens", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
 }
 
 if(pos == 6){
 	draw_sprite_ext(spr_pachinko, 0, 1199, 270, .44, .41, 0, c_white, 1);
-	draw_text_transformed_color(1010, 400, "66% for +300 token, 34% for -300", .55, .55, 0, c_black, c_black, c_black, c_black, 1);
-	draw_text_transformed_color(1020, 450, "Costs : [580] tokens", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 380, "Income: 66% for +300 tokens,\n34% for -300 tokens", .55, .55, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 450, "Costs : [580] tokens", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 480, "Room ability: On a win there is a chance to hit a muiltpler on your bet. It can range from 1x, 5x, 10x 25x ", .45, .45, 0, c_black, c_black, c_black, c_black, 1);
 }
 
 if(pos == 7){
 	draw_sprite_ext(spr_slots, 0, 1199, 270, .44, .41, 0, c_white, 1);
-	draw_text_transformed_color(1010, 400, "72% for +400 token, 28% for -400", .55, .55, 0, c_black, c_black, c_black, c_black, 1);
-	draw_text_transformed_color(1020, 450, "Costs : [700] tokens", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 380, "Income: 72% for +400 tokens,\n28% for -400 tokens", .55, .55, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 440, "Costs : [700] tokens", .75, .75, 0, c_black, c_black, c_black, c_black, 1);
+	draw_text_transformed_color(1000, 480, "Room ability: Small chance on a win to win the jackbot. 1000x your wager", .45, .45, 0, c_black, c_black, c_black, c_black, 1);
 }
 
