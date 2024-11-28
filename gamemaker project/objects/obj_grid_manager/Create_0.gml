@@ -82,6 +82,7 @@ global.set_roomtype = function(loc, roomType) {
             npc.npc_active = true; // Start animation
             npc.room_index = loc;  // Link to room index
         }
+		room_instance.start_room();
     }
 
     show_debug_message("Room " + string(loc) + " set to type " + string(roomType));
