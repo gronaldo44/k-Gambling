@@ -1,10 +1,10 @@
 {
   "$GMSprite":"",
-  "%Name":"Building_Roulette",
+  "%Name":"Building_Blackjack",
   "bboxMode":0,
-  "bbox_bottom":499,
+  "bbox_bottom":409,
   "bbox_left":0,
-  "bbox_right":499,
+  "bbox_right":409,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,16 +12,16 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"b19ef159-25c8-425b-b49d-cc871ce6bcb3","name":"b19ef159-25c8-425b-b49d-cc871ce6bcb3","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"ae9b99f7-36f2-4f2d-9c8b-7312441b2d27","name":"ae9b99f7-36f2-4f2d-9c8b-7312441b2d27","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
-  "height":500,
+  "height":410,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"eed1eda5-95a1-4958-9a11-b5f41337372b","blendMode":0,"displayName":"default","isLocked":false,"name":"eed1eda5-95a1-4958-9a11-b5f41337372b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"e0ffe25e-2b9d-4fbf-8295-be976ac7d88b","blendMode":0,"displayName":"default","isLocked":false,"name":"e0ffe25e-2b9d-4fbf-8295-be976ac7d88b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"Building_Roulette",
+  "name":"Building_Blackjack",
   "nineSlice":null,
   "origin":0,
   "parent":{
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"Building_Roulette",
+    "%Name":"Building_Blackjack",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"Building_Roulette",
+    "name":"Building_Blackjack",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b19ef159-25c8-425b-b49d-cc871ce6bcb3","path":"sprites/Building_Roulette/Building_Roulette.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"8419227e-a420-445d-bfb0-6b4a73892365","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"ae9b99f7-36f2-4f2d-9c8b-7312441b2d27","path":"sprites/Building_Blackjack/Building_Blackjack.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"10134bfc-7de7-4cf9-82f0-cc03379745d4","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":500,
+  "width":410,
 }

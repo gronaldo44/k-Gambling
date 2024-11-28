@@ -1,6 +1,6 @@
 {
   "$GMSprite":"",
-  "%Name":"BTO_Reception_Desk",
+  "%Name":"BTO_Bacarat_Table",
   "bboxMode":0,
   "bbox_bottom":409,
   "bbox_left":0,
@@ -12,16 +12,16 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"faaa0ae4-96af-4053-b86c-76958c7f6817","name":"faaa0ae4-96af-4053-b86c-76958c7f6817","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"4d0c9a10-611d-4e7a-95c6-dca9a47c06d3","name":"4d0c9a10-611d-4e7a-95c6-dca9a47c06d3","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":410,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"3872ad1c-7421-458b-8868-5c4f38aa4498","blendMode":0,"displayName":"default","isLocked":false,"name":"3872ad1c-7421-458b-8868-5c4f38aa4498","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"10f8382f-4753-427f-9fcb-7f1997bf387e","blendMode":0,"displayName":"default","isLocked":false,"name":"10f8382f-4753-427f-9fcb-7f1997bf387e","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"BTO_Reception_Desk",
+  "name":"BTO_Bacarat_Table",
   "nineSlice":null,
   "origin":0,
   "parent":{
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"BTO_Reception_Desk",
+    "%Name":"BTO_Bacarat_Table",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"BTO_Reception_Desk",
+    "name":"BTO_Bacarat_Table",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"faaa0ae4-96af-4053-b86c-76958c7f6817","path":"sprites/BTO_Reception_Desk/BTO_Reception_Desk.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"3bb6a634-3e5c-4257-a971-b09abf063844","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"4d0c9a10-611d-4e7a-95c6-dca9a47c06d3","path":"sprites/BTO_Bacarat_Table/BTO_Bacarat_Table.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"42b2a44a-62d8-48a8-a2dc-69d1015a9e14","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

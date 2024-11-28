@@ -2,9 +2,9 @@
   "$GMSprite":"",
   "%Name":"BTO_Bar",
   "bboxMode":0,
-  "bbox_bottom":499,
+  "bbox_bottom":409,
   "bbox_left":0,
-  "bbox_right":499,
+  "bbox_right":409,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -16,7 +16,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":500,
+  "height":410,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"cbbbca98-ecc3-48b1-9df8-08b838626268","blendMode":0,"displayName":"default","isLocked":false,"name":"cbbbca98-ecc3-48b1-9df8-08b838626268","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":500,
+  "width":410,
 }
