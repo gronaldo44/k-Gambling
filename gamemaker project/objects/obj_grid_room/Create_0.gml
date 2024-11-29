@@ -487,8 +487,8 @@ get_room_stats = function() {
 			break;
 		
 		case ROOM_TYPE.BAR:
-			return("Tokens Earned: " + string(room_tokens_earned) + 
-				"\nExperience Gained: " + string(room_exp_earned));
+			return("Tokens Earned: " + string(room_tokens_earned)); 
+
 		
 		case ROOM_TYPE.BLACKJACK:
             base_wager = 22;
