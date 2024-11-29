@@ -40,6 +40,7 @@ for (var i = 0; i < op_length; i++) {
 if(pos == 0){
 	switch (room_type) {
 		case ROOM_TYPE.BAR:
+		draw_set_color(c_black);
 			draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
 			draw_text_transformed(1020, 400, "The Bar generates steady income and is\na strategic asset in any casino. With each \ndrink, patrons stay longer and become\nmore inclined to make risky bets, driving up\nprofits. A well-stocked Bar encourages\nplayers to chase losses and splurge,\nmaking it a powerful tool to boost revenue.", .50, .50, 0);
 			break;
@@ -182,5 +183,7 @@ if (pos == 3) {
     }
 }
 
-
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_set_color(c_white); 
 
