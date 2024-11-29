@@ -87,7 +87,7 @@ if(pos == 0){
 	}
 }
 if(pos == 1){
-	draw_text_transformed(1020, 400, global.get_room_stats(room_loc), .45, .45, 0);
+	draw_text_transformed(1005, 240, global.get_room_stats(room_loc), .6, .6, 0);
 }
 if(pos == 2){
 	draw_text_transformed(1020, 400, "Under Construction", .60, .60, 0);
