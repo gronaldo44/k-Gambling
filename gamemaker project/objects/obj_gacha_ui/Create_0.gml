@@ -26,7 +26,10 @@ visible = true;
 
 option[0] = "Chippy";
 option[1] = "Chipper"
-option[2] = "CowMan"
+option[2] = "Cowman"
 option[3] = "Yuki"
+option[4] = "Slotsy"
+option[5] = "Carbert"
+option[6] = "Benjy"
 
 op_length = array_length(option);
