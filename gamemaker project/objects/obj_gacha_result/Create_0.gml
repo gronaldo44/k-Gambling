@@ -43,3 +43,9 @@ global.result7 = function()
 {
 	image_index = 6;
 }
+
+//result cardert
+global.result8 = function()
+{
+	image_index = 7;
+}

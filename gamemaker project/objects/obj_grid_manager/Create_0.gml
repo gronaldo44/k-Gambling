@@ -128,6 +128,15 @@ global.set_roomChar = function(loc, c) {
                 case CHARACTER.THE_GIRL:
                     room_instance.room_character_sprite = IG_Yuki;
                     break;
+				case CHARACTER.SLOTSY:
+                    room_instance.room_character_sprite = IG_Slotsy;
+                    break;
+				case CHARACTER.CARBERT:
+                    room_instance.room_character_sprite = IG_Carbert;
+                    break;
+				case CHARACTER.BENJY:
+                    room_instance.room_character_sprite = IG_Benjy;
+                    break;					
                 default:
                     room_instance.room_character_sprite = noone; // Fallback for invalid character
             }

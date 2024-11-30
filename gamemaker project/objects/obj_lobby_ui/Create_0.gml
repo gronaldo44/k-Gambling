@@ -36,8 +36,8 @@ function get_lobby_tip() {
 			   "\nTry buying a Bar Room!");
 			
 		case 2:
-			return("Congratulations on reaching Level 2!" +
-				"\n\nOur casino has two types of income. A" +
+			return
+				("\n\nOur casino has two types of income. A" +
 				"\nroom generates Tokens and Experience." +
 				"\n\nThe Black Jack Room earns much more" +
 				"\nExperience than the Bar Room." +

@@ -61,6 +61,10 @@ display_result = function(result)
 		global.result7();
 	break
 	
+	case 8:
+		global.result8();
+	break
+	
 	
 	}
 }

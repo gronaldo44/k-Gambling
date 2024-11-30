@@ -42,6 +42,21 @@ if(accept_key && visible && allow_accept && is_opened){
 
 			global.set_roomChar(room_loc, CHARACTER.THE_GIRL);
 			break;
+
+		case 4:
+
+			global.set_roomChar(room_loc, CHARACTER.SLOTSY);
+			break;	
+
+		case 5:
+
+			global.set_roomChar(room_loc, CHARACTER.CARBERT);
+			break;
+			
+		case 6:
+
+			global.set_roomChar(room_loc, CHARACTER.BENJY);
+			break;			
 		default:
 			show_debug_message("Set room char option not yet implemented");
 	}

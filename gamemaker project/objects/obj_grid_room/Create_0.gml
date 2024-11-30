@@ -488,6 +488,13 @@ get_room_stats = function() {
 		
 		case ROOM_TYPE.BAR:
 			return("Tokens Earned: " + string(room_tokens_earned)); 
+			
+			case ROOM_TYPE.LOBBY:
+			return("Net Tokens Profit: " + string(global.profit_tokens) +
+				"\nTotal Experience Gained: " + string(global.profit_exp) +
+				"\n\nTotal Tokens Earned: " + string(global.profit_tokens_earned) +
+				"\nTotal Tokens Lost: " + string(global.profit_tokens_lost) +
+				"\nTotal Tokens Wagered: " + string(global.profit_tokens_wager));
 
 		
 		case ROOM_TYPE.BLACKJACK:
