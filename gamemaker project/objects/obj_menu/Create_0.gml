@@ -1,37 +1,39 @@
-width = 750;
-height = 600;
+width = 950;
+height = 500;
 
-op_border = 15;
-op_space = 50;
+sprite_offset_x = 1260; // X position for sprites
+sprite_offset_y = 300;  // Y position for sprites
+
+sprite_scale_x = 0.15; // X scale for sprites
+sprite_scale_y = 0.15; // Y scale for sprites
+
+text_x_offset = 1250;
+text_y_offset = 405;
+
+allow_accept = false; // Disable accept initially
+is_opened = false; // Menu has not opened yet
+
+sub_width = 240;
+sub_height = 170;
+
+op_border = 8;
+op_space = 100;
 
 pos = 0;
 
-count = 0;
+room_loc = -1; // Room location not yet set
+visible = true; // Menu is visible by default
 
-/**
-for(var i = 0; i <  array_length(global.characters); i++)
-{
-	if(global.characters[i] != 0){
-		str = string(global.characters[i]) + "x " + global.charactersName[i];
-		option[count] = str;
-		count++;
-	}		
-}
-**/
-
-for(var key = ds_map_find_first(global.characters); key != undefined; key = ds_map_find_next(global.characters, key)){
-	num = ds_map_find_value(global.characters, key) //!= 0
-	show_debug_message(string(num));
-	if(num != 0){
-		str = global.char_getCharacterName(key) + " x " + string(num);
-		option[count] = str;
-		count++;
-	}
-}
-
-if(count <= 0){
-	option[0] = "All your Employees are busy.";
-}
+option[0] = "Chippy";
+option[1] = "Chipper";
+option[2] = "Cowman";
+option[3] = "Yuki";
+option[4] = "Slotsy";
+option[5] = "Carbert";
+option[6] = "Benjy";
 
 op_length = array_length(option);
+
+// Initialize `close` to prevent errors in the Step event
+close = false;
 
