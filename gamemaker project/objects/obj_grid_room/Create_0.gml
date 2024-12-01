@@ -657,6 +657,10 @@ function get_character_ability(character_id, ability_type) {
 
         case CHARACTER.THE_GIRL:
             if (ability_type == "loss_reduction") return 50; // 50% reduction
+            break; 
+			
+			 case CHARACTER.BENJY:
+            if (ability_type == "wager_bonus") return 20; // +20% to wagers
             break;
 
         default:
