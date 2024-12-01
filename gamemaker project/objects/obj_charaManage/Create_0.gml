@@ -47,7 +47,7 @@ global.char_getCharacterName = function(c)
 	if(c = CHARACTER.THE_GIRL){return "Yuki"}
 	if(c = CHARACTER.SLOTSY){return "Slotsy"}
 	if(c = CHARACTER.CARBERT){return "Carbert"}
-	if(c = CHARACTER.BENJY){return "BENJY"}
+	if(c = CHARACTER.BENJY){return "Benjy"}
 
 }
 

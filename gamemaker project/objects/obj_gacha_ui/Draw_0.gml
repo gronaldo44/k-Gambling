@@ -73,7 +73,7 @@ if (pos == 0) {
     draw_set_halign(fa_center);
     draw_text_transformed_color(
         text_x_offset, 450, 
-        "Chip Guy increases token\n earnings by 10%.", 
+        "Chippy increases wager by\n15% and loss reduction by 5%\n\nBar ability: None", 
         0.60, 0.60, 0, 
         c_black, c_black, c_black, c_black, 1
     );
@@ -87,7 +87,7 @@ if (pos == 1) {
     draw_set_halign(fa_center);
     draw_text_transformed_color(
         text_x_offset, 450, 
-        "Cool black chip", 
+        "Chipper increases winrate\nby 5%\n\nBar ability: None", 
         0.60, 0.60, 0, 
         c_black, c_black, c_black, c_black, 1
     );
@@ -100,7 +100,7 @@ if (pos == 2) {
     draw_set_halign(fa_center);
     draw_text_transformed_color(
        text_x_offset, 450, 
-        "Cow Man", 
+        "Cowman increases wager\nby 100% and winrate by 2%\n\nBar ability: None", 
         0.60, 0.60, 0, 
         c_black, c_black, c_black, c_black, 1
     );
@@ -113,7 +113,7 @@ if (pos == 3) {
     draw_set_halign(fa_center);
     draw_text_transformed_color(
        text_x_offset, 450, 
-        "Yuki", 
+        "Yuki increases wager by 20%\nand loss reduciton by 50%.\n\nBar ability: increases income\nby 100 tokens", 
         0.60, 0.60, 0, 
         c_black, c_black, c_black, c_black, 1
     );
@@ -126,7 +126,7 @@ if (pos == 4) {
     draw_set_halign(fa_center);
     draw_text_transformed_color(
        text_x_offset, 450, 
-        "Slotsy", 
+        "Slotsy Increases wager by 50%\n\nBar ability: None", 
         0.60, 0.60, 0, 
         c_black, c_black, c_black, c_black, 1
     );
@@ -139,7 +139,7 @@ if (pos == 5) {
     draw_set_halign(fa_center);
     draw_text_transformed_color(
        text_x_offset, 450, 
-        "Carbert", 
+        "Carbert Increases winrate by 1%\nand wager by 5%\n\nBar ability: None", 
         0.60, 0.60, 0, 
         c_black, c_black, c_black, c_black, 1
     );
@@ -152,7 +152,7 @@ if (pos == 6) {
     draw_set_halign(fa_center);
     draw_text_transformed_color(
        text_x_offset, 450, 
-        "Benjy", 
+        "Benjy Increses loss reduction\nby 25%.\n\nBar ability: increases income\n by 25", 
         0.60, 0.60, 0, 
         c_black, c_black, c_black, c_black, 1
     );

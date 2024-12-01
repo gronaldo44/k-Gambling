@@ -105,20 +105,32 @@ if (pos == 3) {
         // Define functionality and sprite for each character
         switch (room_char) {
             case CHARACTER.CHIP_GUY:
-                char_function = "Chippy increases token earnings by 10%.";
+                char_function = "increases wager by\n15% and loss reduction by 5%\n\nBar ability: None";
                 char_sprite = spr_Schpguy_splash;
                 break;
             case CHARACTER.COOL_CHIP_GUY:
-                char_function = "Chipper boosts wager win rate by 2%.";
+                char_function = "increases winrate\nby 5%\n\nBar ability: None";
                 char_sprite = spr_coolChip_splash
                 break;
             case CHARACTER.COW_MAN:
-                char_function = "CowMan doubles token wager amounts.";
+                char_function = "increases wager\nby 100% and winrate by 2%\n\nBar ability: None";
                 char_sprite = spr_cow_splash;
                 break;
             case CHARACTER.THE_GIRL:
-                char_function = "Yuki reduces token losses by 50%.";
+                char_function = "increases wager by 20%\nand loss reduciton by 50%.\n\nBar ability: increases income\nby 100 tokens";
                 char_sprite = spr_sgirl_splash;
+                break;
+			case CHARACTER.SLOTSY:
+                char_function = "Slotsy Increases wager by 50%\n\nBar ability: None";
+                char_sprite = SA_Slotsy;
+                break;
+			case CHARACTER.CARBERT:
+                char_function = "Increases winrate by 1%\nand wager by 5%\n\nBar ability: None";
+                char_sprite = SA_Carbert;
+                break;
+			case CHARACTER.BENJY:
+                char_function = "Increases winrate by 1%\nand wager by 5%\n\nBar ability: None";
+                char_sprite = SA_Benjy;
                 break;
             default:
                 char_function = "No functionality assigned.";
