@@ -69,9 +69,9 @@ switch (pos) {
         draw_sprite_ext(spr_Schpguy_splash, 0, sprite_x, sprite_y, scale_x, scale_y, 0, c_white, 1);
         draw_set_halign(fa_center);
         draw_text_transformed_color(
-            text_x_offset, text_y_offset, 
+            text_x_offset, text_y_offset, //text pos
             "One of the first-ever mascots of the casino.\nChippy is the older brother of Chipper\nand is more well-known.\n\nChippy increases wager by 15% and loss\nreduction by 5%\n\nBar ability: None", 
-            0.45, 0.45, 0, 
+            0.45, 0.45, 0, //font size
             c_black, c_black, c_black, c_black, 1
         );
         draw_set_halign(fa_left); // Reset alignment

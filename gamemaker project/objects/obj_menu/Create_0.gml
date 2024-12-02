@@ -7,8 +7,8 @@ sprite_offset_y = 300;  // Y position for sprites
 sprite_scale_x = 0.15; // X scale for sprites
 sprite_scale_y = 0.15; // Y scale for sprites
 
-text_x_offset = 1250;
-text_y_offset = 405;
+text_x_offset = 1250; // x pos
+text_y_offset = 405; // y pos
 
 allow_accept = false; // Disable accept initially
 is_opened = false; // Menu has not opened yet

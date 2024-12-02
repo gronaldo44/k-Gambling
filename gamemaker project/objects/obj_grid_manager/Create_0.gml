@@ -80,6 +80,9 @@ global.set_roomtype = function(loc, roomType) {
                 case ROOM_TYPE.BACCARAT:
                     npc.npc_sprite = spr_bacarat_fade;
                     break;
+					case ROOM_TYPE.CRAPS:
+                    npc.npc_sprite = spr_craps_fade;
+                    break;
                 case ROOM_TYPE.POKER:
                     npc.npc_sprite = spr_poker_fade;
                     break;

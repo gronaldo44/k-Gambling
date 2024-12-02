@@ -11,6 +11,7 @@ if(result_2 == 0)
 	ds_map_replace(global.characters, CHARACTER.CHIP_GUY, ds_map_find_value(global.characters,CHARACTER.CHIP_GUY) + 1);
 
 	show_debug_message(string("You get a chipguy"));
+	audio_play_sound(s4star,1,false);
 	
 	display_result(2);
 }
@@ -20,6 +21,7 @@ if(result_2 == 1)
 	ds_map_replace(global.characters, CHARACTER.COOL_CHIP_GUY, ds_map_find_value(global.characters,CHARACTER.COOL_CHIP_GUY) + 1);
 
 	show_debug_message(string("You get a cool chipguy"));
+	audio_play_sound(s4star,1,false);
 	
 	display_result(3);
 }
@@ -29,6 +31,7 @@ if(result_2 == 2)
 	ds_map_replace(global.characters, CHARACTER.SLOTSY, ds_map_find_value(global.characters,CHARACTER.SLOTSY) + 1);
 
 	show_debug_message(string("You get a slotsy"));
+	audio_play_sound(s4star,1,false);
 	
 	display_result(6);
 }
@@ -38,6 +41,7 @@ if(result_2 == 3)
 	ds_map_replace(global.characters, CHARACTER.CARBERT, ds_map_find_value(global.characters,CHARACTER.CARBERT) + 1);
 
 	show_debug_message(string("You get a carbert"));
+	audio_play_sound(s4star,1,false);
 	
 	display_result(7);
 }
@@ -47,6 +51,7 @@ if(result_2 == 4)
 	ds_map_replace(global.characters, CHARACTER.BENJY, ds_map_find_value(global.characters,CHARACTER.BENJY) + 1);
 
 	show_debug_message(string("You get a carbert"));
+	audio_play_sound(s4star,1,false);
 	
 	display_result(7);
 }
