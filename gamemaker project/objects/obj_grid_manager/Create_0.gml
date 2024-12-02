@@ -169,30 +169,46 @@ global.set_roomtype = function(loc, roomType) {
             switch (roomType) {
                 case ROOM_TYPE.BAR:
                     npc.npc_sprite = spr_bar_fade;
+					npc.npc_sprite_idle = spr_bar_idle;
                     break;
                 case ROOM_TYPE.BLACKJACK:
                     npc.npc_sprite = spr_black_jack_fade;
+					npc.npc_sprite_idle = spr_black_jack_idle;
+					npc.y -= 48;
                     break;
                 case ROOM_TYPE.BACCARAT:
                     npc.npc_sprite = spr_bacarat_fade;
+					npc.npc_sprite_idle = spr_bacarat_idle;
+					npc.y -= 48;
                     break;
 					case ROOM_TYPE.CRAPS:
                     npc.npc_sprite = spr_craps_fade;
+					npc.npc_sprite_idle = spr_craps_idle;
+					npc.y -= 48;
                     break;
                 case ROOM_TYPE.POKER:
                     npc.npc_sprite = spr_poker_fade;
+					npc.npc_sprite_idle = spr_poker_idle;
+					npc.y -= 48;
                     break;
                 case ROOM_TYPE.ROULETTE:
                     npc.npc_sprite = spr_roulette_fade;
+					npc.npc_sprite_idle = spr_roulette_idle;
+					npc.y -= 48;
                     break;
                 case ROOM_TYPE.SLOTS:
                     npc.npc_sprite = spr_slots_fade;
+					npc.npc_sprite_idle = spr_slots_idle;
+					npc.y -= 48;
                     break;
                 case ROOM_TYPE.PACHINKO:
                     npc.npc_sprite = spr_pachinko_fade;
+					npc.npc_sprite_idle = spr_pachinko_idle;
+					npc.y -= 48;
                     break;
                 default:
                     npc.npc_sprite = noone;
+					npc.npc_sprite_idle = noone;
                     break;
             }
             npc.npc_active = true; // Start animation

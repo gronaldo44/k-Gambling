@@ -4,8 +4,9 @@ if (npc_active && npc_sprite != noone) {
 
     // Stop at the last frame
     if (npc_frame >= sprite_get_number(npc_sprite)) {
-        npc_frame = sprite_get_number(npc_sprite) - 1; // Stay on the last frame
-        npc_active = false; // Animation finished
+		npc_sprite = npc_sprite_idle
+		//npc_frame = sprite_get_number(npc_sprite) - 1; // Stay on the last frame
+        //npc_active = false; // Animation finished
     }
 }
 
