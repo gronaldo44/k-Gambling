@@ -80,7 +80,7 @@ global.set_roomtype = function(loc, roomType) {
                     break;
             }
             npc.npc_active = true; // Start animation
-            npc.room_index = loc;  // Link to room index
+            npc.room_index = loc + offset();  // Link to room index
         }
 		room_instance.start_room();
     }
