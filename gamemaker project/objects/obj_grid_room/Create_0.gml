@@ -18,15 +18,8 @@ room_baccarat_tie_pot_threshold = 500; // Threshold for Tie Pot Jackpot
 
 // --- Bar Room ---
 OnBarUpdate = function() {
-     var base_tokens = 6;
-	
-	var token_bonus = get_character_ability(room_character, "token_bonus");
-	
-	var adjusted_tokens = base_tokens + token_bonus;
-	
-	 global.gain_tokens(adjusted_tokens, room_character);
-    room_tokens_earned += adjusted_tokens;
-	
+    global.gain_tokens(6, room_character);
+    room_tokens_earned += 6;
     global.gain_exp(5);
     room_exp_earned += 5;
 };
@@ -651,37 +644,23 @@ get_room_stats = function() {
 function get_character_ability(character_id, ability_type) {
     switch (character_id) {
         case CHARACTER.CHIP_GUY:
-            if (ability_type == "wager_bonus") return 15;  // +15% to wagers
-			if (ability_type == "loss_reduction") return 5; // +5 loss reduction
+            if (ability_type == "wager_bonus") return 10;  // +10% to wagers
             break;
 
         case CHARACTER.COOL_CHIP_GUY:
-            if (ability_type == "win_rate") return 5;      // +5% win rate
+            if (ability_type == "win_rate") return 2;      // +2% win rate
             break;
 
         case CHARACTER.COW_MAN:
             if (ability_type == "wager_bonus") return 100; // +100% to wagers
-			if (ability_type == "win_rate") return 2;      // +2% win rate
             break;
 
         case CHARACTER.THE_GIRL:
             if (ability_type == "loss_reduction") return 50; // 50% reduction
-			 if (ability_type == "wager_bonus") return 20; // +20% to wager
-			 if (ability_type == "token_bonus") return 100; // 100 to bar
             break; 
 			
-			case CHARACTER.SLOTSY:
-            if (ability_type == "wager_bonus") return 50; // +50% to wagers
-            break;
-			
-			case CHARACTER.CARBERT:
-            if (ability_type == "win_rate") return 1; // +1% to winrate
-			if (ability_type == "wager_bonus") return 5; // 5% to wager
-            break;
-			
 			 case CHARACTER.BENJY:
-            if (ability_type == "loss_reduction") return 25; // +25% to loss reduction
-			 if (ability_type == "token_bonus") return 25; // 25 to bar
+            if (ability_type == "wager_bonus") return 20; // +20% to wagers
             break;
 
         default:
