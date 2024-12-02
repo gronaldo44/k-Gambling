@@ -63,6 +63,9 @@ global.set_roomtype = function(loc, roomType) {
                 case ROOM_TYPE.BACCARAT:
                     npc.npc_sprite = spr_bacarat_fade;
                     break;
+					case ROOM_TYPE.CRAPS:
+                    npc.npc_sprite = spr_craps_fade;
+                    break;
                 case ROOM_TYPE.POKER:
                     npc.npc_sprite = spr_poker_fade;
                     break;
@@ -80,7 +83,7 @@ global.set_roomtype = function(loc, roomType) {
                     break;
             }
             npc.npc_active = true; // Start animation
-            npc.room_index = loc;  // Link to room index
+            npc.room_index = loc + offset();  // Link to room index
         }
 		room_instance.start_room();
     }
