@@ -1,1 +1,3 @@
-global.grid_floorUp()
+if (active) {
+	global.grid_floorUp()
+}

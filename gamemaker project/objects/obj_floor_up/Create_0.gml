@@ -1,5 +1,7 @@
-var active = true;
+active = true;
+image_index = active;
 
-SetActive = function() {
-	
+SetActive = function(bool) {
+	active = bool;
+	image_index = bool;
 }

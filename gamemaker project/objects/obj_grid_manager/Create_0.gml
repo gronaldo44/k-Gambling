@@ -10,6 +10,14 @@ enum ROOM_TYPE {	// frame for this room on the sprite
 	ROULETTE = 8,
 	SLOTS = 9,
 	CRAPS = 10,
+	LOCKED_1 = 11,
+	LOCKED_2 = 12,
+	LOCKED_3 = 13,
+	LOCKED_4 = 14,
+	LOCKED_5 = 15,
+	LOCKED_6 = 16,
+	LOCKED_7 = 17,
+	LOCKED_8 = 18,
 }
 
 // Set room positions in a 2x4 grid
@@ -41,9 +49,18 @@ for (var i = 0; i < grid_width * grid_height; i++) {
     }
 }
 
-
-
+rooms_purchased = 0;
 global.set_roomtype = function(loc, roomType) {
+	// Check for Grid expansion
+	if (roomType == ROOM_TYPE.OPEN){
+		rooms_purchased++;
+		if (rooms_purchased == 6){
+			rooms_purchased = 0;
+			expand_grid();
+			grid_setFloorButtons();
+		}
+	}
+	
     var room_instance = grid_rooms[loc + offset()];
     
     if (room_instance != noone) {
@@ -278,6 +295,24 @@ function set_floor_visibility(visibility){
 	show_debug_message("Floor " + string(grid_index) + " visibility set to " + string(visibility));
 }
 
+grid_setFloorButtons = function(){
+	var floor_down_button  = instance_find(obj_floor_down, 0);
+	if (grid_index > 0){
+		floor_down_button.SetActive(true);
+	} else {
+		floor_down_button.SetActive(false);	
+	}
+	
+	show_debug_message(string(offset() + (grid_width * grid_height)) + " : " + string(array_length(grid_rooms)));
+	var floor_up_button = instance_find(obj_floor_up, 0);
+	var floor_above = offset() + (grid_width * grid_height);
+	if (floor_above < array_length(grid_rooms)){
+		floor_up_button.SetActive(true);
+	} else {
+		floor_up_button.SetActive(false);
+	}
+}
+
 global.grid_floorUp = function() {
 	// Make old floor invisible
 	set_floor_visibility(false);
@@ -290,6 +325,9 @@ global.grid_floorUp = function() {
 	// Make new floor visible
 	set_floor_visibility(true);
 	
+	// Set floor buttons
+	grid_setFloorButtons();
+	
 	show_debug_message("Casino set to floor " + string(grid_index));
 }
 
@@ -301,6 +339,9 @@ global.grid_floorDown = function() {
 		// Make new floor visible
 		grid_index--;
 		set_floor_visibility(true);
+		
+		// Set floor buttons
+		grid_setFloorButtons();
 	}
 	show_debug_message("Casino set to floor " + string(grid_index));
 }

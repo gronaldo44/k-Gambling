@@ -1,1 +1,3 @@
-global.grid_floorDown()
+if (active) {
+	global.grid_floorDown()
+}
