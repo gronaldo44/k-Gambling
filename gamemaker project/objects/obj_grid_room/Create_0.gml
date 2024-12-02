@@ -1,3 +1,4 @@
+is_locked_room = true;
 roomType = ROOM_TYPE.LOCKED;
 image_index = roomType;
 room_index = -1; // Changed to positive in grid_manager creation

@@ -10,14 +10,60 @@ enum ROOM_TYPE {	// frame for this room on the sprite
 	ROULETTE = 8,
 	SLOTS = 9,
 	CRAPS = 10,
-	LOCKED_1 = 11,
-	LOCKED_2 = 12,
-	LOCKED_3 = 13,
-	LOCKED_4 = 14,
-	LOCKED_5 = 15,
-	LOCKED_6 = 16,
-	LOCKED_7 = 17,
-	LOCKED_8 = 18,
+	LOCKED_50 = 11,
+	LOCKED_50_HOVER = 12,
+	LOCKED_100 = 13,
+	LOCKED_100_HOVER = 14,
+	LOCKED_200 = 15,
+	LOCKED_200_HOVER = 16,
+	LOCKED_400 = 17,
+	LOCKED_400_HOVER = 18,
+	LOCKED_800 = 19,
+	LOCKED_800_HOVER = 20,
+	LOCKED_1600 = 21,
+	LOCKED_1600_HOVER = 22,
+	LOCKED_3200 = 23,
+	LOCKED_3200_HOVER = 24,
+	LOCKED_6400 = 25,
+	LOCKED_6400_HOVER = 26,
+	LOCKED_12800 = 27,
+	LOCKED_12800_HOVER = 28
+}
+
+room_cost = 50;	// starting cost
+increase_cost = false;	// increase cost on every other purchase
+function get_locked_img_index() {
+	switch(room_cost) {
+		case 50:
+			return ROOM_TYPE.LOCKED_50;
+					
+		case 100:
+			return ROOM_TYPE.LOCKED_100;
+					
+		case 200:
+			return ROOM_TYPE.LOCKED_200;
+				
+		case 400:
+			return ROOM_TYPE.LOCKED_400;
+				
+		case 800:
+			return ROOM_TYPE.LOCKED_800;
+				
+		case 1600:
+			return ROOM_TYPE.LOCKED_1600;
+				
+		case 3200:
+			return ROOM_TYPE.LOCKED_3200;;
+				
+		case 6400:
+			return ROOM_TYPE.LOCKED_6400;
+				
+		case 12800:
+			return ROOM_TYPE.LOCKED_12800;
+				
+		default:
+			return ROOM_TYPE.LOCKED;
+	}
 }
 
 // Set room positions in a 2x4 grid
@@ -33,7 +79,7 @@ for (var i = 0; i < grid_width * grid_height; i++) {
     var r = instance_create_layer(x_position, y_position, "GridLayer", obj_grid_room);
     
     r.room_index = i; // Set room index for reference
-    r.roomType = ROOM_TYPE.LOCKED; // Set default type
+    r.roomType = get_locked_img_index(); // Set default type
     r.image_index = r.roomType;
 
     grid_rooms[i] = r; // Store the instance in the array
@@ -42,14 +88,54 @@ for (var i = 0; i < grid_width * grid_height; i++) {
 	if (i == 5){
         r.roomType = ROOM_TYPE.OPEN;	
         r.image_index = r.roomType;
+		r.is_locked_room = false;
 	}
     if (i == 6){
         r.roomType = ROOM_TYPE.LOBBY;	
         r.image_index = r.roomType;
+		r.is_locked_room = false;
     }
 }
 
-rooms_purchased = 0;
+global.grid_TryPurchaseNewRoom = function(loc){
+	// Do not allow soft lock
+	if (grid_rooms[5].roomType == ROOM_TYPE.OPEN){
+		show_debug_message("Must buy first room before purchasing new ones.");
+		return;	
+	}
+	
+	// spend tokens
+	if (global.token >= room_cost) {
+		global.token -= room_cost;
+		if (increase_cost && room_cost < 12800){
+			room_cost *= 2;	
+			increase_cost = false;
+			
+			// update room image for other locked rooms
+			for (var i = 0; i < array_length(grid_rooms); i++){
+				var room_instance = grid_rooms[i];
+				var is_locked_room = room_instance.roomType == ROOM_TYPE.LOCKED || 
+					(room_instance.roomType >= 11 && room_instance.roomType <= 28);
+					
+				show_debug_message("Is locked room at [" + string(i) + "] : " + string(is_locked_room));
+		
+				if (is_locked_room){
+					room_instance.roomType = get_locked_img_index()
+					room_instance.image_index = room_instance.roomType;
+				}
+			}
+			show_debug_message("Room cost increased to: " + string(room_cost));
+		} else {
+			increase_cost = true;	
+		}
+	}
+	
+	// set room
+	global.set_roomtype(loc, ROOM_TYPE.OPEN);
+	grid_rooms[loc + offset()].is_locked_room = false;
+}
+
+rooms_purchased = 0;	// expand grid after purchasing 6 rooms
 global.set_roomtype = function(loc, roomType) {
 	// Check for Grid expansion
 	if (roomType == ROOM_TYPE.OPEN){
@@ -236,7 +322,7 @@ function expand_grid() {
         var r = instance_create_layer(x_position, y_position, "GridLayer", obj_grid_room);
 
         r.room_index = j;
-        r.roomType = ROOM_TYPE.LOCKED; // Default type
+        r.roomType = get_locked_img_index(); // Default type
         r.image_index = r.roomType;
 
         grid_rooms[i] = r;
