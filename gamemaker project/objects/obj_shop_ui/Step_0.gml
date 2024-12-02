@@ -66,7 +66,7 @@ if(accept_key && visible && allow_accept && is_opened){
 			}
 			break;
 			
-			case 3:
+		case 3:
 			//spawn in baccarat room
 			if (try_spend_tokens(250)){
 				global.set_roomtype(room_loc, ROOM_TYPE.BACCARAT)
@@ -78,7 +78,7 @@ if(accept_key && visible && allow_accept && is_opened){
 			break;
 			
 			
-			case 4:
+		case 4:
 			//spawn in POKER room
 			if (try_spend_tokens(350)){
 				global.set_roomtype(room_loc, ROOM_TYPE.POKER)
@@ -89,7 +89,7 @@ if(accept_key && visible && allow_accept && is_opened){
 			}
 			break;
 			
-			case 5:
+		case 5:
 			//spawn in ROULETTE room
 			if (try_spend_tokens(475)){
 				global.set_roomtype(room_loc, ROOM_TYPE.ROULETTE)
@@ -100,7 +100,7 @@ if(accept_key && visible && allow_accept && is_opened){
 			}
 			break;
 			
-			case 6:
+		case 6:
 			//spawn in PACHINKO room
 			if (try_spend_tokens(580)){
 				global.set_roomtype(room_loc, ROOM_TYPE.PACHINKO)
@@ -111,7 +111,7 @@ if(accept_key && visible && allow_accept && is_opened){
 			}
 			break;
 			
-			case 7:
+		case 7:
 			//spawn in SLOTS room
 			if (try_spend_tokens(700)){
 				global.set_roomtype(room_loc, ROOM_TYPE.SLOTS)
@@ -121,7 +121,5 @@ if(accept_key && visible && allow_accept && is_opened){
 				is_opened = false;
 			}
 			break;
-			
-			
 	}
 }

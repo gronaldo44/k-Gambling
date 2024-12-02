@@ -38,7 +38,8 @@ for (var i = 0; i < op_length; i++) {
 }
 //display stats of room
 if(pos == 0){
-	switch (room_type) {
+	var r_type = global.get_roomType(room_loc);
+	switch (r_type) {
 		case ROOM_TYPE.BAR:
 		draw_set_color(c_black);
 			draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
@@ -90,7 +91,184 @@ if(pos == 1){
 	draw_text_transformed(1005, 240, global.get_room_stats(room_loc), .6, .6, 0);
 }
 if(pos == 2){
-	draw_text_transformed(1020, 400, "Under Construction", .60, .60, 0);
+	var r_type = global.get_roomType(room_loc);
+	var r_level = global.get_roomLevel(room_loc);
+	
+	switch (r_type) {
+		case ROOM_TYPE.BAR:
+			if (r_level == 5){
+				draw_set_color(c_black);
+				draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+				draw_text_transformed(1020, 400, 
+					"Bar is at Maximum Level." +
+					"\n\nUpgrading the bar increases Income" +
+					"\nby 6 for each Level."
+					, .50, .50, 0);
+			} else {
+				draw_set_color(c_black);
+				draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+				draw_text_transformed(1020, 400, 
+					"Upgrade Bar to Level " + string(r_level + 1) +
+					"\nfor " + string(r_level * 75) +
+					"\n\nUpgrading the bar increases Income" +
+					"\nby 6 for each Level."
+					, .50, .50, 0);
+			}
+			break;
+			
+		case ROOM_TYPE.BLACKJACK:
+			if (r_level == 5){
+				draw_set_color(c_black);
+				draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+				draw_text_transformed(1020, 400, 
+					"Blackjack table is at Maximum Level." +
+					"\n\nUpgrading the Blackjack table increases" +
+					"\nwager by 22 for each Level."
+					, .50, .50, 0);
+			} else {
+				draw_set_color(c_black);
+				draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+				draw_text_transformed(1020, 400, 
+					"Upgrade Blackjack table to Level " + string(r_level + 1) +
+					"\nfor " + string(r_level * 125) +
+					"\n\nUpgrading the Blackjack table increases" +
+					"\nwager by 22 for each Level."
+					, .50, .50, 0);
+			}
+			break;
+			
+		case ROOM_TYPE.CRAPS:
+			if (r_level == 5){
+				draw_set_color(c_black);
+				draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+				draw_text_transformed(1020, 400, 
+					"Craps table is at Maximum Level." +
+					"\n\nUpgrading the Craps table attracts" +
+					"\nhigher rollers increasing wager by" +
+					"\n50 per Level."
+					, .50, .50, 0);
+			} else {
+				draw_set_color(c_black);
+				draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+				draw_text_transformed(1020, 400, 
+					"Upgrade Blackjack table to Level " + string(r_level + 1) +
+					"\nfor " + string(r_level * 180) +
+					"\n\nUpgrading the Craps table attracts" +
+					"\nhigher rollers increasing wager by" +
+					"\n50 per Level."
+					, .50, .50, 0);
+			}
+			break;
+			
+		case ROOM_TYPE.BACCARAT:
+		    if (r_level == 5) {
+		        draw_set_color(c_black);
+		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_text_transformed(1020, 400, 
+		            "Baccarat table is at Maximum Level." +
+		            "\n\nUpgrading the Baccarat table increases" +
+		            "\nwager by 90 per Level."
+		            , .50, .50, 0);
+		    } else {
+		        draw_set_color(c_black);
+		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_text_transformed(1020, 400, 
+		            "Upgrade Baccarat table to Level " + string(r_level + 1) +
+		            "\nfor " + string(r_level * 250) +
+		            "\n\nUpgrading the Baccarat table increases" +
+		            "\nwager by 90 per Level."
+		            , .50, .50, 0);
+		    }
+		    break;
+
+		case ROOM_TYPE.ROULETTE:
+		    if (r_level == 5) {
+		        draw_set_color(c_black);
+		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_text_transformed(1020, 400, 
+		            "Roulette table is at Maximum Level." +
+		            "\n\nUpgrading the Roulette table increases" +
+		            "\nwager by 200 per Level."
+		            , .50, .50, 0);
+		    } else {
+		        draw_set_color(c_black);
+		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_text_transformed(1020, 400, 
+		            "Upgrade Roulette table to Level " + string(r_level + 1) +
+		            "\nfor " + string(r_level * 475) +
+		            "\n\nUpgrading the Roulette table increases" +
+		            "\nwager by 200 per Level."
+		            , .50, .50, 0);
+		    }
+		    break;
+
+		case ROOM_TYPE.POKER:
+		    if (r_level == 5) {
+		        draw_set_color(c_black);
+		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_text_transformed(1020, 400, 
+		            "Poker table is at Maximum Level." +
+		            "\n\nUpgrading the Poker table increases" +
+		            "\nwager by 150 per Level."
+		            , .50, .50, 0);
+		    } else {
+		        draw_set_color(c_black);
+		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_text_transformed(1020, 400, 
+		            "Upgrade Poker table to Level " + string(r_level + 1) +
+		            "\nfor " + string(r_level * 350) +
+		            "\n\nUpgrading the Poker table increases" +
+		            "\nwager by 150 per Level."
+		            , .50, .50, 0);
+		    }
+		    break;
+
+		case ROOM_TYPE.PACHINKO:
+		    if (r_level == 5) {
+		        draw_set_color(c_black);
+		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_text_transformed(1020, 400, 
+		            "Pachinko is at Maximum Level." +
+		            "\n\nUpgrading Pachinko increases" +
+		            "\nwager by 300 per Level."
+		            , .50, .50, 0);
+		    } else {
+		        draw_set_color(c_black);
+		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_text_transformed(1020, 400, 
+		            "Upgrade Pachinko to Level " + string(r_level + 1) +
+		            "\nfor " + string(r_level * 580) +
+		            "\n\nUpgrading Pachinko increases" +
+		            "\nwager by 300 per Level."
+		            , .50, .50, 0);
+		    }
+		    break;
+
+		case ROOM_TYPE.SLOTS:
+		    if (r_level == 5) {
+		        draw_set_color(c_black);
+		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_text_transformed(1020, 400, 
+		            "Slot machines are at Maximum Level." +
+		            "\n\nUpgrading Slots increases" +
+		            "\nwager by 400 per Level."
+		            , .50, .50, 0);
+		    } else {
+		        draw_set_color(c_black);
+		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_text_transformed(1020, 400, 
+		            "Upgrade Slots to Level " + string(r_level + 1) +
+		            "\nfor " + string(r_level * 700) +
+		            "\n\nUpgrading Slots increases" +
+		            "\nwager by 400 per Level."
+		            , .50, .50, 0);
+		    }
+		    break;
+		
+				default:
+					draw_text_transformed(1020, 400, "Gambling is very risky, maybe walk away!", .50, .50, 0);
+					break;
+			}
 }
 
 

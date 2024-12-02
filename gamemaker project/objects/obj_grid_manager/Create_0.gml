@@ -204,6 +204,26 @@ global.set_roomtype = function(loc, roomType) {
     show_debug_message("Room " + string(loc) + " set to type " + string(roomType));
 }
 
+// Gets the room level at "loc"
+global.get_roomLevel = function(loc){
+	var room_instance = grid_rooms[loc + offset()];
+	if (room_instance == noone){
+		return;
+	}
+	
+	return room_instance.room_level;
+}
+
+// Gets the room type at "loc"
+global.get_roomType = function(loc){
+	var room_instance = grid_rooms[loc + offset()];
+	if (room_instance == noone){
+		return;
+	}
+	
+	return room_instance.roomType;
+}
+
 // Gets the character at room "loc"
 global.get_roomChar = function(loc){
 	var room_instance = grid_rooms[loc + offset()];
@@ -213,6 +233,71 @@ global.get_roomChar = function(loc){
 	} else {
 		show_debug_message("ROOM DOES NOT EXIST");
 	}	
+}
+
+function try_spend_tokens(cost){
+	var can_afford = global.token >= cost;
+	if (can_afford){
+		global.token -= cost;	
+	}
+	return can_afford;
+}
+
+global.grid_TryUpgradeRoom = function(loc) {
+	var room_instance = grid_rooms[loc + offset()];
+	if (room_instance == noone){
+		return false;	
+	}
+	// Room max level is 5
+	if (room_instance.room_level == 5){
+		return false;	
+	}
+	
+	// calculate cost
+	var cost = 0;	// tmp value
+	switch (room_instance.roomType){
+		case ROOM_TYPE.BAR:
+			cost = 75
+			break;
+		
+		case ROOM_TYPE.BLACKJACK:
+			cost = 125
+			break;
+			
+		case ROOM_TYPE.CRAPS:
+			cost = 180
+			break;
+			
+		case ROOM_TYPE.BACCARAT:
+			cost = 250
+			break;
+			
+		case ROOM_TYPE.POKER:
+			cost = 350;
+			break;
+			
+		case ROOM_TYPE.ROULETTE:
+			cost = 475;
+			break;
+		
+		case ROOM_TYPE.PACHINKO:
+			cost = 580;
+			break;
+		
+		case ROOM_TYPE.SLOTS:
+			cost = 700;
+			break;
+	}
+	cost *= room_instance.room_level;
+	
+	// try purchase
+	if (try_spend_tokens(cost)){
+		room_instance.room_level++;	
+		show_debug_message(string(loc) + " upgraded to Level " + string(room_instance.room_level));
+		return true;
+	} else {
+		return false;	
+	}
 }
 
 global.remove_roomChar = function(loc) {

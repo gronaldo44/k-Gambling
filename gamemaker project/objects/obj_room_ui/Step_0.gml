@@ -40,6 +40,12 @@ switch(pos){
 	case 1:
 		break;
 	case 2:
+		if(accept_key && visible && allow_accept && is_opened){
+			if (global.grid_TryUpgradeRoom(room_loc)){
+				visible = false;
+				global.uiopen = false;
+			}
+		}
 		break;
 	case 3:
 		if(accept_key && visible && allow_accept && is_opened){

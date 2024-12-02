@@ -19,7 +19,7 @@ room_baccarat_tie_pot_threshold = 500; // Threshold for Tie Pot Jackpot
 
 // --- Bar Room ---
 OnBarUpdate = function() {
-	var income_per_update = 6 + get_character_ability(room_character, "bar_ability");
+	var income_per_update = (6 * room_level) + get_character_ability(room_character, "bar_ability");
     global.gain_tokens(income_per_update, room_character);
     room_tokens_earned += income_per_update;
     global.gain_exp(5);
@@ -29,7 +29,7 @@ BarTimer = time_source_create(time_source_game, 1, time_source_units_seconds, On
 
 // --- Blackjack Room ---
 OnBlackjackUpdate = function() {
-    var base_wager = 22;
+    var base_wager = 22 * room_level;
     var base_win_amount = base_wager;
     var base_lose_amount = 20;
     var base_winrate = 52;
@@ -66,7 +66,7 @@ BlackjackTimer = time_source_create(time_source_game, 2, time_source_units_secon
 
 // --- Craps Room ---
 OnCrapsUpdate = function() {
-    var base_wager = 50;
+    var base_wager = 50 * room_level;
     var base_win_amount = base_wager;
     var base_lose_amount = base_wager;
     var base_winrate = 54;
@@ -103,7 +103,7 @@ CrapsTimer = time_source_create(time_source_game, 2, time_source_units_seconds, 
 
 // --- Baccarat Room ---
 OnBaccaratUpdate = function() {
-    var base_wager = 90;
+    var base_wager = 90 * room_level;
     var base_win_amount = base_wager;
     var base_lose_amount = base_wager;
     var base_winrate = 56;
@@ -168,11 +168,9 @@ OnBaccaratUpdate = function() {
 // Timer for Baccarat Room
 BaccaratTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnBaccaratUpdate, [], -1);
 
-
-
 // --- Poker Room ---
 OnPokerUpdate = function() {
-    var base_wager = 150;
+    var base_wager = 150 * room_level;
     var base_win_amount = base_wager;
     var base_lose_amount = base_wager;
     var base_winrate = 58;
@@ -235,10 +233,8 @@ OnPokerUpdate = function() {
 // Timer for Poker Room
 PokerTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnPokerUpdate, [], -1);
 
-
-
 OnRouletteUpdate = function() {
-    var base_wager = 100;
+    var base_wager = 100 * room_level;
     var base_win_amount = base_wager;
     var base_lose_amount = base_wager;
     var base_winrate = 62;
@@ -300,7 +296,7 @@ RouletteTimer = time_source_create(time_source_game, 2, time_source_units_second
 
 // --- Pachinko Room ---
 OnPachinkoUpdate = function() {
-    var base_wager = 150;
+    var base_wager = 150 * room_level;
     var base_win_amount = base_wager;
     var base_lose_amount = base_wager;
     var base_winrate = 66;
@@ -368,7 +364,7 @@ PachinkoTimer = time_source_create(time_source_game, 2, time_source_units_second
 
 // --- Slots Room ---
 OnSlotsUpdate = function() {
-    var base_wager = 250;
+    var base_wager = 250 * room_level;
     var base_win_amount = base_wager;
     var base_lose_amount = base_wager;
     var base_winrate = 60;
@@ -481,13 +477,13 @@ get_room_stats = function() {
     var adjusted_winrate = base_winrate + winrate_bonus;
 	
 	
-		switch (roomType) {
+	switch (roomType) {
 		case ROOM_TYPE.OPEN:
 			// nothing for now
 			break;
 		
 		case ROOM_TYPE.BAR:
-			return("Income: 6 + (" + string(get_character_ability(room_character, "bar_ability")) + ")" +
+			return("Income: " + string(6 * room_level) + " + (" + string(get_character_ability(room_character, "bar_ability")) + ")" +
 				"\n\nTokens Earned: " + string(room_tokens_earned)); 
 			
 			case ROOM_TYPE.LOBBY:
@@ -499,147 +495,138 @@ get_room_stats = function() {
 
 		
 		case ROOM_TYPE.BLACKJACK:
-            base_wager = 22;
-            base_winrate = 52;
-            base_lose_amount = 20;
+	        base_wager = 22 * room_level;
+	        base_winrate = 52;
+	        base_lose_amount = 20;
 
-            var adjusted_wager = base_wager * (1 + wager_bonus / 100);
-            var adjusted_winrate = base_winrate + winrate_bonus;
-            var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+	        var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+	        var adjusted_winrate = base_winrate + winrate_bonus;
+	        var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
 
-            return "Tokens Earned: " + string(room_tokens_earned) +
-                   "\nTokens Lost: " + string(room_tokens_lost) +
-                   "\nTokens Wagered: " + string(room_tokens_wagered) +
-                   "\nBase Wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
-                   "\nHouse Winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
-                   "\nLose Amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) +
-                   "\n\nProfit: " + string(room_tokens_earned - room_tokens_lost);
+	        return "Tokens Earned: " + string(room_tokens_earned) +
+	                "\nTokens Lost: " + string(room_tokens_lost) +
+	                "\nTokens Wagered: " + string(room_tokens_wagered) +
+	                "\nBase Wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
+	                "\nHouse Winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
+	                "\nLose Amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) +
+	                "\n\nProfit: " + string(room_tokens_earned - room_tokens_lost);
 
 		case ROOM_TYPE.CRAPS:
-            base_wager = 50;
-            base_winrate = 54;
-            base_lose_amount = 50;
+	        base_wager = 50 * room_level;
+	        base_winrate = 54;
+	        base_lose_amount = 50;
 
-            var adjusted_wager = base_wager * (1 + wager_bonus / 100);
-            var adjusted_winrate = base_winrate + winrate_bonus;
-            var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+	        var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+	        var adjusted_winrate = base_winrate + winrate_bonus;
+	        var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
 
-            return "Tokens Earned: " + string(room_tokens_earned) +
-                   "\nTokens Lost: " + string(room_tokens_lost) +
-                   "\nTokens Wagered: " + string(room_tokens_wagered) +
-                   "\nBase Wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
-                   "\nHouse Winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
-                   "\nLose Amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) + 
-                   "\n\nProfit: " + string(room_tokens_earned - room_tokens_lost);
+	        return "Tokens Earned: " + string(room_tokens_earned) +
+	                "\nTokens Lost: " + string(room_tokens_lost) +
+	                "\nTokens Wagered: " + string(room_tokens_wagered) +
+	                "\nBase Wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
+	                "\nHouse Winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
+	                "\nLose Amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) + 
+	                "\n\nProfit: " + string(room_tokens_earned - room_tokens_lost);
 				 
-	case ROOM_TYPE.BACCARAT:
-    base_wager = 90;
-    base_winrate = 56;
-    base_lose_amount = 90;
+		case ROOM_TYPE.BACCARAT:
+		    base_wager = 90 * room_level;
+		    base_winrate = 56;
+		    base_lose_amount = 90;
 
-    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
-    var adjusted_winrate = base_winrate + winrate_bonus;
-    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+		    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+		    var adjusted_winrate = base_winrate + winrate_bonus;
+		    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
 
-    return
-           "Tokens Earned: " + string(room_tokens_earned) +
-           "\nTokens Lost: " + string(room_tokens_lost) +
-           "\nTokens Wagered: " + string(room_tokens_wagered) +
-           "\nBase Wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) + 
-           "\nHouse Winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + 
-           "\nLose Amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) + 
-           "\n\nTie Pot: " + string(room_baccarat_tie_pot) +
-           "\nTie Pot Threshold: " + string(room_baccarat_tie_pot_threshold) + 
-           "\nRoom ability earnings: " + string(room_ability) +
-           "\n\nProfit: " + string(room_tokens_earned - room_tokens_lost);
+		    return
+		           "Tokens Earned: " + string(room_tokens_earned) +
+		           "\nTokens Lost: " + string(room_tokens_lost) +
+		           "\nTokens Wagered: " + string(room_tokens_wagered) +
+		           "\nBase Wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) + 
+		           "\nHouse Winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + 
+		           "\nLose Amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) + 
+		           "\n\nTie Pot: " + string(room_baccarat_tie_pot) +
+		           "\nTie Pot Threshold: " + string(room_baccarat_tie_pot_threshold) + 
+		           "\nRoom ability earnings: " + string(room_ability) +
+		           "\n\nProfit: " + string(room_tokens_earned - room_tokens_lost);
 
+		case ROOM_TYPE.POKER:
+		    base_wager = 150 * room_level;
+		    base_winrate = 58;
+		    base_lose_amount = 150;
 
-
-      case ROOM_TYPE.POKER:
-    base_wager = 150;
-    base_winrate = 58;
-    base_lose_amount = 150;
-
-    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
-    var adjusted_winrate = base_winrate + winrate_bonus;
-    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
-
-    return     
-           "Tokens earned: " + string(room_tokens_earned) + 
-           "\nTokens lost: " + string(room_tokens_lost) + 
-           "\nTokens wagered: " + string(room_tokens_wagered) +
-           "\nBase wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
-           "\nHouse winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
-           "\nLose amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) + 
-           "\n\nLose pool: " + string(room_bad_beat_pool) + 
-           "\nCurrent loses: " + string(room_bad_beat_losses) + " (Cashout out on 5)\n" +
-           "\nRoom ability earnings: " + string(room_ability) + 
-           "\n\nProfit: " + string(room_tokens_earned - room_tokens_lost);
-
-
-        case ROOM_TYPE.ROULETTE:
-    base_wager = 200;
-    base_winrate = 62;
-    base_lose_amount = 200;
-
-    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
-    var adjusted_winrate = base_winrate + winrate_bonus;
-    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
-
-    return "Tokens earned: " + string(room_tokens_earned) +
-           "\nTokens lost: " + string(room_tokens_lost) +
-           "\nTokens wagered: " + string(room_tokens_wagered) +
-           "\nBase wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
-           "\nHouse winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
-           "\nLose amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) +
-           "\n\nRoom ability earnings: " + string(room_ability) +
-           "\n\nProfit: " + string(room_tokens_earned - room_tokens_lost);
-
-
-
-        case ROOM_TYPE.PACHINKO:
-    base_wager = 300;
-    base_winrate = 66;
-    base_lose_amount = 300;
-
-    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
-    var adjusted_winrate = base_winrate + winrate_bonus;
-    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
-
-    return "Tokens earned: " + string(room_tokens_earned) +
-           "\nTokens lost: " + string(room_tokens_lost) +
-           "\nTokens wagered: " + string(room_tokens_wagered) +
-           "\nBase wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
-           "\nHouse winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
-           "\nLose amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) + 
-           "\n\nRoom ability earnings: " + string(room_ability) +
-           "\n\nProfit: " + string(room_tokens_earned - room_tokens_lost);
-
-
-
-        case ROOM_TYPE.SLOTS:
-    base_wager = 400;
-    base_winrate = 60;
-    base_lose_amount = 400;
-
-    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
-    var adjusted_winrate = base_winrate + winrate_bonus;
-    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
-
-    return "Tokens earned: " + string(room_tokens_earned) +
-           "\nTokens lost: " + string(room_tokens_lost) +
-           "\nTokens wagered: " + string(room_tokens_wagered) +
-           "\nBase wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
-           "\nHouse winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
-           "\nLose amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) + 
-           "\n\nRoom ability earnings: " + string(room_ability) +
-           "\n\nProfit: " + string(room_tokens_earned - room_tokens_lost);
-
-
+		    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+		    var adjusted_winrate = base_winrate + winrate_bonus;
+		    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
 		
-		default:
-            return "Get_Room_Stats() Not yet implemented.";
-    }
+		    return     
+		           "Tokens earned: " + string(room_tokens_earned) + 
+		           "\nTokens lost: " + string(room_tokens_lost) + 
+		           "\nTokens wagered: " + string(room_tokens_wagered) +
+		           "\nBase wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
+		           "\nHouse winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
+		           "\nLose amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) + 
+		           "\n\nLose pool: " + string(room_bad_beat_pool) + 
+		           "\nCurrent loses: " + string(room_bad_beat_losses) + " (Cashout out on 5)\n" +
+		           "\nRoom ability earnings: " + string(room_ability) + 
+		           "\n\nProfit: " + string(room_tokens_earned - room_tokens_lost);
+
+		case ROOM_TYPE.ROULETTE:
+			base_wager = 200 * room_level;
+			base_winrate = 62;
+			base_lose_amount = 200;
+
+			var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+			var adjusted_winrate = base_winrate + winrate_bonus;
+			var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+
+			return "Tokens earned: " + string(room_tokens_earned) +
+				    "\nTokens lost: " + string(room_tokens_lost) +
+				    "\nTokens wagered: " + string(room_tokens_wagered) +
+				    "\nBase wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
+				    "\nHouse winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
+				    "\nLose amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) +
+				    "\n\nRoom ability earnings: " + string(room_ability) +
+				    "\n\nProfit: " + string(room_tokens_earned - room_tokens_lost);
+
+		case ROOM_TYPE.PACHINKO:
+			    base_wager = 300 * room_level;
+			    base_winrate = 66;
+			    base_lose_amount = 300;
+
+			    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+			    var adjusted_winrate = base_winrate + winrate_bonus;
+			    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+
+			    return "Tokens earned: " + string(room_tokens_earned) +
+			           "\nTokens lost: " + string(room_tokens_lost) +
+			           "\nTokens wagered: " + string(room_tokens_wagered) +
+			           "\nBase wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
+			           "\nHouse winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
+			           "\nLose amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) + 
+			           "\n\nRoom ability earnings: " + string(room_ability) +
+			           "\n\nProfit: " + string(room_tokens_earned - room_tokens_lost);
+
+		case ROOM_TYPE.SLOTS:
+			    base_wager = 400 * room_level;
+			    base_winrate = 60;
+			    base_lose_amount = 400;
+
+			    var adjusted_wager = base_wager * (1 + wager_bonus / 100);
+			    var adjusted_winrate = base_winrate + winrate_bonus;
+			    var adjusted_lose_amount = base_lose_amount * (1 - loss_reduction / 100);
+
+			    return "Tokens earned: " + string(room_tokens_earned) +
+			           "\nTokens lost: " + string(room_tokens_lost) +
+			           "\nTokens wagered: " + string(room_tokens_wagered) +
+			           "\nBase wager: " + string(base_wager) + " + (" + string(wager_bonus) + "%) = " + string(adjusted_wager) +
+			           "\nHouse winrate: " + string(base_winrate) + "% + (" + string(winrate_bonus) + "%) = " + string(adjusted_winrate) + "%" +
+			           "\nLose amount: " + string(base_lose_amount) + " - (" + string(loss_reduction) + "%) = " + string(adjusted_lose_amount) + 
+			           "\n\nRoom ability earnings: " + string(room_ability) +
+			           "\n\nProfit: " + string(room_tokens_earned - room_tokens_lost);
+		
+			default:
+	            return "Get_Room_Stats() Not yet implemented.";
+		}
 };
 
 function get_character_ability(character_id, ability_type) {
