@@ -1,5 +1,5 @@
-if(global.level >= 1)
-{
-	global.stop_casino();
-	instance_create_layer(0, 0, "Tutorial_Screen", obj_tutorial_screen);
+if (!global.is_gacha && !global.uiopen){
+	show_debug_message("Tutorial Button Pressed" + string(global.is_gacha));
+	layer_set_visible("Tutorial_Screen", true);
+	onClick();
 }

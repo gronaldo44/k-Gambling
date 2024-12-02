@@ -1,3 +1,4 @@
+IsEnabled = false;
 event_inherited();
 text = "";
 

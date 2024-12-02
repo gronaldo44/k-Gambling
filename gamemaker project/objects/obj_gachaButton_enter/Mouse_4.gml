@@ -1,4 +1,4 @@
-if(global.level >= 1)
+if(global.level >= 1 && !global.is_gacha && IsEnabled)
 {
 	global.stop_casino();
 	layer_set_visible("Gacha", true);
