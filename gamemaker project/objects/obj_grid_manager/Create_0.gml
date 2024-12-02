@@ -347,25 +347,25 @@ global.set_roomChar = function(loc, c) {
             room_instance.room_character = c;
             switch (c) {
                 case CHARACTER.CHIP_GUY:
-                    room_instance.room_character_sprite = IG_Chippy;
+                    room_instance.room_character_sprite = spr_chippy_idle;
                     break;
                 case CHARACTER.COOL_CHIP_GUY:
-                    room_instance.room_character_sprite = IG_Chipper;
+                    room_instance.room_character_sprite = spr_chipper_idle;
                     break;
                 case CHARACTER.COW_MAN:
-                    room_instance.room_character_sprite = IG_Cowman;
+                    room_instance.room_character_sprite = spr_cowman_idle;
                     break;
                 case CHARACTER.THE_GIRL:
-                    room_instance.room_character_sprite = IG_Yuki;
+                    room_instance.room_character_sprite = spr_yuki_idle;
                     break;
 				case CHARACTER.SLOTSY:
-                    room_instance.room_character_sprite = IG_Slotsy;
+                    room_instance.room_character_sprite = spr_slotsy_idle;
                     break;
 				case CHARACTER.CARBERT:
-                    room_instance.room_character_sprite = IG_Carbert;
+                    room_instance.room_character_sprite = spr_carbert_idle;
                     break;
 				case CHARACTER.BENJY:
-                    room_instance.room_character_sprite = IG_Benjy;
+                    room_instance.room_character_sprite = spr_benjy_idle;
                     break;					
                 default:
                     room_instance.room_character_sprite = noone; // Fallback for invalid character

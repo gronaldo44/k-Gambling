@@ -106,7 +106,7 @@ switch (pos) {
         draw_set_halign(fa_center);
         draw_text_transformed_color(
             text_x_offset, text_y_offset, 
-            "\n\nYuki increases wager by 20%\nand loss reduction by 50%.\n\nBar ability: increases income\nby 100 tokens", 
+            "Wants to start up her own business and\nhas the means to do so. However, she\nlacks the experience. So she works\nat your casino to learn from the best.\n\nYuki increases wager by 20%\nand loss reduction by 50%.\n\n Bar ability: increases income by 100 tokens", 
             0.45, 0.45, 0, 
             c_black, c_black, c_black, c_black, 1
         );
@@ -142,7 +142,7 @@ switch (pos) {
         draw_set_halign(fa_center);
         draw_text_transformed_color(
             text_x_offset, text_y_offset, 
-            "Benjy increases loss reduction\nby 25%\n\nBar ability: increases income\nby 25 tokens", 
+            "Suddenly showed up out of nowhere and\nasked for a job, you happily oblige but\nBenjys history still remains a secret of\nwhich very few know.\n\nIncreases loss reduction by 25%\n\nBar ability: increases income\nby 25 tokens", 
             0.45, 0.45, 0, 
             c_black, c_black, c_black, c_black, 1
         );
