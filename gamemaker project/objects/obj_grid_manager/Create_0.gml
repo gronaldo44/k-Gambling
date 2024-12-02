@@ -65,6 +65,11 @@ function get_locked_img_index() {
 			return ROOM_TYPE.LOCKED;
 	}
 }
+OnDayUpdate = function() {
+     global.days += 1;
+}
+DayTimer = time_source_create(time_source_game, 1, time_source_units_seconds, OnDayUpdate, [], -1);
+
 
 // Set room positions in a 2x4 grid
 grid_width = 4;		// Number of columns in the grid
@@ -146,6 +151,14 @@ global.set_roomtype = function(loc, roomType) {
 			grid_setFloorButtons();
 		}
 	}
+
+is_first_room = true;
+global.set_roomtype = function(loc, roomType) {
+	
+	if (is_first_room){
+		time_source_start(DayTimer);
+		is_first_room = false;
+} 
 	
     var room_instance = grid_rooms[loc + offset()];
     
@@ -272,6 +285,7 @@ global.start_casino = function() {
             show_debug_message("Could not find room at index " + string(i));
         }
     }
+	time_source_start(DayTimer);
 };
 
 global.stop_casino = function() {
@@ -285,6 +299,7 @@ global.stop_casino = function() {
             show_debug_message("Could not find room at index " + string(i));
         }
     }
+	time_source_pause(DayTimer);
 };
 
 global.get_room_stats = function(room_index){

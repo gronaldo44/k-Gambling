@@ -1,4 +1,4 @@
-show_debug_message(string("You get a 1 star"));
+show_debug_message(string("You get a 3 star"));
 
 global.gachaPulled += 1;
 
