@@ -43,7 +43,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.6.2.162",
+    "IDEVersion":"2024.8.1.171",
   },
   "name":"gamemaker proj",
   "resources":[
@@ -59,6 +59,7 @@
     {"id":{"name":"obj_customer_spawn","path":"objects/obj_customer_spawn/obj_customer_spawn.yy",},},
     {"id":{"name":"obj_customer","path":"objects/obj_customer/obj_customer.yy",},},
     {"id":{"name":"obj_dayDisplay","path":"objects/obj_dayDisplay/obj_dayDisplay.yy",},},
+    {"id":{"name":"obj_finalGoal","path":"objects/obj_finalGoal/obj_finalGoal.yy",},},
     {"id":{"name":"obj_floor_down","path":"objects/obj_floor_down/obj_floor_down.yy",},},
     {"id":{"name":"obj_floor_up","path":"objects/obj_floor_up/obj_floor_up.yy",},},
     {"id":{"name":"obj_gacha_result","path":"objects/obj_gacha_result/obj_gacha_result.yy",},},

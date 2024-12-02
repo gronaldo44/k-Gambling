@@ -1,4 +1,3 @@
-final_goal = 100000;
 month_goal = 50;
 next_deadline = 30;
 
