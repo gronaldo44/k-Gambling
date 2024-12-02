@@ -21,12 +21,12 @@ draw_set_valign(fa_middle);
 /// @DnDAction : YoYo Games.Drawing.Draw_Value
 /// @DnDVersion : 1
 /// @DnDHash : 27BAA210
-/// @DnDArgument : "x" "30"
+/// @DnDArgument : "x" "10"
 /// @DnDArgument : "x_relative" "1"
 /// @DnDArgument : "y_relative" "1"
-/// @DnDArgument : "caption" ""Tokens: ""
+/// @DnDArgument : "caption" """"
 /// @DnDArgument : "var" "global.token"
-draw_text(x + 30, y + 0, string("Tokens: ") + string(global.token));
+draw_text(x + 10, y + 0, string("") + string(global.token));
 
 /// @DnDAction : YoYo Games.Drawing.Set_Alignment
 /// @DnDVersion : 1.1
