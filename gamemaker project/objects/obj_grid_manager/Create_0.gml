@@ -15,7 +15,7 @@ OnDayUpdate = function() {
      global.days += 1;
 }
 DayTimer = time_source_create(time_source_game, 1, time_source_units_seconds, OnDayUpdate, [], -1);
-time_source_start(DayTimer);
+
 
 // Set room positions in a 2x4 grid
 grid_width = 4;		// Number of columns in the grid
@@ -46,9 +46,15 @@ for (var i = 0; i < grid_width * grid_height; i++) {
     }
 }
 
-
+is_first_room = true;
 
 global.set_roomtype = function(loc, roomType) {
+	
+	if (is_first_room){
+		time_source_start(DayTimer);
+		is_first_room = false;
+} 
+	
     var room_instance = grid_rooms[loc + offset()];
     
     if (room_instance != noone) {
