@@ -50,8 +50,8 @@ if(result_2 == 4)
 {
 	ds_map_replace(global.characters, CHARACTER.BENJY, ds_map_find_value(global.characters,CHARACTER.BENJY) + 1);
 
-	show_debug_message(string("You get a carbert"));
+	show_debug_message(string("You get a benjy"));
 	audio_play_sound(s4star,1,false);
 	
-	display_result(7);
+	display_result(8);
 }

@@ -35,36 +35,35 @@ display_result = function(result)
 	{
 	case 1:
 		global.result1();
-	break
+		break;
 	
 	case 2:
 		global.result2();
-	break
+		break;
 	
 	case 3:
 		global.result3();
-	break
+		break;
 	
 	case 4:
 		global.result4();
-	break
+		break;
 	
 	case 5:
 		global.result5();
-	break
+		break;
 	
 	case 6:
 		global.result6();
-	break
+		break;
 	
 	case 7:
 		global.result7();
-	break
-	
+		break;
+		
 	case 8:
 		global.result8();
-	break
-	
+		break;
 	
 	}
 }

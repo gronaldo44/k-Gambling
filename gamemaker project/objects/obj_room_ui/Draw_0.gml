@@ -129,7 +129,7 @@ if (pos == 3) {
                 char_sprite = SA_Carbert;
                 break;
 			case CHARACTER.BENJY:
-                char_function = "Increases winrate by 1%\nand wager by 5%\n\nBar ability: None";
+                char_function = "Increases Loss Reduction\n by 25%\n\nBar ability: Increases Income\nby 25";
                 char_sprite = SA_Benjy;
                 break;
             default:

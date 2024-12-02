@@ -38,14 +38,15 @@ global.result6 = function()
 	image_index = 5;
 }
 
-//result cardert
+//result carbert
 global.result7 = function()
 {
 	image_index = 6;
 }
 
-//result cardert
+
+// result benjy
 global.result8 = function()
 {
-	image_index = 7;
+	image_index = 7;	
 }

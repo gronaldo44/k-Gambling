@@ -29,6 +29,7 @@ op_length = array_length(option);
 global.display_shop_ui = function(room_index){
 	show_debug_message("Displaying shop for room " + string(room_index));
 	visible = true;
+	global.stop_casino();
 	room_loc = room_index;
 }
 

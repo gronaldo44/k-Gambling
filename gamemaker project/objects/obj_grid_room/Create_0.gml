@@ -19,8 +19,9 @@ room_baccarat_tie_pot_threshold = 500; // Threshold for Tie Pot Jackpot
 
 // --- Bar Room ---
 OnBarUpdate = function() {
-    global.gain_tokens(6, room_character);
-    room_tokens_earned += 6;
+	var income_per_update = 6 + get_character_ability(room_character, "bar_ability");
+    global.gain_tokens(income_per_update, room_character);
+    room_tokens_earned += income_per_update;
     global.gain_exp(5);
     room_exp_earned += 5;
 };
@@ -440,7 +441,6 @@ start_room = function() {
         case ROOM_TYPE.ROULETTE: time_source_start(RouletteTimer); break;
         case ROOM_TYPE.PACHINKO: time_source_start(PachinkoTimer); break;
         case ROOM_TYPE.SLOTS: time_source_start(SlotsTimer); break;
-        default: show_debug_message("StartRoom not implemented for " + string(roomType));
     }
 };
 
@@ -454,7 +454,6 @@ stop_room = function() {
         case ROOM_TYPE.ROULETTE: time_source_pause(RouletteTimer); break;
         case ROOM_TYPE.PACHINKO: time_source_pause(PachinkoTimer); break;
         case ROOM_TYPE.SLOTS: time_source_pause(SlotsTimer); break;
-        default: show_debug_message("StopRoom not implemented for " + string(roomType));
     }
 };
 
@@ -488,7 +487,8 @@ get_room_stats = function() {
 			break;
 		
 		case ROOM_TYPE.BAR:
-			return("Tokens Earned: " + string(room_tokens_earned)); 
+			return("Income: 6 + (" + string(get_character_ability(room_character, "bar_ability")) + ")" +
+				"\n\nTokens Earned: " + string(room_tokens_earned)); 
 			
 			case ROOM_TYPE.LOBBY:
 			return("Net Tokens Profit: " + string(global.profit_tokens) +
@@ -645,29 +645,42 @@ get_room_stats = function() {
 function get_character_ability(character_id, ability_type) {
     switch (character_id) {
         case CHARACTER.CHIP_GUY:
-            if (ability_type == "wager_bonus") return 10;  // +10% to wagers
+            if (ability_type == "wager_bonus") return 15;  // +15% to wagers
+			if (ability_type == "loss_reduction") return 5;	// 5% loss reduction
             break;
 
         case CHARACTER.COOL_CHIP_GUY:
-            if (ability_type == "win_rate") return 2;      // +2% win rate
+            if (ability_type == "win_rate") return 5;      // +5% win rate
             break;
 
         case CHARACTER.COW_MAN:
             if (ability_type == "wager_bonus") return 100; // +100% to wagers
+			if (ability_type == "win_rate") return 2;	// +2% win rate
             break;
 
         case CHARACTER.THE_GIRL:
+			if (ability_type == "wager_bonus") return 20;	// +20% to wagers
             if (ability_type == "loss_reduction") return 50; // 50% reduction
+			if (ability_type == "bar_ability") return 100;	// +100 tokens per second on bar
             break; 
 			
-			 case CHARACTER.BENJY:
-            if (ability_type == "wager_bonus") return 20; // +20% to wagers
+		case CHARACTER.SLOTSY:
+			if (ability_type == "wager_bonus") return 50;	// +50% to wagers
+			break;
+		
+		case CHARACTER.CARBERT:
+			if (ability_type == "win_rate") return 1;	// +1% to win rate
+			if (ability_type == "wager_bonus") return 5;	// +5% to wagers
+			
+		case CHARACTER.BENJY:
+            if (ability_type == "bar_ability") return 25;	// +25 tokens per second on bar
+			if (ability_type == "loss_reduction") return 25;	// 25% loss reduction
             break;
 
         default:
             return 0; // Default to no effect
     }
-    return 0; // Default return for undefined ability_type
+	return 0;
 }
 
 room_character = -1;          // No character assigned initially

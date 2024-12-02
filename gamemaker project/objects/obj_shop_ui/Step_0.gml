@@ -29,10 +29,6 @@ if(close){
     is_opened = false;  
 }
 
-if visible = true {
-	global.stop_casino()
-}
-
 
 //selecting the room
 if(accept_key && visible && allow_accept && is_opened){

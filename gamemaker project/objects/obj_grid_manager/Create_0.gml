@@ -68,7 +68,7 @@ function get_locked_img_index() {
 OnDayUpdate = function() {
      global.days += 1;
 }
-DayTimer = time_source_create(time_source_game, 1, time_source_units_seconds, OnDayUpdate, [], -1);
+DayTimer = time_source_create(time_source_game, 2, time_source_units_seconds, OnDayUpdate, [], -1);
 
 
 // Set room positions in a 2x4 grid
@@ -133,15 +133,21 @@ global.grid_TryPurchaseNewRoom = function(loc){
 		} else {
 			increase_cost = true;	
 		}
+		
+		// set room
+		global.set_roomtype(loc, ROOM_TYPE.OPEN);
+		grid_rooms[loc + offset()].is_locked_room = false;
 	}
-	
-	// set room
-	global.set_roomtype(loc, ROOM_TYPE.OPEN);
-	grid_rooms[loc + offset()].is_locked_room = false;
 }
 
 rooms_purchased = 0;	// expand grid after purchasing 6 rooms
+is_first_room = true;
 global.set_roomtype = function(loc, roomType) {
+	if (is_first_room){
+		time_source_start(DayTimer);
+		is_first_room = false;
+	}
+		
 	// Check for Grid expansion
 	if (roomType == ROOM_TYPE.OPEN){
 		rooms_purchased++;
@@ -151,17 +157,8 @@ global.set_roomtype = function(loc, roomType) {
 			grid_setFloorButtons();
 		}
 	}
-
-is_first_room = true;
-global.set_roomtype = function(loc, roomType) {
-	
-	if (is_first_room){
-		time_source_start(DayTimer);
-		is_first_room = false;
-} 
 	
     var room_instance = grid_rooms[loc + offset()];
-    
     if (room_instance != noone) {
         room_instance.roomType = roomType;
         room_instance.image_index = roomType;
@@ -205,10 +202,10 @@ global.set_roomtype = function(loc, roomType) {
     }
 
     show_debug_message("Room " + string(loc) + " set to type " + string(roomType));
-};
+}
 
 // Gets the character at room "loc"
-global.get_roomChar = function(loc, character_id){
+global.get_roomChar = function(loc){
 	var room_instance = grid_rooms[loc + offset()];
 	
 	if (room_instance != noone) { 
@@ -216,6 +213,19 @@ global.get_roomChar = function(loc, character_id){
 	} else {
 		show_debug_message("ROOM DOES NOT EXIST");
 	}	
+}
+
+global.remove_roomChar = function(loc) {
+	var room_instance = grid_rooms[loc + offset()];
+	if (room_instance == noone){
+		return;	
+	}
+	
+	if (room_instance.room_character >= 0){
+		global.char_setCharacter(room_instance.room_character, 1);	
+	}
+	room_instance.room_character = -1;
+	room_instance.room_character_sprite = noone;
 }
 
 global.set_roomChar = function(loc, c) {
@@ -399,7 +409,7 @@ function set_floor_visibility(visibility){
 	show_debug_message("Floor " + string(grid_index) + " visibility set to " + string(visibility));
 }
 
-grid_setFloorButtons = function(){
+function grid_setFloorButtons() {
 	var floor_down_button  = instance_find(obj_floor_down, 0);
 	if (grid_index > 0){
 		floor_down_button.SetActive(true);
@@ -453,4 +463,4 @@ global.grid_floorDown = function() {
 global.is_visible_on_floor = function(room_index) {
     var room_floor = floor(room_index / (grid_width * grid_height));
     return room_floor == grid_index; // True if on the current floor
-};
+}

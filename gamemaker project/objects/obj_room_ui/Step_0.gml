@@ -23,6 +23,17 @@ if(close){
 	global.uiopen = false;
 }
 
+// Allow removing characters from rooms
+if (visible){
+	if (room_loc >= 0){
+		if (global.get_roomChar(room_loc) >= 0){
+			option[3] = "Remove Character";
+		} else {
+			option[3] = "Character";	
+		}
+	}
+}
+
 switch(pos){
 	case 0:
 		break;
@@ -33,30 +44,15 @@ switch(pos){
 	case 3:
 		if(accept_key && visible && allow_accept && is_opened){
 			visible = false;
-			show_debug_message("Created Character Selection " + string(x) + ", " + string(y));
-			var gacha_ui = instance_create_layer(x, y, "UI", obj_gacha_ui);
-			gacha_ui.room_loc = room_loc;
-			
-			// Reset
+			var room_employee = global.get_roomChar(room_loc);
+			if (room_employee < 0){
+				show_debug_message("Created Character Selection " + string(x) + ", " + string(y));
+				var gacha_ui = instance_create_layer(x, y, "UI", obj_gacha_ui);
+				gacha_ui.room_loc = room_loc;
+			} else {
+				global.remove_roomChar(room_loc);
+				global.uiopen = false;
+			}
 		}
 		break;
 }
-
-//selecting the room
-//if(accept_key){
-	//visible = false;
-	//switch(pos){
-		//case 0:
-			//Display tips
-			
-			//break;
-	
-		//case 1:
-			//Display Weekly Report
-			//break;
-		
-		//case 2:
-			//Display Net Porfit stats
-			//break;
-	//}
-//}
