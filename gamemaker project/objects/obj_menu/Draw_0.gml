@@ -70,7 +70,7 @@ switch (pos) {
         draw_set_halign(fa_center);
         draw_text_transformed_color(
             text_x_offset, text_y_offset, //text pos
-            "One of the first-ever mascots of the casino.\nChippy is the older brother of Chipper\nand is more well-known.\n\nChippy increases wager by 15% and loss\nreduction by 5%\n\nBar ability: None", 
+            " One of the first-ever mascots of the casino.\nChippy is the older brother of Chipper\nand is more well-known.\n\nChippy increases wager by 15% and loss\nreduction by 5%\n\nBar ability: None", 
             0.45, 0.45, 0, //font size
             c_black, c_black, c_black, c_black, 1
         );
@@ -82,7 +82,7 @@ switch (pos) {
         draw_set_halign(fa_center);
         draw_text_transformed_color(
             text_x_offset, text_y_offset, 
-            "the second mascot of the casino and is the\nyounger brother of Chippy. Chipper is mostly\nseen at the higher-end tables compared to his brother.\n\nChipper increases winrate\nby 5%\n\nBar ability: None", 
+            " The second mascot of the casino and is the\nyounger brother of Chippy. Chipper is\n mostly seen at the higher-end tables \ncompared to his brother.\n\nChipper increases winrate\nby 5%\n\nBar ability: None", 
             0.45, 0.45, 0, 
             c_black, c_black, c_black, c_black, 1
         );
@@ -94,7 +94,7 @@ switch (pos) {
         draw_set_halign(fa_center);
         draw_text_transformed_color(
             text_x_offset, text_y_offset, 
-            "They got tired of working on the farmhouse\nand wanted a life of excitement. They were a\ncowboy at a rodeo before they became a cowman at the casino.\n\nCowman increases wager\nby 100% and winrate by 2%\n\nBar ability: None", 
+            "They got tired of working on the farmhouse\nand wanted a life of excitement. They were\na cowboy at a rodeo before they became\na cowman at the casino.\n\nCowman increases wager\nby 100% and winrate by 2%\n\nBar ability: None", 
             0.45, 0.45, 0, 
             c_black, c_black, c_black, c_black, 1
         );
@@ -118,7 +118,7 @@ switch (pos) {
         draw_set_halign(fa_center);
         draw_text_transformed_color(
             text_x_offset, text_y_offset, 
-            "A big gamblin man, they went from casino\nto casino making money and then losing it all.\nThey offer to work in your casino because they\nlost a bit too much on their last excursion.\n\nSlotsy increases wager by 50%\n\nBar ability: None", 
+            "A big gamblin man, they went from casino\nto casino making money and then losing it\nall. They offer to work in your casino\nbecause they lost a bit too much on\ntheir last excursion.\n\nSlotsy increases wager by 50%\n\nBar ability: None", 
             0.45, 0.45, 0, 
             c_black, c_black, c_black, c_black, 1
         );
@@ -130,7 +130,7 @@ switch (pos) {
         draw_set_halign(fa_center);
         draw_text_transformed_color(
             text_x_offset, text_y_offset, 
-            "A previous king of the mob and was a close friend\nof yours. Carbert helps make sure that nothing\ngoes wrong with the customers or staff.\n\nCarbert increases winrate by 1%\nand wager by 5%\n\nBar ability: None", 
+            "A previous king of the mob and was a\nclose friend of yours. Carbert helps make\nsure that nothing goes wrong with the\ncustomers or staff.\n\nCarbert increases winrate by 1%\nand wager by 5%\n\nBar ability: None", 
             0.45, 0.45, 0, 
             c_black, c_black, c_black, c_black, 1
         );
