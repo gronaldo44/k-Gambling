@@ -1,6 +1,6 @@
 {
   "$GMFont":"",
-  "%Name":"fnt_gacha",
+  "%Name":"fnt_gacha_2",
   "AntiAlias":1,
   "applyKerning":0,
   "ascender":22,
@@ -206,7 +206,7 @@
   "last":0,
   "lineHeight":28,
   "maintainGms1Font":false,
-  "name":"fnt_gacha",
+  "name":"fnt_gacha_2",
   "parent":{
     "name":"Fonts",
     "path":"folders/Fonts.yy",

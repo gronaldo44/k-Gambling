@@ -11,6 +11,11 @@ enum ROOM_TYPE {	// frame for this room on the sprite
 	SLOTS = 9,
 	CRAPS = 10,
 }
+OnDayUpdate = function() {
+     global.days += 1;
+}
+DayTimer = time_source_create(time_source_game, 1, time_source_units_seconds, OnDayUpdate, [], -1);
+time_source_start(DayTimer);
 
 // Set room positions in a 2x4 grid
 grid_width = 4;		// Number of columns in the grid
@@ -169,6 +174,7 @@ global.start_casino = function() {
             show_debug_message("Could not find room at index " + string(i));
         }
     }
+	time_source_start(DayTimer);
 };
 
 global.stop_casino = function() {
@@ -182,6 +188,7 @@ global.stop_casino = function() {
             show_debug_message("Could not find room at index " + string(i));
         }
     }
+	time_source_pause(DayTimer);
 };
 
 global.get_room_stats = function(room_index){
