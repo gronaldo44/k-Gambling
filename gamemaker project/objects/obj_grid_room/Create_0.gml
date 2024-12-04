@@ -224,7 +224,7 @@ OnPokerUpdate = function() {
             // Reset the pool and loss count
             room_bad_beat_pool = 0;
             room_bad_beat_losses = 0;
-			 if (global.is_visible_on_floor(room_index) + offset()) {
+			 if (global.is_visible_on_floor(room_index) + global.grid_getOffset()) {
                 // Show the animation
                 instance_create_layer(x, y, "Animation", obj_token_explosion);
             } else {

@@ -437,6 +437,10 @@ function offset() {
 	return grid_height * grid_width * grid_index;	
 }
 
+global.grid_getOffset = function(){
+	return offset();	
+}
+
 function expand_grid() {
     var new_rooms = grid_width * grid_height; // Number of rooms to add
     var current_count = array_length(grid_rooms);
