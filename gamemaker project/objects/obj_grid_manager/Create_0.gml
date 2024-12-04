@@ -221,12 +221,7 @@ global.set_roomtype = function(loc, roomType) {
 }
 
 
-var token_explosion = instance_create_layer(room_instance.x, room_instance.y, "Animation", obj_token_explosion);
-if (token_explosion != noone) {
-    token_explosion.explosion_sprite = spr_token_explosion; // Shared animation sprite
-    token_explosion.room_index = loc + offset();  // Associate with the room index
-    token_explosion.explosion_active = false;    // Default inactive
-}
+
 
 
 // Gets the room level at "loc"
@@ -520,11 +515,9 @@ function set_floor_visibility(visibility){
 	show_debug_message("Floor " + string(grid_index) + " visibility set to " + string(visibility));
 }
 
-with (obj_token_explosion) {
-    visible = global.is_visible_on_floor(room_index); // Set visibility based on floor
-}
 
-show_debug_message("Floor " + string(grid_index) + " visibility set to " + string(visibility));
+
+
 function grid_setFloorButtons() {
 	var floor_down_button  = instance_find(obj_floor_down, 0);
 	if (grid_index > 0){
