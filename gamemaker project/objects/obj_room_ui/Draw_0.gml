@@ -119,7 +119,7 @@ if(pos == 2){
 		case ROOM_TYPE.BLACKJACK:
 			if (r_level == 5){
 				draw_set_color(c_black);
-				draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+				draw_sprite_ext(Building_Blackjack, 0, 1145, 220, .44, .41, 0, c_white, 1);
 				draw_text_transformed(1020, 400, 
 					"Blackjack table is at Maximum Level." +
 					"\n\nUpgrading the Blackjack table increases" +
@@ -127,7 +127,7 @@ if(pos == 2){
 					, .50, .50, 0);
 			} else {
 				draw_set_color(c_black);
-				draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+				draw_sprite_ext(Building_Blackjack, 0, 1145, 220, .44, .41, 0, c_white, 1);
 				draw_text_transformed(1020, 400, 
 					"Upgrade Blackjack table to Level " + string(r_level + 1) +
 					"\nfor " + string(r_level * 125) +
@@ -140,7 +140,7 @@ if(pos == 2){
 		case ROOM_TYPE.CRAPS:
 			if (r_level == 5){
 				draw_set_color(c_black);
-				draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+				draw_sprite_ext(Building_ZCraps, 0, 1145, 220, .44, .41, 0, c_white, 1);
 				draw_text_transformed(1020, 400, 
 					"Craps table is at Maximum Level." +
 					"\n\nUpgrading the Craps table attracts" +
@@ -149,7 +149,7 @@ if(pos == 2){
 					, .50, .50, 0);
 			} else {
 				draw_set_color(c_black);
-				draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+				draw_sprite_ext(Building_ZCraps, 0, 1145, 220, .44, .41, 0, c_white, 1);
 				draw_text_transformed(1020, 400, 
 					"Upgrade Blackjack table to Level " + string(r_level + 1) +
 					"\nfor " + string(r_level * 180) +
@@ -163,7 +163,7 @@ if(pos == 2){
 		case ROOM_TYPE.BACCARAT:
 		    if (r_level == 5) {
 		        draw_set_color(c_black);
-		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_sprite_ext(BTO_Bacarat_Table, 0, 1145, 220, .44, .41, 0, c_white, 1);
 		        draw_text_transformed(1020, 400, 
 		            "Baccarat table is at Maximum Level." +
 		            "\n\nUpgrading the Baccarat table increases" +
@@ -171,7 +171,7 @@ if(pos == 2){
 		            , .50, .50, 0);
 		    } else {
 		        draw_set_color(c_black);
-		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_sprite_ext(BTO_Bacarat_Table, 0, 1145, 220, .44, .41, 0, c_white, 1);
 		        draw_text_transformed(1020, 400, 
 		            "Upgrade Baccarat table to Level " + string(r_level + 1) +
 		            "\nfor " + string(r_level * 250) +
@@ -184,7 +184,7 @@ if(pos == 2){
 		case ROOM_TYPE.ROULETTE:
 		    if (r_level == 5) {
 		        draw_set_color(c_black);
-		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_sprite_ext(BTO_Roulette_Table, 0, 1145, 220, .44, .41, 0, c_white, 1);
 		        draw_text_transformed(1020, 400, 
 		            "Roulette table is at Maximum Level." +
 		            "\n\nUpgrading the Roulette table increases" +
@@ -192,7 +192,7 @@ if(pos == 2){
 		            , .50, .50, 0);
 		    } else {
 		        draw_set_color(c_black);
-		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_sprite_ext(BTO_Roulette_Table, 0, 1145, 220, .44, .41, 0, c_white, 1);
 		        draw_text_transformed(1020, 400, 
 		            "Upgrade Roulette table to Level " + string(r_level + 1) +
 		            "\nfor " + string(r_level * 475) +
@@ -205,7 +205,7 @@ if(pos == 2){
 		case ROOM_TYPE.POKER:
 		    if (r_level == 5) {
 		        draw_set_color(c_black);
-		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_sprite_ext(Building_Poker, 0, 1145, 220, .44, .41, 0, c_white, 1);
 		        draw_text_transformed(1020, 400, 
 		            "Poker table is at Maximum Level." +
 		            "\n\nUpgrading the Poker table increases" +
@@ -213,7 +213,7 @@ if(pos == 2){
 		            , .50, .50, 0);
 		    } else {
 		        draw_set_color(c_black);
-		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_sprite_ext(Building_Poker, 0, 1145, 220, .44, .41, 0, c_white, 1);
 		        draw_text_transformed(1020, 400, 
 		            "Upgrade Poker table to Level " + string(r_level + 1) +
 		            "\nfor " + string(r_level * 350) +
@@ -226,7 +226,7 @@ if(pos == 2){
 		case ROOM_TYPE.PACHINKO:
 		    if (r_level == 5) {
 		        draw_set_color(c_black);
-		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_sprite_ext(Building_Pachinko, 0, 1145, 220, .44, .41, 0, c_white, 1);
 		        draw_text_transformed(1020, 400, 
 		            "Pachinko is at Maximum Level." +
 		            "\n\nUpgrading Pachinko increases" +
@@ -234,7 +234,7 @@ if(pos == 2){
 		            , .50, .50, 0);
 		    } else {
 		        draw_set_color(c_black);
-		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_sprite_ext(Building_Pachinko, 0, 1145, 220, .44, .41, 0, c_white, 1);
 		        draw_text_transformed(1020, 400, 
 		            "Upgrade Pachinko to Level " + string(r_level + 1) +
 		            "\nfor " + string(r_level * 580) +
@@ -247,7 +247,7 @@ if(pos == 2){
 		case ROOM_TYPE.SLOTS:
 		    if (r_level == 5) {
 		        draw_set_color(c_black);
-		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_sprite_ext(spr_slotsUI, 0, 1145, 220, .44, .41, 0, c_white, 1);
 		        draw_text_transformed(1020, 400, 
 		            "Slot machines are at Maximum Level." +
 		            "\n\nUpgrading Slots increases" +
@@ -255,7 +255,7 @@ if(pos == 2){
 		            , .50, .50, 0);
 		    } else {
 		        draw_set_color(c_black);
-		        draw_sprite_ext(BTO_Bar, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_sprite_ext(spr_slotsUI, 0, 1145, 220, .44, .41, 0, c_white, 1);
 		        draw_text_transformed(1020, 400, 
 		            "Upgrade Slots to Level " + string(r_level + 1) +
 		            "\nfor " + string(r_level * 700) +
