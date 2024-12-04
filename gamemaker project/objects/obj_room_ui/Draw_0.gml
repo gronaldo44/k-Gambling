@@ -205,7 +205,7 @@ if(pos == 2){
 		case ROOM_TYPE.POKER:
 		    if (r_level == 5) {
 		        draw_set_color(c_black);
-		        draw_sprite_ext(Building_Poker, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_sprite_ext(spr_pokerUI, 0, 1145, 220, .44, .41, 0, c_white, 1);
 		        draw_text_transformed(1020, 400, 
 		            "Poker table is at Maximum Level." +
 		            "\n\nUpgrading the Poker table increases" +
@@ -213,7 +213,7 @@ if(pos == 2){
 		            , .50, .50, 0);
 		    } else {
 		        draw_set_color(c_black);
-		        draw_sprite_ext(Building_Poker, 0, 1145, 220, .44, .41, 0, c_white, 1);
+		        draw_sprite_ext(spr_pokerUI, 0, 1145, 220, .44, .41, 0, c_white, 1);
 		        draw_text_transformed(1020, 400, 
 		            "Upgrade Poker table to Level " + string(r_level + 1) +
 		            "\nfor " + string(r_level * 350) +
