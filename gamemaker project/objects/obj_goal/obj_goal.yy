@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_gachaButton1",
-    "path":"sprites/spr_gachaButton1/spr_gachaButton1.yy",
+    "name":"spr_little_bar",
+    "path":"sprites/spr_little_bar/spr_little_bar.yy",
   },
   "spriteMaskId":null,
   "visible":true,
