@@ -58,7 +58,7 @@ if (room_character_sprite != noone) {
     // Draw the character sprite with adjusted offsets
     draw_sprite_ext(
         room_character_sprite, // Sprite of the assigned character
-        0,                     // Subimage index
+        character_frame,                     // Subimage index
         x + sprite_width / 2 + character_x_offset,  // X position
         y + sprite_height / 2 + character_y_offset, // Y position
         .8,                     // X scale

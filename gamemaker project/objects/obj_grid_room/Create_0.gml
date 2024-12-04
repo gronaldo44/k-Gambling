@@ -672,6 +672,7 @@ function get_character_ability(character_id, ability_type) {
 
 room_character = -1;          // No character assigned initially
 room_character_sprite = noone; // No sprite assigned initially
+character_frame = 0;          // Starts on first frame once sprite is attached
 
 daily_update = function()
 {
