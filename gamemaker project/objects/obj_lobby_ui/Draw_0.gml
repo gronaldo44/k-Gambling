@@ -1,44 +1,55 @@
-//draw the shop ui
-draw_sprite_ext(sprite_index, image_index, x, y, width/sprite_width, height/sprite_height, 0, c_white, 1);
+// Draw the room UI background
+draw_sprite_ext(sprite_index, image_index, x, y, width / sprite_width, height / sprite_height, 0, c_white, 1);
 
-//draw the options
+// Draw the options
 draw_set_font(fnt_gacha);
 draw_set_valign(fa_top);
 draw_set_halign(fa_left);
 
-var items_per_column = 5; // Number of items in each column
-var column_spacing = 250; // Horizontal spacing between columns
-var x_offset_left = -370; // X offset for the left column
-var x_offset_right = -120; // X offset for the right column
+// Define hover and default box colors
+var default_color = c_white;      // Default white color
+var hover_color = make_color_rgb(128, 0, 0);  // Dark red for hover effect
+var default_font_color = c_black;  // Default black font color
+var hover_font_color = c_white;   // White font color when hovered
 
-for ( var i = 0; i < op_length; i++)
-	{
-	 var _c = c_black;
-    if (pos == i) { _c = #800000; } // Highlight selected option in dark red
+var text_color = c_black;
 
-    // Determine row and column positions
-    var row = i mod items_per_column; // Row number (0, 1, or 2)
-    var column = i div items_per_column; // Column number (0 for left, 1 for right)
+// Draw the options with hover effect
+for (var i = 0; i < op_length; i++) {
+    // Calculate positions for the box and text
+    var button_x = x + op_border - 240;
+    var button_y = (y + op_border - 200) + op_space * i;
 
-    // Calculate x and y positions for each button based on row and column
-    var button_x = x + op_border + (column == 0 ? x_offset_left : x_offset_right); // Adjust x by column
-    var button_y = (y + op_border - 210) + op_space * row; // Adjust y by row
-
-    // Draw white box (button background)
-    draw_sprite_ext(spr_shop_button, 0, button_x + 30, button_y, 0.37, 0.32, 0, c_white, 1);
-
-    // Draw option text
-    draw_text_transformed_color(button_x - 95, button_y - 20, option[i], 0.8, 0.8, 0, _c, _c, _c, _c, 1);
-	}
+    // Determine box and font color based on hover state
+    var box_color = (pos == i) ? hover_color : default_color;
+    var font_color = (pos == i) ? hover_font_color : default_font_color;
 	
-var _c = c_black;
-//display stats of room
-if(pos == 0){
-	draw_text_transformed_color(900, 400, get_lobby_tip(), .50, .50, 0, _c, _c, _c, _c, 1);
+	// Define colors for text
+	var stats_text_color = c_black;    // Color for stats text
+	var description_text_color = make_color_rgb(0, 0, 0); // Blue for room descriptions
+
+
+
+    // Draw the box with hover effect
+    draw_sprite_ext(spr_shop_button, 0, button_x - 60, button_y, 0.47, 0.32, 0, box_color, 1);
+
+    // Draw the text
+    draw_text_color(button_x - 220, button_y - 30, option[i], font_color, font_color, font_color, font_color, 1);
 }
-if(pos == 1){
-	draw_text_transformed_color(900, 400, "Under Construction", .75, .75, 0, _c, _c, _c, _c, 1);
+
+if (pos == 0) {
+    draw_text_transformed_color(
+        900, 400, 
+        get_lobby_tip(), 
+        0.50, 0.50, 0, 
+        text_color, text_color, text_color, text_color, 1
+    );
 }
-if(pos == 2){
-	draw_text_transformed_color(900, 400, global.get_room_stats(room_loc), .60, .60, 0, _c, _c, _c, _c, 1);
+if (pos == 1) {
+    draw_text_transformed_color(
+        900, 400, 
+        global.get_room_stats(room_loc), 
+        0.60, 0.60, 0, 
+        text_color, text_color, text_color, text_color, 1
+    );
 }

@@ -5,7 +5,7 @@ sub_width = 240;
 sub_height = 170;
 
 op_border = 8;
-op_space = 50;
+op_space = 100;
 
 pos = 0;
 
@@ -13,8 +13,7 @@ room_loc = -1;
 visible = false;
 
 option[0] = "Tips";
-option[1] = "Weekly Report";
-option[2] = "Net Earnings";
+option[1] = "Net Earnings";
 
 op_length = array_length(option);
 
