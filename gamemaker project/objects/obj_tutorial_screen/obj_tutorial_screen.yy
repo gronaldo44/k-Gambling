@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_tutorial_screen",
-    "path":"sprites/spr_tutorial_screen/spr_tutorial_screen.yy",
+    "name":"BTO_How_To_Play",
+    "path":"sprites/BTO_How_To_Play/BTO_How_To_Play.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -15,7 +15,7 @@ room_progressive_pool = 0;
 room_bad_beat_pool = 0;        // Poker-specific Bad Beat Pool
 room_bad_beat_losses = 0;      // Poker-specific Bad Beat Losses
 room_baccarat_tie_pot = 0;     // Baccarat-specific Tie Pot
-room_baccarat_tie_pot_threshold = 500; // Threshold for Tie Pot Jackpot
+room_baccarat_tie_pot_threshold = 250; // Threshold for Tie Pot Jackpot
 
 // --- Bar Room ---
 OnBarUpdate = function() {
