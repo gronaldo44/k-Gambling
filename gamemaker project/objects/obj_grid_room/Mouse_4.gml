@@ -1,5 +1,5 @@
 // global.purchase_room(room_index, ROOM_TYPE.OPEN);	tmp
-if (visible){
+if (visible && !global.uiopen){
 	if (is_locked_room){
 		show_debug_message("Locked Room Clicked: " + string(room_index));
 		global.grid_TryPurchaseNewRoom(room_index);

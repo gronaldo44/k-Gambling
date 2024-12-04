@@ -108,6 +108,10 @@ global.grid_TryPurchaseNewRoom = function(loc){
 		show_debug_message("Must buy first room before purchasing new ones.");
 		return;	
 	}
+	if (!grid_rooms[loc + offset()].is_locked_room) {
+		show_debug_message("Not a locked room");
+		return;
+	}
 	
 	// spend tokens
 	if (global.token >= room_cost) {
@@ -119,8 +123,9 @@ global.grid_TryPurchaseNewRoom = function(loc){
 			// update room image for other locked rooms
 			for (var i = 0; i < array_length(grid_rooms); i++){
 				var room_instance = grid_rooms[i];
-				var is_locked_room = room_instance.roomType == ROOM_TYPE.LOCKED || 
-					(room_instance.roomType >= 11 && room_instance.roomType <= 28);
+				var is_locked_room = (room_instance.roomType == ROOM_TYPE.LOCKED || 
+					(room_instance.roomType >= 11 && room_instance.roomType <= 28)) 
+					&& room_instance.is_locked_room;
 					
 				show_debug_message("Is locked room at [" + string(i) + "] : " + string(is_locked_room));
 		
@@ -161,7 +166,12 @@ global.set_roomtype = function(loc, roomType) {
     var room_instance = grid_rooms[loc + offset()];
     if (room_instance != noone) {
         room_instance.roomType = roomType;
-        room_instance.image_index = roomType;
+        room_instance.image_index = roomType; 
+		
+		if (roomType != ROOM_TYPE.LOCKED && 
+			!(roomType >= 11 && roomType <=28)){
+			room_instance.is_locked_room = false;
+		}
 
         // Create or update the NPC animation
         var npc = instance_create_layer(room_instance.x, room_instance.y, "Animation", obj_npc_animation);
@@ -498,6 +508,7 @@ function set_floor_visibility(visibility){
         if (i < array_length(grid_rooms) && grid_rooms[i] != noone) {
             with (grid_rooms[i]) {
 				visible = visibility;	
+				image_index = roomType;
 				show_debug_message("Room " + string(i) + " - RoomType " + string(roomType));
 			}
         } 
