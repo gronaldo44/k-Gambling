@@ -2,7 +2,7 @@ event_inherited();
 
 text = "";
 
-drawCost = 150;
+drawCost = 200;
 
 isPulling = false;
 
