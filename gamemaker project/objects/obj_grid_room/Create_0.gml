@@ -175,7 +175,7 @@ OnPokerUpdate = function() {
     var base_wager = 150 * room_level;
     var base_win_amount = base_wager;
     var base_lose_amount = base_wager;
-    var base_winrate = 58;
+    var base_winrate = 40;
 
     // Character ability adjustments
     var wager_bonus = get_character_ability(room_character, "wager_bonus");
@@ -224,7 +224,17 @@ OnPokerUpdate = function() {
             // Reset the pool and loss count
             room_bad_beat_pool = 0;
             room_bad_beat_losses = 0;
-			instance_create_layer(x, y, "Animation", obj_token_explosion);
+			 if (global.is_visible_on_floor(room_index) + offset()) {
+                // Show the animation
+                instance_create_layer(x, y, "Animation", obj_token_explosion);
+            } else {
+                // Hide any pre-existing animations for this room (if applicable)
+                with (obj_token_explosion) {
+                    if (room_index == other.room_index) {
+                        visible = false;
+                    }
+                }
+            }
 
 
             show_debug_message("Poker Bad Beat Jackpot Triggered!");
