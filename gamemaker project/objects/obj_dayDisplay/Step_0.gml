@@ -1,1 +1,1 @@
-text = "Day " + string(global.days);
+//text = "Day " + string(global.days);
