@@ -1,6 +1,9 @@
 token_frame++;
 
-// Stop at the last frame
-if (npc_frame >= sprite_get_number(npc_sprite)) {
-	instance_destroy();
+if (image_index >= image_number - 1) {
+    instance_destroy();
+}
+
+if (room_index != -1) {
+    visible = global.is_visible_on_floor(room_index);
 }

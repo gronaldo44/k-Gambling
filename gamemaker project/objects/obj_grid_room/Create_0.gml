@@ -159,6 +159,8 @@ OnBaccaratUpdate = function() {
 
         // Reset the Tie Pot
         room_baccarat_tie_pot = 0;
+		
+		instance_create_layer(x, y, "Animation", obj_token_explosion);
 
         // Print Jackpot Message
         show_debug_message("Baccarat Tie Pot Jackpot! Payout: " + string(jackpot_payout));
@@ -204,7 +206,7 @@ OnPokerUpdate = function() {
         global.gain_tokens(-adjusted_lose_amount, room_character);
         room_tokens_lost += adjusted_lose_amount;
 
-        // Add to the Bad Beat Pool
+        
         room_bad_beat_pool += adjusted_wager * 0.1; // 10% of wager goes to the pool
         room_bad_beat_losses += 1; // Increment the loss count
 
@@ -212,7 +214,7 @@ OnPokerUpdate = function() {
         show_debug_message("House loses in Poker! Bad Beat Pool: " + string(room_bad_beat_pool));
         show_debug_message("Bad Beat Losses: " + string(room_bad_beat_losses));
 
-        // Check if the Bad Beat Jackpot triggers
+        
         if (room_bad_beat_losses >= 5) {
             // Trigger the jackpot payout
             global.gain_tokens(room_bad_beat_pool, room_character);
@@ -222,6 +224,8 @@ OnPokerUpdate = function() {
             // Reset the pool and loss count
             room_bad_beat_pool = 0;
             room_bad_beat_losses = 0;
+			instance_create_layer(x, y, "Animation", obj_token_explosion);
+
 
             show_debug_message("Poker Bad Beat Jackpot Triggered!");
         }
@@ -269,6 +273,7 @@ OnRouletteUpdate = function() {
             global.gain_tokens(jackpot_payout, room_character);
             room_tokens_earned += jackpot_payout;
             room_ability += jackpot_payout; // Track jackpot in special ability earnings
+			instance_create_layer(x, y, "Animation", obj_token_explosion);
 
             show_debug_message("** Jackpot Win! Payout: " + string(jackpot_payout) + " **");
         } else {
@@ -328,13 +333,11 @@ OnPachinkoUpdate = function() {
         var multiplier_roll = irandom_range(1, 1000); // Scale to make it harder for high multipliers
         var multiplier = 1;
 
-        if (multiplier_roll <= 5) { // 0.5% chance for x50
-            multiplier = 50;
-        } else if (multiplier_roll <= 20) { // 1.5% for x20
-            multiplier = 20;
-        } else if (multiplier_roll <= 70) { // 5% for x10
+        if (multiplier_roll <= 5) { // 0.5% chance for x25
+            multiplier = 25;
+        } else if (multiplier_roll <= 20) { // 2% for x10
             multiplier = 10;
-        } else if (multiplier_roll <= 200) { // 13% for x5
+        } else if (multiplier_roll <= 100) { // 10% for x5
             multiplier = 5;
         }
 
@@ -342,6 +345,7 @@ OnPachinkoUpdate = function() {
             var progressive_reward = adjusted_wager * multiplier;
             global.gain_tokens(progressive_reward, room_character);
             room_ability += progressive_reward; // Track special ability earnings (cash-out rewards)
+			instance_create_layer(x, y, "Animation", obj_token_explosion);
             show_debug_message("Pachinko Progressive Jackpot! Multiplier: x" + string(multiplier) + ", Reward: " + string(progressive_reward));
         } else {
             show_debug_message("House wins in Pachinko! " + string(room_index));
@@ -406,6 +410,7 @@ OnSlotsUpdate = function() {
             global.gain_tokens(jackpot_reward, room_character);
             room_ability += jackpot_reward; // Track special ability earnings
             show_debug_message("Slots Jackpot! Reward: " + string(jackpot_reward));
+			instance_create_layer(x, y, "Animation", obj_token_explosion);
         } else {
             show_debug_message("House wins in Slots! " + string(room_index));
         }
