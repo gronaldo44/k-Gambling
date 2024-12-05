@@ -46,14 +46,18 @@ function get_lobby_tip() {
 		
 		default:
 	        if (global.level < 7) {
-	            return("Congratulations on reaching Level " + string(global.level) + "!" +
-					"\n\nKeep gaining Experience to level up" +
-					"\nand expand your casino. You can buy" +
-					"\nnew rooms with the Tokens you earn.");
+	            return +
+					("\nOnce you have enough credits to pull" +
+					"\nfor a character these characters will" +
+					"\nhelp you increase productivity in your" +
+					"\ncasino! There are variations between 4" +
+					"\nand 5 star characters that can be dropped." +
+					"\nThe better the character star rating, the "+
+					"\nmore benefits they will have.");
+
 	        } else {
-	            return("You have fully expanded your" +
-					"\ncasino for our Alpha!" +
-					"\n\nThank you for playing!!");
+	            return("\n99% of gamblers quit before" +
+				"\nthey hit it big");
 	        }
 	}
 }
