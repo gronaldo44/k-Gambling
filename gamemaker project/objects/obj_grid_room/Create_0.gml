@@ -175,7 +175,7 @@ OnPokerUpdate = function() {
     var base_wager = 150 * room_level;
     var base_win_amount = base_wager;
     var base_lose_amount = base_wager;
-    var base_winrate = 40;
+    var base_winrate = 58;
 
     // Character ability adjustments
     var wager_bonus = get_character_ability(room_character, "wager_bonus");
