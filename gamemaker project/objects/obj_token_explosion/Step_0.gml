@@ -1,6 +1,6 @@
-//token_frame++;
+token_frame++;
 
-//if (image_index >= image_number - 1) {
-//    instance_destroy();
-//}
-
+// Check if the animation has reached frame 20
+if (image_index >= 19) {
+    instance_destroy(); // Destroy the instance
+}

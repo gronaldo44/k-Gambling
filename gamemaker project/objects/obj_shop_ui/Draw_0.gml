@@ -39,6 +39,26 @@ for (var i = 0; i < op_length; i++) {
     draw_text_transformed_color(button_x - 95, button_y - 20, option[i], 0.8, 0.8, 0, _c, _c, _c, _c, 1);
 }
 
+
+
+var text_x = 720; 
+var text_y = 480;  
+var font_scale = .48; 
+var text_color = c_black;
+
+draw_text_transformed_color(
+    text_x, 
+    text_y, 
+    "Next selection - Up/down\nscroll wheel.\n\nPurchase - LMB\n\nExit Menu - Esc", 
+    font_scale, 
+    font_scale, 
+    0, 
+    text_color, 
+    text_color, 
+    text_color, 
+    text_color, 
+    1
+);
 	
 //display stats of room
 if(pos == 0){

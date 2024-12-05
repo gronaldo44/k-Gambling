@@ -36,27 +36,60 @@ for (var i = 0; i < op_length; i++) {
     // Draw the button background
     draw_sprite_ext(spr_shop_button, 0, button_x, button_y, 0.31, 0.32, 0, box_color, 1);
 
-    // Get the name of the character
-    var character_name = option[i];
-    
-    // Get the character ID and count from the global.characters map
-    var character_id;
+    // Skip drawing the count for "Help" (option 7)
+    if (i == 7) {
+        draw_text_transformed_color(
+            button_x - 98, button_y - 20, 
+            "How workers work", 
+            0.5, 0.5, 0, 
+            font_color, font_color, font_color, font_color, 1
+        );
+    } else {
+        // Draw the name and count for character options
+        var character_name = option[i];
+        var character_id;
 
-    switch (i) {
-        case 0: character_id = CHARACTER.CHIP_GUY; break;
-        case 1: character_id = CHARACTER.COOL_CHIP_GUY; break;
-        case 2: character_id = CHARACTER.COW_MAN; break;
-        case 3: character_id = CHARACTER.THE_GIRL; break;
-		case 4: character_id = CHARACTER.SLOTSY; break;
-		case 5: character_id = CHARACTER.CARBERT; break;
-		case 6: character_id = CHARACTER.BENJY; break;
+        switch (i) {
+            case 0: character_id = CHARACTER.CHIP_GUY; break;
+            case 1: character_id = CHARACTER.COOL_CHIP_GUY; break;
+            case 2: character_id = CHARACTER.COW_MAN; break;
+            case 3: character_id = CHARACTER.THE_GIRL; break;
+            case 4: character_id = CHARACTER.SLOTSY; break;
+            case 5: character_id = CHARACTER.CARBERT; break;
+            case 6: character_id = CHARACTER.BENJY; break;
+        }
+        var character_count = ds_map_find_value(global.characters, character_id);
+
+        // Draw character name and count
+        var display_text = character_name + " x" + string(character_count);
+        draw_text_transformed_color(
+            button_x - 98, button_y - 20, 
+            display_text, 
+            0.8, 0.8, 0, 
+            font_color, font_color, font_color, font_color, 1
+        );
     }
-    var character_count = ds_map_find_value(global.characters, character_id);
-
-    // Draw the character name and count
-    var display_text = character_name + " x" + string(character_count);
-    draw_text_transformed_color(button_x - 98, button_y - 20, display_text, 0.8, 0.8, 0, font_color, font_color, font_color, font_color, 1);
 }
+
+var text_x = 660; 
+var text_y = 650;  
+var font_scale = .45; 
+var text_color = c_black;
+
+draw_text_transformed_color(
+    text_x, 
+    text_y, 
+    "Next selection - Up/down scroll wheel / Interact - LMB / Exit Menu - Esc", 
+    font_scale, 
+    font_scale, 
+    0, 
+    text_color, 
+    text_color, 
+    text_color, 
+    text_color, 
+    1
+);
+
 
 // Use local offsets and scaling for sprite positions
 var sprite_x = sprite_offset_x;
@@ -139,7 +172,7 @@ if (pos == 5) {
     draw_set_halign(fa_center);
     draw_text_transformed_color(
        text_x_offset, 450, 
-        "Carbert Increases winrate by 1%\nand wager by 5%\n\nBar ability: None", 
+        "Carbert Increases winrate by\n1% and wager by 5%\n\nBar ability: None", 
         0.60, 0.60, 0, 
         c_black, c_black, c_black, c_black, 1
     );
@@ -153,6 +186,19 @@ if (pos == 6) {
     draw_text_transformed_color(
        text_x_offset, 450, 
         "Benjy Increses loss reduction\nby 25%.\n\nBar ability: increases income\n by 25", 
+        0.60, 0.60, 0, 
+        c_black, c_black, c_black, c_black, 1
+    );
+    draw_set_halign(fa_left); 
+}
+
+if (pos == 7) {
+    draw_sprite_ext(BTO_Gacha_Icon, 0, sprite_x, sprite_y, scale_x + .35, scale_y + .35, 0, c_white, 1);
+
+    draw_set_halign(fa_center);
+    draw_text_transformed_color(
+       text_x_offset, 420, 
+        "Employees can be obtained\nthrough playing slots. You can\nonly have one employee\nper room.\n\n(Slots icon pictured above)", 
         0.60, 0.60, 0, 
         c_black, c_black, c_black, c_black, 1
     );

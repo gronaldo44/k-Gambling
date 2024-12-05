@@ -324,7 +324,14 @@ global.grid_TryUpgradeRoom = function(loc) {
 	if (try_spend_tokens(cost)){
 		room_instance.room_level++;	
 		show_debug_message(string(loc) + " upgraded to Level " + string(room_instance.room_level));
+				 // Create explosion animation at the room's position
+        var explosion = instance_create_layer(room_instance.x, room_instance.y, "Animation", obj_token_explosion);
+        if (explosion != noone) {
+            explosion.image_xscale = 1; // Scale explosion if needed
+            explosion.image_yscale = 1;
+        }
 		return true;
+		
 	} else {
 		return false;	
 	}

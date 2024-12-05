@@ -27,9 +27,9 @@ if(close){
 if (visible){
 	if (room_loc >= 0){
 		if (global.get_roomChar(room_loc) >= 0){
-			option[3] = "Remove Character";
+			option[3] = "Remove Employee";
 		} else {
-			option[3] = "Character";	
+			option[3] = "Employees";	
 		}
 	}
 }

@@ -31,5 +31,31 @@ option[3] = "Yuki"
 option[4] = "Slotsy"
 option[5] = "Carbert"
 option[6] = "Benjy"
+option[7] = "Characters"
 
 op_length = array_length(option);
+
+var has_characters = false;
+for (var i = 0; i < 7; i++) { // Only check character slots (0-6)
+    var character_id;
+    switch (i) {
+        case 0: character_id = CHARACTER.CHIP_GUY; break;
+        case 1: character_id = CHARACTER.COOL_CHIP_GUY; break;
+        case 2: character_id = CHARACTER.COW_MAN; break;
+        case 3: character_id = CHARACTER.THE_GIRL; break;
+        case 4: character_id = CHARACTER.SLOTSY; break;
+        case 5: character_id = CHARACTER.CARBERT; break;
+        case 6: character_id = CHARACTER.BENJY; break;
+    }
+    if (ds_map_find_value(global.characters, character_id) > 0) {
+        has_characters = true;
+        break;
+    }
+}
+
+// Store whether characters are available
+global.has_characters = has_characters;
+
+// Set default position
+pos = has_characters ? 0 : 7;
+

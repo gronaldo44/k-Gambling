@@ -23,46 +23,45 @@ if(close){
 	global.uiopen = false;
 }
 
-//selecting the room
-if(accept_key && visible && allow_accept && is_opened){
-	switch(pos){
-		case 0:
-		
-			global.set_roomChar(room_loc, CHARACTER.CHIP_GUY);
-			break;
-		case 1:
+// Selecting a character or option
+if (accept_key && visible && allow_accept && is_opened) {
+    if (pos != 7) {
+        // If selecting a character option but no characters are available
+        var character_id;
+        switch (pos) {
+            case 0: character_id = CHARACTER.CHIP_GUY; break;
+            case 1: character_id = CHARACTER.COOL_CHIP_GUY; break;
+            case 2: character_id = CHARACTER.COW_MAN; break;
+            case 3: character_id = CHARACTER.THE_GIRL; break;
+            case 4: character_id = CHARACTER.SLOTSY; break;
+            case 5: character_id = CHARACTER.CARBERT; break;
+            case 6: character_id = CHARACTER.BENJY; break;
+        }
+        
+        if (character_id != undefined && ds_map_find_value(global.characters, character_id) <= 0) {
+            show_debug_message("No available characters to select. UI stays open.");
+            return; 
+        }
+    }
 
-			global.set_roomChar(room_loc, CHARACTER.COOL_CHIP_GUY);
-			break;
-		case 2:
+  
+    switch (pos) {
+        case 0: global.set_roomChar(room_loc, CHARACTER.CHIP_GUY); break;
+        case 1: global.set_roomChar(room_loc, CHARACTER.COOL_CHIP_GUY); break;
+        case 2: global.set_roomChar(room_loc, CHARACTER.COW_MAN); break;
+        case 3: global.set_roomChar(room_loc, CHARACTER.THE_GIRL); break;
+        case 4: global.set_roomChar(room_loc, CHARACTER.SLOTSY); break;
+        case 5: global.set_roomChar(room_loc, CHARACTER.CARBERT); break;
+        case 6: global.set_roomChar(room_loc, CHARACTER.BENJY); break;
+        case 7:
+            
+            return; 
+        default:
+            show_debug_message("Set room char option not yet implemented.");
+    }
 
-			global.set_roomChar(room_loc, CHARACTER.COW_MAN);
-			break;
-		case 3:
-
-			global.set_roomChar(room_loc, CHARACTER.THE_GIRL);
-			break;
-
-		case 4:
-
-			global.set_roomChar(room_loc, CHARACTER.SLOTSY);
-			break;	
-
-		case 5:
-
-			global.set_roomChar(room_loc, CHARACTER.CARBERT);
-			break;
-			
-		case 6:
-
-			global.set_roomChar(room_loc, CHARACTER.BENJY);
-			break;			
-		default:
-			show_debug_message("Set room char option not yet implemented");
-	}
-	global.uiopen = false;
-	instance_destroy();
-	show_debug_message("UI closed. Visible: " + string(visible) + ", UI open: " + string(global.uiopen));
-
+    // Close the UI only on valid character selection
+    global.uiopen = false;
+    instance_destroy();
+    show_debug_message("UI closed. Visible: " + string(visible) + ", UI open: " + string(global.uiopen));
 }
-

@@ -63,6 +63,26 @@ var sprite_y = sprite_offset_y;
 var scale_x = sprite_scale_x;
 var scale_y = sprite_scale_y;
 
+var text_x = 750; 
+var text_y = 650;  
+var font_scale = .45; 
+var text_color = c_black;
+
+draw_text_transformed_color(
+    text_x, 
+    text_y, 
+    "Next selection - Up/down scroll wheel / Exit Menu - Esc", 
+    font_scale, 
+    font_scale, 
+    0, 
+    text_color, 
+    text_color, 
+    text_color, 
+    text_color, 
+    1
+);
+
+
 // Display stats for the selected character
 switch (pos) {
     case 0:

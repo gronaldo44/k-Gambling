@@ -35,6 +35,26 @@ for (var i = 0; i < op_length; i++) {
 
     // Draw the text
     draw_text_color(button_x - 205, button_y - 30, option[i], font_color, font_color, font_color, font_color, 1);
+
+var text_x = 580; 
+var text_y = 600;  
+var font_scale = .45; 
+var text_color = c_black;
+
+draw_text_transformed_color(
+    text_x, 
+    text_y, 
+    "Next selection - Up/down scroll wheel\nInteract - LMB / Exit Menu - Esc", 
+    font_scale, 
+    font_scale, 
+    0, 
+    text_color, 
+    text_color, 
+    text_color, 
+    text_color, 
+    1
+);
+
 }
 //display stats of room
 if(pos == 0){
@@ -369,7 +389,7 @@ if (pos == 3) {
         );
         draw_set_halign(fa_left);
     } else {
-        draw_text_transformed(1020, 400, "No Employee working in this room", 0.6, 0.6, 0);
+        draw_text_transformed(1020, 300, "No Employee working in this room.\n\nObatin new employees by clicking\nslot machine icon and playing.\nGamble till your hearts content :)", 0.6, 0.6, 0);
     }
 }
 

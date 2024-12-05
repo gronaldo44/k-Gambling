@@ -37,6 +37,27 @@ for (var i = 0; i < op_length; i++) {
     draw_text_color(button_x - 220, button_y - 30, option[i], font_color, font_color, font_color, font_color, 1);
 }
 
+var text_x = 500; 
+var text_y = 650;  
+var font_scale = .45; 
+var text_color = c_black;
+
+draw_text_transformed_color(
+    text_x, 
+    text_y, 
+    "Next selection - Up/down scroll wheel\nExit Menu - Esc", 
+    font_scale, 
+    font_scale, 
+    0, 
+    text_color, 
+    text_color, 
+    text_color, 
+    text_color, 
+    1
+);
+
+
+
 if (pos == 0) {
     draw_text_transformed_color(
         900, 400, 
