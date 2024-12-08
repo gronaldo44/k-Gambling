@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_gacha_anim_3star",
-    "path":"sprites/spr_gacha_anim_3star/spr_gacha_anim_3star.yy",
+    "name":"spr_slots_bbp",
+    "path":"sprites/spr_slots_bbp/spr_slots_bbp.yy",
   },
   "spriteMaskId":null,
   "visible":true,
