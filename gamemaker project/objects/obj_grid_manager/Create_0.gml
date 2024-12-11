@@ -106,11 +106,11 @@ global.grid_TryPurchaseNewRoom = function(loc){
 	// Do not allow soft lock
 	if (grid_rooms[5].roomType == ROOM_TYPE.OPEN){
 		show_debug_message("Must buy first room before purchasing new ones.");
-		return;	
+		return false;	
 	}
 	if (!grid_rooms[loc + offset()].is_locked_room) {
 		show_debug_message("Not a locked room");
-		return;
+		return false;
 	}
 	
 	// spend tokens
@@ -142,6 +142,10 @@ global.grid_TryPurchaseNewRoom = function(loc){
 		// set room
 		global.set_roomtype(loc, ROOM_TYPE.OPEN);
 		grid_rooms[loc + offset()].is_locked_room = false;
+		
+		return true;
+	} else {
+		return false;	
 	}
 }
 
@@ -227,6 +231,7 @@ global.set_roomtype = function(loc, roomType) {
         room_instance.start_room();
     }
 
+	global.start_casino();
     show_debug_message("Room " + string(loc) + " set to type " + string(roomType));
 }
 

@@ -2,8 +2,9 @@
 if (visible && !global.uiopen){
 	if (is_locked_room){
 		show_debug_message("Locked Room Clicked: " + string(room_index));
-		global.grid_TryPurchaseNewRoom(room_index);
-		audio_play_sound(wrong_answer_sound_effect,1,false)
+		if (!global.grid_TryPurchaseNewRoom(room_index)){
+			audio_play_sound(wrong_answer_sound_effect,1,false)
+		}
 		
 	} else {
 		switch (roomType) {
